@@ -75,6 +75,15 @@ prompt
 upload/
 extracted_assets/
 landing-assets/
+download/
+db/
+examples/
+mini-services/
+scripts/
+prisma/
+worklog.md
+Caddyfile
+.env.local
 
 # ============ Skills (internal) ============
 /skills/
