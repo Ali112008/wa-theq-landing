@@ -2,6 +2,7 @@
 
 import { useState, useCallback, useEffect } from "react";
 import { WhatsAppButton } from "./whatsapp-button";
+import { StarIcon } from "./icons";
 
 const images = [
   { src: "/images/before-after-1.webp", alt: "نتيجة زراعة الشعر - حالة 1" },
@@ -53,12 +54,14 @@ export function BeforeAfterGallery() {
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
         {/* عنوان القسم */}
         <div className="text-center mb-8 sm:mb-10">
-          <span className="inline-block bg-amber-100 text-amber-700 px-4 py-1 rounded-full text-xs sm:text-sm font-bold mb-3">
-            نتائج حقيقية
-          </span>
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-[#0a0e1a] mb-3">
-            صور <span className="text-amber-500">قبل وبعد</span>
+            شاهد <span className="text-amber-500">نتائج عملياتنا</span>
           </h2>
+          <div className="flex items-center justify-center gap-1 mb-3">
+            {[1, 2, 3, 4, 5].map((i) => (
+              <StarIcon key={i} className="w-6 h-6 text-amber-400" />
+            ))}
+          </div>
           <p className="text-gray-600 text-sm sm:text-base max-w-xl mx-auto">
             نتائج حقيقية لعملائنا الذين خضعوا لزراعة الشعر بتقنية DHI في
             واثق كلينك
