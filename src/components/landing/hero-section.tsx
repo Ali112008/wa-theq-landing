@@ -40,65 +40,64 @@ export function HeroSection() {
 
       {/* شريط علوي احترافي - sticky مع blur */}
       <div className="relative z-20 backdrop-blur-xl bg-[#060818]/80 border-b border-white/10">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between h-16 sm:h-20">
+        <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
+          <div className="flex items-center justify-between h-14 sm:h-20 gap-2">
             {/* الشعار + اسم الشركة */}
-            <div className="flex items-center gap-3">
-              <div className="bg-white rounded-xl p-1.5 shadow-lg shadow-amber-500/10">
+            <div className="flex items-center gap-2 sm:gap-3 min-w-0">
+              <div className="bg-white rounded-lg sm:rounded-xl p-1 sm:p-1.5 shadow-lg shadow-amber-500/10 flex-shrink-0">
                 <img
                   src="/images/logo.webp"
                   alt="واثق كلينك - Watheq Clinic"
                   width={140}
                   height={50}
-                  className="h-9 sm:h-11 w-auto"
+                  className="h-7 sm:h-11 w-auto"
                   loading="eager"
                   fetchPriority="high"
                 />
               </div>
               {/* وصف مختصر - مخفي على الموبايل */}
-              <div className="hidden md:flex flex-col text-right mr-2">
+              <div className="hidden md:flex flex-col text-right mr-2 flex-shrink-0">
                 <span className="text-white text-xs font-bold leading-tight">واثق كلينك</span>
                 <span className="text-amber-400/80 text-[10px] leading-tight">الشركة السعودية الأولى</span>
               </div>
             </div>
 
-            {/* روابط سريعة - مخفية على الموبايل */}
-            <nav className="hidden lg:flex items-center gap-6">
-              <a href="#gallery" className="text-white/70 hover:text-amber-400 text-sm font-medium transition-colors">
+            {/* روابط سريعة - مخفية على الموبايل والتابلت */}
+            <nav className="hidden lg:flex items-center gap-6 flex-shrink-0">
+              <a href="#gallery" className="text-white/70 hover:text-amber-400 text-sm font-medium transition-colors whitespace-nowrap">
                 نتائجنا
               </a>
-              <a href="#offer" className="text-white/70 hover:text-amber-400 text-sm font-medium transition-colors">
+              <a href="#offer" className="text-white/70 hover:text-amber-400 text-sm font-medium transition-colors whitespace-nowrap">
                 العرض
               </a>
-              <a href="#how" className="text-white/70 hover:text-amber-400 text-sm font-medium transition-colors">
+              <a href="#how" className="text-white/70 hover:text-amber-400 text-sm font-medium transition-colors whitespace-nowrap">
                 كيف نعمل
               </a>
-              <a href="#faq" className="text-white/70 hover:text-amber-400 text-sm font-medium transition-colors">
+              <a href="#faq" className="text-white/70 hover:text-amber-400 text-sm font-medium transition-colors whitespace-nowrap">
                 الأسئلة
               </a>
             </nav>
 
-            {/* الأزرار */}
-            <div className="flex items-center gap-2 sm:gap-3">
-              {/* زر سناب */}
+            {/* الأزرار - واتساب فقط على الموبايل */}
+            <div className="flex items-center gap-2 flex-shrink-0">
+              {/* زر سناب - مخفي على الموبايل */}
               <a
                 href="https://snapchat.com/t/JIsiC5jo"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-1.5 bg-[#FFFC00] hover:bg-[#f0f000] text-black px-3 sm:px-4 py-2 rounded-full font-bold text-xs sm:text-sm hover:scale-105 transition-all shadow-lg shadow-yellow-500/20"
+                className="hidden sm:inline-flex items-center gap-1.5 bg-[#FFFC00] hover:bg-[#f0f000] text-black px-4 py-2 rounded-full font-bold text-sm hover:scale-105 transition-all shadow-lg shadow-yellow-500/20 whitespace-nowrap"
                 aria-label="تابعنا على سناب شات"
               >
-                <SnapIcon className="w-4 h-4 sm:w-5 sm:h-5" />
-                <span className="hidden sm:inline">سناب المالك</span>
-                <span className="sm:hidden">سناب</span>
+                <SnapIcon className="w-5 h-5" />
+                <span>سناب المالك</span>
               </a>
 
-              {/* زر واتساب */}
+              {/* زر واتساب - يظهر دائماً */}
               <a
                 href="https://wa.me/966532424669?text=السلام%20عليكم،%20حابب%20أستفسر%20عن%20عرض%20زراعة%20الشعر"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-1.5 bg-[#25D366] hover:bg-[#1ebe5d] text-white px-3 sm:px-4 py-2 rounded-full font-bold text-xs sm:text-sm hover:scale-105 transition-all shadow-lg shadow-[#25D366]/30"
+                className="inline-flex items-center gap-1.5 bg-[#25D366] hover:bg-[#1ebe5d] text-white px-3 sm:px-4 py-2 rounded-full font-bold text-xs sm:text-sm hover:scale-105 transition-all shadow-lg shadow-[#25D366]/30 whitespace-nowrap"
                 aria-label="تواصل معنا عبر واتساب"
               >
                 <WhatsAppIcon className="w-4 h-4 sm:w-5 sm:h-5" />
