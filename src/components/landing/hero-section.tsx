@@ -155,16 +155,22 @@ export function HeroSection() {
               </WhatsAppButton>
             </div>
 
-            {/* social proof - عملاء راضون + صور */}
+            {/* social proof - عملاء راضون + صور حقيقية */}
             <div className="flex items-center justify-center lg:justify-start gap-3">
               <div className="flex -space-x-3 rtl:space-x-reverse">
-                {/* صور العملاء - نستخدم صور شهادات حقيقية */}
                 {[1, 2, 3, 4, 5].map((i) => (
                   <div
                     key={i}
-                    className="w-9 h-9 sm:w-10 sm:h-10 rounded-full border-2 border-[#0a0e1f] overflow-hidden bg-gradient-to-br from-amber-400 to-amber-600 flex items-center justify-center text-[#0a0e1f] font-bold text-xs"
+                    className="w-9 h-9 sm:w-10 sm:h-10 rounded-full border-2 border-[#0a0e1f] overflow-hidden bg-amber-100 flex-shrink-0"
                   >
-                    {["أ", "م", "ع", "س", "خ"][i - 1]}
+                    <img
+                      src={`/images/clients/client-${i}.webp`}
+                      alt={`عميل سعيد ${i}`}
+                      width={40}
+                      height={40}
+                      className="w-full h-full object-cover"
+                      loading="lazy"
+                    />
                   </div>
                 ))}
               </div>
