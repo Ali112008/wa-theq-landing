@@ -1,21 +1,20 @@
 "use client";
 
-import { useState, useRef } from "react";
+import { useState } from "react";
 import { WhatsAppButton } from "./whatsapp-button";
-import { PlayIcon, StarIcon } from "./icons";
+import { StarIcon } from "./icons";
+
+// أفضل فيديو من قسم تجارب العملاء في الموقع الأصلي
+// Video ID: U6iNQXHi4qQ (تم اختياره كأفضل فيديو احترافي)
+const YOUTUBE_VIDEO_ID = "U6iNQXHi4qQ";
+const YOUTUBE_EMBED_URL = `https://www.youtube.com/embed/${YOUTUBE_VIDEO_ID}?rel=0&autoplay=1&playsinline=1`;
+
+// اقتباس العميل من الفيديو
+const QUOTE = "استعدت ثقتي بنفسي بعد سنوات من الصلع، النتائج كانت مذهلة وواضحة من أول جلسة. أنا سعيد جداً بنتائجي بعد عملية زراعة الشعر من واثق كلينك.";
+const AUTHOR = "أحمد - عميل واثق كلينك";
 
 export function VideoSection() {
   const [playing, setPlaying] = useState(false);
-  const videoRef = useRef<HTMLVideoElement>(null);
-
-  const handlePlay = () => {
-    setPlaying(true);
-    setTimeout(() => {
-      if (videoRef.current) {
-        videoRef.current.play().catch(() => {});
-      }
-    }, 100);
-  };
 
   return (
     <section
@@ -45,44 +44,56 @@ export function VideoSection() {
         </div>
 
         <div className="grid md:grid-cols-2 gap-6 md:gap-8 items-center">
-          {/* الفيديو - يسار */}
+          {/* الفيديو - يسار (YouTube embed) */}
           <div className="relative aspect-video rounded-2xl overflow-hidden shadow-2xl ring-1 ring-amber-500/20 bg-black">
             {!playing ? (
               <>
+                {/* صورة الـ poster من الفيديو الأصلي */}
                 <img
-                  src="/images/video-poster.webp"
+                  src="/images/testimonial-poster.webp"
                   alt="فيديو تجربة عميل - واثق كلينك"
                   className="w-full h-full object-cover"
                   loading="lazy"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-black/40" />
 
+                {/* زر التشغيل */}
                 <button
-                  onClick={handlePlay}
+                  onClick={() => setPlaying(true)}
                   className="absolute inset-0 flex items-center justify-center group"
                   aria-label="تشغيل الفيديو"
                 >
-                  <span className="bg-[#25D366] group-hover:bg-[#1ebe5d] rounded-full p-5 sm:p-6 shadow-2xl transition-all duration-300 group-hover:scale-110">
-                    <PlayIcon className="w-8 h-8 sm:w-10 sm:h-10 text-white mr-[-3px]" />
+                  <span className="bg-[#FF0000] group-hover:bg-red-700 rounded-full p-5 sm:p-6 shadow-2xl transition-all duration-300 group-hover:scale-110">
+                    <svg
+                      className="w-8 h-8 sm:w-10 sm:h-10 text-white mr-[-3px]"
+                      viewBox="0 0 24 24"
+                      fill="currentColor"
+                    >
+                      <path d="M8 5v14l11-7z" />
+                    </svg>
                   </span>
                 </button>
 
-                <div className="absolute bottom-3 right-3 bg-black/60 backdrop-blur-sm text-white px-3 py-1.5 rounded-lg text-xs font-semibold">
-                  ▶ تجربة عميل حقيقية
+                {/* شارة تجربة عميل */}
+                <div className="absolute bottom-3 right-3 bg-black/60 backdrop-blur-sm text-white px-3 py-1.5 rounded-lg text-xs font-semibold flex items-center gap-1.5">
+                  <span className="w-2 h-2 bg-[#FF0000] rounded-full animate-pulse"></span>
+                  تجربة عميل حقيقية
+                </div>
+
+                {/* شارة YouTube */}
+                <div className="absolute top-3 left-3 bg-[#FF0000] text-white px-2 py-1 rounded text-[10px] font-bold">
+                  ▶ YouTube
                 </div>
               </>
             ) : (
-              <video
-                ref={videoRef}
-                className="w-full h-full object-cover"
-                controls
-                autoPlay
-                playsInline
-                preload="auto"
-              >
-                <source src="/images/testimonial-video.mp4" type="video/mp4" />
-                المتصفح لا يدعم تشغيل الفيديو.
-              </video>
+              <iframe
+                src={YOUTUBE_EMBED_URL}
+                title="تجربة عميل - واثق كلينك"
+                className="w-full h-full"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+                loading="lazy"
+              />
             )}
           </div>
 
@@ -94,9 +105,7 @@ export function VideoSection() {
             </div>
 
             <p className="text-lg sm:text-xl md:text-2xl font-bold mb-4 leading-relaxed">
-              استعدت ثقتي بنفسي بعد سنوات من الصلع، النتائج كانت مذهلة وواضحة
-              من أول جلسة. أنا سعيد جداً بنتائجي بعد عملية زراعة الشعر من
-              واثق كلينك.
+              {QUOTE}
             </p>
 
             <div className="flex items-center gap-3 mb-2">
@@ -104,7 +113,7 @@ export function VideoSection() {
                 أ
               </div>
               <div>
-                <p className="text-amber-400 font-bold">أحمد - عميل واثق كلينك</p>
+                <p className="text-amber-400 font-bold">{AUTHOR}</p>
                 <p className="text-gray-400 text-sm">4500+ عملية ناجحة</p>
               </div>
             </div>
