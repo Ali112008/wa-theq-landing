@@ -148,10 +148,9 @@ html {
   -webkit-text-size-adjust: 100%;
 }
 
-/* Prevent layout shift for images */
+/* Prevent layout shift for images - only constrain width */
 img {
   max-width: 100%;
-  height: auto;
 }
 
 /* Tap highlight */

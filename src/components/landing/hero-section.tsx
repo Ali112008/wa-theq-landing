@@ -47,9 +47,7 @@ export function HeroSection() {
               <img
                 src="/images/logo.webp"
                 alt="واثق كلينك - Watheq Clinic"
-                width={120}
-                height={43}
-                className="h-7 sm:h-9 w-auto"
+                style={{ height: "28px", width: "auto" }}
                 loading="eager"
                 fetchPriority="high"
               />
