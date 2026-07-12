@@ -80,16 +80,13 @@ export function VideoSection() {
                 playsInline
                 preload="auto"
               >
-                <source
-                  src="https://wa-theq.com/wp-content/uploads/2025/10/10148.webm"
-                  type="video/webm"
-                />
+                <source src="/images/testimonial-video.mp4" type="video/mp4" />
                 المتصفح لا يدعم تشغيل الفيديو.
               </video>
             )}
           </div>
 
-          {/* الاقتباس - يمين */}
+          {/* الاقتباس - يمين (مقتبس من الفيديو) */}
           <div className="text-white">
             {/* علامة اقتباس كبيرة */}
             <div className="text-amber-400 text-6xl leading-none font-black mb-2">
@@ -104,10 +101,10 @@ export function VideoSection() {
 
             <div className="flex items-center gap-3 mb-2">
               <div className="w-12 h-12 rounded-full bg-gradient-to-br from-amber-400 to-amber-600 flex items-center justify-center text-black font-black">
-                ع
+                أ
               </div>
               <div>
-                <p className="text-amber-400 font-bold">عميل سعيد</p>
+                <p className="text-amber-400 font-bold">أحمد - عميل واثق كلينك</p>
                 <p className="text-gray-400 text-sm">4500+ عملية ناجحة</p>
               </div>
             </div>
