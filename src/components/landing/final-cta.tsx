@@ -71,7 +71,7 @@ export function FinalCTA() {
           </WhatsAppButton>
 
           <a
-            href="https://snapchat.com/t/cjtiTF1s"
+            href="https://snapchat.com/t/JIsiC5jo"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center justify-center gap-2 bg-[#FFFC00] hover:bg-[#f0f000] text-black font-bold px-8 py-4 rounded-full text-base sm:text-lg transition-all duration-300 hover:scale-105 shadow-lg w-full sm:w-auto"

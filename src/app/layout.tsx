@@ -116,7 +116,7 @@ export default function RootLayout({
                 availability: "https://schema.org/LimitedAvailability",
                 validThrough: new Date(Date.now() + 7 * 24 * 60 * 60 * 1000).toISOString(),
               },
-              sameAs: ["https://snapchat.com/t/cjtiTF1s"],
+              sameAs: ["https://snapchat.com/t/JIsiC5jo"],
             }),
           }}
         />

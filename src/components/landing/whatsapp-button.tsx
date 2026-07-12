@@ -12,7 +12,7 @@ export const CONTACT = {
     encodeURIComponent(
       "السلام عليكم، أريد تقييم حالتي مجاناً لزراعة الشعر بتقنية DHI"
     ),
-  snapchat: "https://snapchat.com/t/cjtiTF1s",
+  snapchat: "https://snapchat.com/t/JIsiC5jo",
   phone: "+966532424669",
   phoneDisplay: "+966 53 242 4669",
 };

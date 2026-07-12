@@ -53,7 +53,7 @@ export function HeroSection() {
         </div>
 
         <a
-          href="https://snapchat.com/t/cjtiTF1s"
+          href="https://snapchat.com/t/JIsiC5jo"
           target="_blank"
           rel="noopener noreferrer"
           className="inline-flex items-center gap-2 bg-[#FFFC00] text-black px-4 py-2 rounded-full font-bold text-sm hover:scale-105 transition-transform shadow-lg shadow-yellow-500/20"
