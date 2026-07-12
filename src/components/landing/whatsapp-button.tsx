@@ -1,5 +1,21 @@
-import { CONTACT } from "./config";
 import { cn } from "@/lib/utils";
+
+export const CONTACT = {
+  whatsapp: "966532424669",
+  whatsappLink:
+    "https://wa.me/966532424669?text=" +
+    encodeURIComponent(
+      "السلام عليكم، حابب أستفسر عن عرض زراعة الشعر في تركيا شامل الطيران والفندق بـ 5980 ريال"
+    ),
+  whatsappConsultLink:
+    "https://wa.me/966532424669?text=" +
+    encodeURIComponent(
+      "السلام عليكم، أريد تقييم حالتي مجاناً لزراعة الشعر بتقنية DHI"
+    ),
+  snapchat: "https://snapchat.com/t/cjtiTF1s",
+  phone: "+966532424669",
+  phoneDisplay: "+966 53 242 4669",
+};
 
 interface WhatsAppButtonProps {
   variant?: "green" | "gold" | "outline";

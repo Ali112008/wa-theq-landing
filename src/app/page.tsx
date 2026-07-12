@@ -2,70 +2,57 @@
  * واثق كلينك - صفحة هبوط زراعة الشعر في تركيا
  * Landing Page for Watheq Clinic - Hair Transplant in Turkey
  *
- * المتطلبات:
- * - صفحة واحدة مختصرة بدون تشتيت
- * - زر واتساب واضح في الأعلى + عائم
- * - صورة قبل وبعد في الأعلى
- * - 8 صور نتائج قبل وبعد
- * - فيديو
- * - عرض لفترة محدودة (5980 ريال شامل الطيران والفندق)
- * - زر تقييم حالة مجاناً (واتساب)
- * - تفاصيل العرض
- * - متابعة مالك الشركة على سناب شات
- * - أداء فائق السرعة
+ * ترتيب الأقسام:
+ * 1. Hero - الهيرو الرئيسي
+ * 2. Pain Points - هل تعاني من؟ + موك أب هاتف + واتساب
+ * 3. Before/After Gallery - معرض صور قبل وبعد
+ * 4. Video Section - الفيديو والاقتباس
+ * 5. Why Choose Us - لماذا تختار واثق؟ (أيقونات)
+ * 6. Offer Section - الباقة والعرض المحدود
+ * 7. How It Works - كيف تبدأ رحلتك (خطوات)
+ * 8. FAQ - الأسئلة الشائعة
+ * 9. Final CTA - جاهز تستعد ثقتك؟
  */
 
-import type { Metadata } from "next";
-import { Suspense } from "react";
 import { HeroSection } from "@/components/landing/hero-section";
-import { TrustBadges } from "@/components/landing/trust-badges";
+import { PainPointsSection } from "@/components/landing/pain-points-section";
 import { BeforeAfterGallery } from "@/components/landing/before-after-gallery";
 import { VideoSection } from "@/components/landing/video-section";
+import { WhyChooseUs } from "@/components/landing/why-choose-us";
 import { OfferSection } from "@/components/landing/offer-section";
-import { SnapchatFollow } from "@/components/landing/snapchat-follow";
+import { HowItWorks } from "@/components/landing/how-it-works";
+import { FAQSection } from "@/components/landing/faq-section";
 import { FinalCTA } from "@/components/landing/final-cta";
 import { FloatingWhatsApp } from "@/components/landing/floating-whatsapp";
-
-export const metadata: Metadata = {
-  title: "واثق كلينك | زراعة الشعر في تركيا شامل الطيران والفندق بـ 5980 ريال",
-  description:
-    "زراعة الشعر في تركيا بتقنية DHI بدون ألم - شركة سعودية الأولى للسياحة العلاجية. العرض يشمل الطيران والفندق والبلازما مجاناً. احجز استشارتك المجانية الآن!",
-};
-
-// Configuration - easy to update
-export const CONTACT = {
-  whatsapp: "966532424669",
-  whatsappLink:
-    "https://wa.me/966532424669?text=" +
-    encodeURIComponent(
-      "السلام عليكم، حابب أستفسر عن عرض زراعة الشعر في تركيا شامل الطيران والفندق بـ 5980 ريال"
-    ),
-  snapchat: "https://snapchat.com/t/cjtiTF1s",
-  phone: "+966532424669",
-};
 
 export default function Home() {
   return (
     <main className="min-h-screen bg-white overflow-x-hidden">
-      {/* Hero Section - صورة قبل وبعد + زر واتساب واضح */}
+      {/* 1. Hero - الهيرو الرئيسي */}
       <HeroSection />
 
-      {/* شارات الثقة - شركة سعودية + نتائج مضمونة */}
-      <TrustBadges />
+      {/* 2. Pain Points - هل تعاني من؟ + موك أب هاتف */}
+      <PainPointsSection />
 
-      {/* معرض صور قبل وبعد - 8 صور */}
+      {/* 3. Before/After Gallery - معرض صور قبل وبعد */}
       <BeforeAfterGallery />
 
-      {/* قسم الفيديو */}
+      {/* 4. Video Section - الفيديو والاقتباس */}
       <VideoSection />
 
-      {/* قسم العرض المحدود - 5980 ريال */}
+      {/* 5. Why Choose Us - لماذا تختار واثق؟ */}
+      <WhyChooseUs />
+
+      {/* 6. Offer Section - الباقة والعرض المحدود */}
       <OfferSection />
 
-      {/* متابعة مالك الشركة على سناب شات */}
-      <SnapchatFollow />
+      {/* 7. How It Works - كيف تبدأ رحلتك */}
+      <HowItWorks />
 
-      {/* CTA نهائي */}
+      {/* 8. FAQ - الأسئلة الشائعة */}
+      <FAQSection />
+
+      {/* 9. Final CTA - جاهز تستعد ثقتك؟ */}
       <FinalCTA />
 
       {/* زر واتساب عائم - ثابت في كل الصفحة */}
