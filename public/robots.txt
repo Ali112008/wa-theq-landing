@@ -1,0 +1,9 @@
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://wa-theq.com/sitemap.xml
+
+# Block admin/login paths if any
+Disallow: /api/
+Disallow: /_next/
