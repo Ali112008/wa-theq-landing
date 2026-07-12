@@ -125,8 +125,15 @@ function PhoneMockup() {
 
           {/* رأس الواتساب */}
           <div className="bg-[#075e54] text-white px-3 py-2 flex items-center gap-2">
-            <div className="w-8 h-8 rounded-full bg-amber-500 flex items-center justify-center font-black text-xs">
-              و
+            <div className="w-9 h-9 rounded-full overflow-hidden bg-white flex items-center justify-center flex-shrink-0">
+              <img
+                src="/images/wa-profile-logo.webp"
+                alt="واثق كلينك"
+                width={36}
+                height={36}
+                className="w-full h-full object-cover"
+                loading="lazy"
+              />
             </div>
             <div className="flex-1">
               <p className="font-bold text-xs">واثق كلينك</p>

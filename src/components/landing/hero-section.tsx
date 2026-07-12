@@ -1,4 +1,4 @@
-import { WhatsAppButton } from "./whatsapp-button";
+import { WhatsAppButton, WhatsAppIcon } from "./whatsapp-button";
 import { SnapIcon, CheckIcon, StarIcon } from "./icons";
 
 const serviceBadges = [
@@ -38,31 +38,76 @@ export function HeroSection() {
         aria-hidden="true"
       />
 
-      {/* شريط علوي - الشعار + زر سناب */}
-      <div className="relative z-10 flex items-center justify-between px-4 sm:px-8 py-4 border-b border-white/5">
-        <div className="flex items-center">
-          <img
-            src="/images/logo.webp"
-            alt="واثق كلينك - Watheq Clinic"
-            width={200}
-            height={71}
-            className="h-12 sm:h-14 w-auto"
-            loading="eager"
-            fetchPriority="high"
-          />
-        </div>
+      {/* شريط علوي احترافي - sticky مع blur */}
+      <div className="relative z-20 backdrop-blur-xl bg-[#060818]/80 border-b border-white/10">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex items-center justify-between h-16 sm:h-20">
+            {/* الشعار + اسم الشركة */}
+            <div className="flex items-center gap-3">
+              <div className="bg-white rounded-xl p-1.5 shadow-lg shadow-amber-500/10">
+                <img
+                  src="/images/logo.webp"
+                  alt="واثق كلينك - Watheq Clinic"
+                  width={140}
+                  height={50}
+                  className="h-9 sm:h-11 w-auto"
+                  loading="eager"
+                  fetchPriority="high"
+                />
+              </div>
+              {/* وصف مختصر - مخفي على الموبايل */}
+              <div className="hidden md:flex flex-col text-right mr-2">
+                <span className="text-white text-xs font-bold leading-tight">واثق كلينك</span>
+                <span className="text-amber-400/80 text-[10px] leading-tight">الشركة السعودية الأولى</span>
+              </div>
+            </div>
 
-        <a
-          href="https://snapchat.com/t/JIsiC5jo"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="inline-flex items-center gap-2 bg-[#FFFC00] text-black px-4 py-2 rounded-full font-bold text-sm hover:scale-105 transition-transform shadow-lg shadow-yellow-500/20"
-          aria-label="تابعنا على سناب شات"
-        >
-          <SnapIcon className="w-5 h-5" />
-          <span className="hidden sm:inline">سناب المالك</span>
-          <span className="sm:hidden">سناب</span>
-        </a>
+            {/* روابط سريعة - مخفية على الموبايل */}
+            <nav className="hidden lg:flex items-center gap-6">
+              <a href="#gallery" className="text-white/70 hover:text-amber-400 text-sm font-medium transition-colors">
+                نتائجنا
+              </a>
+              <a href="#offer" className="text-white/70 hover:text-amber-400 text-sm font-medium transition-colors">
+                العرض
+              </a>
+              <a href="#how" className="text-white/70 hover:text-amber-400 text-sm font-medium transition-colors">
+                كيف نعمل
+              </a>
+              <a href="#faq" className="text-white/70 hover:text-amber-400 text-sm font-medium transition-colors">
+                الأسئلة
+              </a>
+            </nav>
+
+            {/* الأزرار */}
+            <div className="flex items-center gap-2 sm:gap-3">
+              {/* زر سناب */}
+              <a
+                href="https://snapchat.com/t/JIsiC5jo"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1.5 bg-[#FFFC00] hover:bg-[#f0f000] text-black px-3 sm:px-4 py-2 rounded-full font-bold text-xs sm:text-sm hover:scale-105 transition-all shadow-lg shadow-yellow-500/20"
+                aria-label="تابعنا على سناب شات"
+              >
+                <SnapIcon className="w-4 h-4 sm:w-5 sm:h-5" />
+                <span className="hidden sm:inline">سناب المالك</span>
+                <span className="sm:hidden">سناب</span>
+              </a>
+
+              {/* زر واتساب */}
+              <a
+                href="https://wa.me/966532424669?text=السلام%20عليكم،%20حابب%20أستفسر%20عن%20عرض%20زراعة%20الشعر"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1.5 bg-[#25D366] hover:bg-[#1ebe5d] text-white px-3 sm:px-4 py-2 rounded-full font-bold text-xs sm:text-sm hover:scale-105 transition-all shadow-lg shadow-[#25D366]/30"
+                aria-label="تواصل معنا عبر واتساب"
+              >
+                <WhatsAppIcon className="w-4 h-4 sm:w-5 sm:h-5" />
+                <span className="hidden sm:inline">تواصل معنا</span>
+                <span className="sm:hidden">واتساب</span>
+              </a>
+            </div>
+          </div>
+        </div>
       </div>
 
       {/* المحتوى الرئيسي - تخطيط مقسم */}

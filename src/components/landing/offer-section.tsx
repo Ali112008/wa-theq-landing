@@ -27,6 +27,7 @@ const offerItems = [
 export function OfferSection() {
   return (
     <section
+      id="offer"
       className="py-12 sm:py-16 relative overflow-hidden"
       style={{ background: "#000000" }}
       aria-label="عرض زراعة الشعر الشامل"

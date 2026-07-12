@@ -48,6 +48,7 @@ export function BeforeAfterGallery() {
 
   return (
     <section
+      id="gallery"
       className="py-12 sm:py-16 bg-white"
       aria-label="معرض نتائج زراعة الشعر قبل وبعد"
     >

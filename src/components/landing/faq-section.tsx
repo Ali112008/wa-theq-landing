@@ -43,6 +43,7 @@ export function FAQSection() {
 
   return (
     <section
+      id="faq"
       className="py-16 sm:py-20 bg-white relative overflow-hidden"
       aria-label="الأسئلة الشائعة"
     >

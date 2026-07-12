@@ -25,6 +25,7 @@ const steps = [
 export function HowItWorks() {
   return (
     <section
+      id="how"
       className="py-16 sm:py-20 bg-[#060818] relative overflow-hidden"
       aria-label="كيف تبدأ رحلتك"
     >
