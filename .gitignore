@@ -87,3 +87,4 @@ landing-assets/
 *.tsbuildinfo
 .cache/
 .turbo
+.env*
