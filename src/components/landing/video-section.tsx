@@ -5,7 +5,6 @@ import { WhatsAppButton } from "./whatsapp-button";
 import { StarIcon } from "./icons";
 
 // أفضل فيديو من قسم تجارب العملاء في الموقع الأصلي
-// Video ID: U6iNQXHi4qQ (تم اختياره كأفضل فيديو احترافي)
 const YOUTUBE_VIDEO_ID = "U6iNQXHi4qQ";
 const YOUTUBE_EMBED_URL = `https://www.youtube.com/embed/${YOUTUBE_VIDEO_ID}?rel=0&autoplay=1&playsinline=1`;
 
@@ -55,17 +54,17 @@ export function VideoSection() {
                   className="w-full h-full object-cover"
                   loading="lazy"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-black/40" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-black/30" />
 
-                {/* زر التشغيل */}
+                {/* زر تشغيل صغير بسيط - في المنتصف */}
                 <button
                   onClick={() => setPlaying(true)}
                   className="absolute inset-0 flex items-center justify-center group"
                   aria-label="تشغيل الفيديو"
                 >
-                  <span className="bg-[#FF0000] group-hover:bg-red-700 rounded-full p-5 sm:p-6 shadow-2xl transition-all duration-300 group-hover:scale-110">
+                  <span className="bg-white/90 group-hover:bg-white rounded-full p-3 sm:p-4 shadow-xl transition-all duration-300 group-hover:scale-110 backdrop-blur-sm">
                     <svg
-                      className="w-8 h-8 sm:w-10 sm:h-10 text-white mr-[-3px]"
+                      className="w-6 h-6 sm:w-7 sm:h-7 text-[#0a0e1a] mr-[-2px]"
                       viewBox="0 0 24 24"
                       fill="currentColor"
                     >
@@ -76,13 +75,8 @@ export function VideoSection() {
 
                 {/* شارة تجربة عميل */}
                 <div className="absolute bottom-3 right-3 bg-black/60 backdrop-blur-sm text-white px-3 py-1.5 rounded-lg text-xs font-semibold flex items-center gap-1.5">
-                  <span className="w-2 h-2 bg-[#FF0000] rounded-full animate-pulse"></span>
+                  <span className="w-2 h-2 bg-[#25D366] rounded-full animate-pulse"></span>
                   تجربة عميل حقيقية
-                </div>
-
-                {/* شارة YouTube */}
-                <div className="absolute top-3 left-3 bg-[#FF0000] text-white px-2 py-1 rounded text-[10px] font-bold">
-                  ▶ YouTube
                 </div>
               </>
             ) : (

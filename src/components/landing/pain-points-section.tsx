@@ -43,7 +43,7 @@ export function PainPointsSection() {
               <span className="inline-block bg-red-50 text-red-600 px-4 py-1.5 rounded-full text-xs sm:text-sm font-bold mb-4">
                 هل هذا يحدث لك؟
               </span>
-              <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-[#0a0e1a] mb-3 leading-tight">
+              <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-[#0a0e1a] mb-3 leading-[1.5]">
                 هل تعاني من
                 <br />
                 <span className="text-amber-500">هذه المشاكل؟</span>
@@ -179,8 +179,8 @@ function PhoneMockup() {
               <div className="bg-[#dcf8c6] rounded-lg rounded-tr-none p-1 max-w-[180px] shadow-sm">
                 <div className="bg-white rounded overflow-hidden">
                   <img
-                    src="/images/hero-before-after.webp"
-                    alt="صورة الحالة قبل وبعد"
+                    src="/images/hair-loss-example.webp"
+                    alt="صورة حالة تساقط الشعر"
                     width={180}
                     height={180}
                     className="w-full h-32 object-cover"
