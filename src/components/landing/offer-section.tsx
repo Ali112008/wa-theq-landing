@@ -67,14 +67,14 @@ export function OfferSection() {
               {/* شارة الخصم */}
               <div className="inline-flex flex-col items-center bg-amber-500 text-black px-4 py-2 rounded-2xl mb-4 shadow-lg">
                 <span className="text-xs font-bold">عرض لفترة محدودة</span>
-                <span className="text-sm font-black">خصم 1000 ريال</span>
+                <span className="text-sm font-black">خصم 1020 ريال</span>
               </div>
 
               {/* السعر القديم */}
               <div className="mb-2">
                 <span className="text-gray-500 text-sm">السعر قبل الخصم</span>
                 <div className="text-gray-500 line-through text-2xl sm:text-3xl">
-                  5,800
+                  7,000
                 </div>
               </div>
 
@@ -82,7 +82,7 @@ export function OfferSection() {
               <div className="mb-2">
                 <div className="flex items-baseline justify-center md:justify-start gap-2">
                   <span className="text-6xl sm:text-7xl md:text-8xl font-black text-amber-400 leading-none">
-                    4,980
+                    5,980
                   </span>
                   <span className="text-2xl sm:text-3xl font-bold text-amber-300">
                     ريال
@@ -91,7 +91,7 @@ export function OfferSection() {
               </div>
 
               <p className="text-gray-400 text-xs sm:text-sm mt-3">
-                السعر بعد الخصم - شامل كل شيء
+                شامل الطيران والفندق - بدون رسوم خفية
               </p>
             </div>
 

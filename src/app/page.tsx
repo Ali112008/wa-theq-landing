@@ -2,58 +2,43 @@
  * واثق كلينك - صفحة هبوط زراعة الشعر في تركيا
  * Landing Page for Watheq Clinic - Hair Transplant in Turkey
  *
- * ترتيب الأقسام:
- * 1. Hero - الهيرو الرئيسي
- * 2. Pain Points - هل تعاني من؟ + موك أب هاتف + واتساب
- * 3. Before/After Gallery - معرض صور قبل وبعد
- * 4. Video Section - الفيديو والاقتباس
- * 5. Why Choose Us - لماذا تختار واثق؟ (أيقونات)
- * 6. Offer Section - الباقة والعرض المحدود
- * 7. How It Works - كيف تبدأ رحلتك (خطوات)
- * 8. FAQ - الأسئلة الشائعة
- * 9. Final CTA - جاهز تستعد ثقتك؟
+ * متطلبات العميل (مختصرة):
+ * - صفحة واحدة مختصرة بدون تشتيت
+ * - زر واتساب واضح
+ * - أعلى الصفحة: صورة قبل وبعد
+ * - واثق كلينك - الشركة السعودية الأولى للسياحة العلاجية بتركيا
+ * - تحت: 8 صور نتائج قبل وبعد
+ * - تحت: فيديو
+ * - تحت: عرض لفترة محدودة (5980 ريال شامل الطيران والفندق)
+ * - زر تقييم حالتك مجاناً (واتساب)
+ * - العرض يشمل: الطيران، الإقامة، بلازما، شامبو، بدون ألم، تقنية DHI
+ * - متابعة مالك الشركة بسناب شات
  */
 
 import { HeroSection } from "@/components/landing/hero-section";
-import { PainPointsSection } from "@/components/landing/pain-points-section";
 import { BeforeAfterGallery } from "@/components/landing/before-after-gallery";
 import { VideoSection } from "@/components/landing/video-section";
-import { WhyChooseUs } from "@/components/landing/why-choose-us";
 import { OfferSection } from "@/components/landing/offer-section";
-import { HowItWorks } from "@/components/landing/how-it-works";
-import { FAQSection } from "@/components/landing/faq-section";
-import { FinalCTA } from "@/components/landing/final-cta";
+import { SnapchatFollow } from "@/components/landing/snapchat-follow";
 import { FloatingWhatsApp } from "@/components/landing/floating-whatsapp";
 
 export default function Home() {
   return (
     <main className="min-h-screen bg-white overflow-x-hidden">
-      {/* 1. Hero - الهيرو الرئيسي */}
+      {/* 1. الهيرو - صورة قبل وبعد + زر واتساب واضح */}
       <HeroSection />
 
-      {/* 2. Pain Points - هل تعاني من؟ + موك أب هاتف */}
-      <PainPointsSection />
-
-      {/* 3. Before/After Gallery - معرض صور قبل وبعد */}
+      {/* 2. معرض صور قبل وبعد - 8 صور */}
       <BeforeAfterGallery />
 
-      {/* 4. Video Section - الفيديو والاقتباس */}
+      {/* 3. فيديو */}
       <VideoSection />
 
-      {/* 5. Why Choose Us - لماذا تختار واثق؟ */}
-      <WhyChooseUs />
-
-      {/* 6. Offer Section - الباقة والعرض المحدود */}
+      {/* 4. عرض لفترة محدودة - 5980 ريال شامل */}
       <OfferSection />
 
-      {/* 7. How It Works - كيف تبدأ رحلتك */}
-      <HowItWorks />
-
-      {/* 8. FAQ - الأسئلة الشائعة */}
-      <FAQSection />
-
-      {/* 9. Final CTA - جاهز تستعد ثقتك؟ */}
-      <FinalCTA />
+      {/* 5. متابعة مالك الشركة على سناب شات */}
+      <SnapchatFollow />
 
       {/* زر واتساب عائم - ثابت في كل الصفحة */}
       <FloatingWhatsApp />

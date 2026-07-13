@@ -2,11 +2,11 @@ import { WhatsAppButton, WhatsAppIcon } from "./whatsapp-button";
 import { SnapIcon, CheckIcon, StarIcon } from "./icons";
 
 const serviceBadges = [
-  { icon: "consult", text: "تقييم مجاني" },
-  { icon: "shield", text: "ضمان مكتوب" },
-  { icon: "plane", text: "استقبال من المطار" },
-  { icon: "hotel", text: "فندق 5 نجوم" },
-  { icon: "doctors", text: "مرافق شخصي" },
+  { icon: "shield", text: "نتائج مضمونة" },
+  { icon: "syringe", text: "بدون ألم" },
+  { icon: "consult", text: "استشارة مجانية" },
+  { icon: "plane", text: "شامل الطيران" },
+  { icon: "star", text: "خبرة احترافية" },
 ];
 
 export function HeroSection() {
@@ -323,6 +323,67 @@ function ServiceBadgeIcon({
           fill="currentColor"
         >
           <path d="M11.48 3.499a.562.562 0 011.04 0l2.125 5.111a.563.563 0 00.475.345l5.518.442c.499.04.701.663.321.988l-4.204 3.602a.563.563 0 00-.182.557l1.285 5.385a.562.562 0 01-.84.61l-4.725-2.885a.563.563 0 00-.586 0L6.982 20.54a.562.562 0 01-.84-.61l1.285-5.386a.562.562 0 00-.182-.557l-4.204-3.602a.563.563 0 01.321-.988l5.518-.442a.563.563 0 00.475-.345L11.48 3.5z" />
+        </svg>
+      );
+    case "plane":
+      return (
+        <svg
+          className={className}
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth={1.8}
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        >
+          <path d="M17.8 19.2 16 11l3.5-3.5C21 6 21.5 4 21 3c-1-.5-3 0-4.5 1.5L13 8 4.8 6.2c-.5-.1-.9.1-1.1.5l-.3.5c-.2.5-.1 1 .3 1.3L9 12l-2 3H4l-1 1 3 2 2 3 1-1v-3l3-2 3.5 5.3c.3.4.8.5 1.3.3l.5-.2c.4-.3.6-.7.5-1.2z" />
+        </svg>
+      );
+    case "hotel":
+      return (
+        <svg
+          className={className}
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth={1.8}
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        >
+          <path d="M2 22V4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v18" />
+          <path d="M2 22h20" />
+          <path d="M18 14h2a2 2 0 0 1 2 2v6" />
+          <path d="M6 6h8M6 10h8M6 14h4M6 18h4" />
+        </svg>
+      );
+    case "doctors":
+      return (
+        <svg
+          className={className}
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth={1.8}
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        >
+          <path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z" />
+          <path d="m11 11 2 2 4-4" />
+        </svg>
+      );
+    case "tech":
+      return (
+        <svg
+          className={className}
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth={1.8}
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        >
+          <path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83" />
+          <circle cx="12" cy="12" r="3" />
         </svg>
       );
     default:
