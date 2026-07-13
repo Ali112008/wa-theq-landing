@@ -3,28 +3,23 @@ import { WhatsAppButton } from "./whatsapp-button";
 const problems = [
   {
     icon: "hairLoss",
-    title: "تساقط الشعر المستمر",
-    desc: "كل يوم بتلاحظ شعر على الوسادة والمشط والاستحمام",
+    title: "تراجع خط الشعر",
+    desc: "خط الشعر بدأ يتراجع للخلف وبانت الجبهة بشكل أكبر",
   },
   {
     icon: "baldness",
-    title: "الصلع الأمامي والفراغات",
-    desc: "خط الشعر بدأ يتراجع وبانت الفراغات الواضحة",
+    title: "بقع صلع وفراغات",
+    desc: "ظهور فراغات وبقع صلع واضحة في فروة الرأس",
   },
   {
     icon: "confidence",
-    title: "فقدان الثقة بالنفس",
-    desc: "بتجنب الصور والمناسبات والنظر في المرآة",
+    title: "كثافة شعر ضعيفة",
+    desc: "الشعر بقا رفيع وضعيف وغير كثيف زي الأول",
   },
   {
     icon: "failedTreatments",
-    title: "تجارب علاجية فاشلة",
-    desc: "جربت زيوت وفيتامينات وكريمات بدون أي نتيجة",
-  },
-  {
-    icon: "hesitation",
-    title: "التردد في اتخاذ القرار",
-    desc: "خايف من العملية، من النتيجة، من التكلفة",
+    title: "تجارب سابقة غير مرضية",
+    desc: "جربت حلول كثيرة بدون أي نتيجة تذكر",
   },
 ];
 
@@ -49,12 +44,11 @@ export function PainPointsSection() {
                 <span className="text-amber-500">هذه المشاكل؟</span>
               </h2>
               <p className="text-gray-600 text-base sm:text-lg">
-                لو واجهت أي من هذه المشاكل، فأنت في المكان الصحيح. الحل بين
-                يديك الآن.
+                لو واجهت أي من هذه المشاكل، فأنت في المكان الصحيح. الحل بين يديك الآن.
               </p>
             </div>
 
-            {/* قائمة المشاكل الخمسة */}
+            {/* قائمة المشاكل الأربعة */}
             <div className="space-y-3 mb-8">
               {problems.map((problem, i) => (
                 <div
@@ -81,11 +75,11 @@ export function PainPointsSection() {
 
             {/* CTA - أرسل صور حالتك الآن */}
             <div className="bg-gradient-to-l from-[#0a0e1a] to-[#131a2e] rounded-2xl p-5 sm:p-6">
-              <p className="text-white text-lg sm:text-xl font-bold mb-2">
+              <p className="text-white text-lg sm:text-xl font-bold mb-1">
                 أرسل صور حالتك الآن
               </p>
-              <p className="text-gray-300 text-sm mb-4">
-                واحصل على تقييم مجاني وخطة علاج مناسبة لحالتك
+              <p className="text-amber-400 text-sm mb-4 font-medium">
+                سيتم تقييمها مجاناً
               </p>
               <WhatsAppButton size="lg" message="consultation" className="w-full">
                 أرسل صور حالتك عبر واتساب

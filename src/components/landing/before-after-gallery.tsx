@@ -56,7 +56,7 @@ export function BeforeAfterGallery() {
         {/* عنوان القسم */}
         <div className="text-center mb-8 sm:mb-10">
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-[#0a0e1a] mb-3">
-            شاهد <span className="text-amber-500">نتائج عملياتنا</span>
+            نتائج <span className="text-amber-500">حقيقية لعملائنا</span>
           </h2>
           <div className="flex items-center justify-center gap-1 mb-3">
             {[1, 2, 3, 4, 5].map((i) => (
@@ -64,8 +64,7 @@ export function BeforeAfterGallery() {
             ))}
           </div>
           <p className="text-gray-600 text-sm sm:text-base max-w-xl mx-auto">
-            نتائج حقيقية لعملائنا الذين خضعوا لزراعة الشعر بتقنية DHI في
-            واثق كلينك
+            نتائج حقيقية لعملائنا الذين خضعوا لزراعة الشعر بتقنية DHI في واثق كلينك
           </p>
         </div>
 

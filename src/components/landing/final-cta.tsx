@@ -41,17 +41,16 @@ export function FinalCTA() {
 
         {/* العنوان الرئيسي */}
         <h2 className="text-4xl sm:text-5xl md:text-6xl font-black text-white mb-4 leading-tight">
-          جاهز تستعد
+          جاهز تستعيد
           <br />
           <span className="bg-gradient-to-l from-amber-400 via-amber-300 to-amber-500 bg-clip-text text-transparent">
-            ثقتك بنفسك؟
+            ثقتك؟
           </span>
         </h2>
 
         {/* الوصف */}
         <p className="text-gray-300 text-base sm:text-lg md:text-xl mb-8 max-w-2xl mx-auto leading-relaxed">
-          لا تؤجل قرار تغيير حياتك. آلاف العملاء استعادوا شعرهم وثقتهم مع
-          واثق كلينك، ودورك الآن.
+          أرسل صور حالتك الآن واحصل على تقييم مجاني من نخبة الأطباء
         </p>
 
         {/* تقييم بالنجوم */}

@@ -2,11 +2,11 @@ import { WhatsAppButton, WhatsAppIcon } from "./whatsapp-button";
 import { SnapIcon, CheckIcon, StarIcon } from "./icons";
 
 const serviceBadges = [
-  { icon: "hair", text: "زراعة الشعر" },
-  { icon: "tech", text: "تقنيات حديثة" },
-  { icon: "consult", text: "استشارة مجانية" },
-  { icon: "shield", text: "متابعة بعد الزراعة" },
-  { icon: "star", text: "نتائج مضمونة" },
+  { icon: "consult", text: "تقييم مجاني" },
+  { icon: "shield", text: "ضمان مكتوب" },
+  { icon: "plane", text: "استقبال من المطار" },
+  { icon: "hotel", text: "فندق 5 نجوم" },
+  { icon: "doctors", text: "مرافق شخصي" },
 ];
 
 export function HeroSection() {
@@ -112,22 +112,22 @@ export function HeroSection() {
 
             {/* العنوان الرئيسي */}
             <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black text-white mb-3 leading-[1.3]">
-              استعادة الشعر الطبيعي
+              استعد شعرك الطبيعي
               <br />
               <span className="bg-gradient-to-l from-amber-400 via-amber-300 to-amber-500 bg-clip-text text-transparent">
-                بأفضل وأحدث التقنيات
+                خلال جلسة واحدة في تركيا
               </span>
             </h1>
 
             {/* العنوان الفرعي */}
-            <p className="text-base sm:text-lg md:text-xl text-amber-300/90 font-semibold mb-3">
-              لا تترك فراغاً في حياتك بعد اليوم
+            <p className="text-base sm:text-lg md:text-xl text-gray-200 mb-3 font-medium leading-relaxed">
+              لا تدع تساقط الشعر يحدد مظهرك وثقتك بنفسك. نقدم لك حلاً متكاملاً
+              بأحدث تقنيات زراعة الشعر، بإشراف نخبة من الأطباء في تركيا.
             </p>
 
             {/* وصف */}
-            <p className="text-sm sm:text-base text-gray-300 mb-6 max-w-lg mx-auto lg:mx-0 leading-relaxed">
-              إذا كنت تبحث عن زراعة الشعر بأحدث التقنيات، مع خبرة تزيد عن
-              1000 عملية ناجحة ومتابعة كاملة بعد الزراعة
+            <p className="text-sm sm:text-base text-gray-400 mb-6 max-w-lg mx-auto lg:mx-0 leading-relaxed">
+              أكثر من 1000 عملية ناجحة • ضمان مكتوب على النتائج • متابعة كاملة بعد الزراعة
             </p>
 
             {/* شارات الخدمة - 5 أيقونات */}
@@ -150,8 +150,8 @@ export function HeroSection() {
 
             {/* زر واتساب */}
             <div className="flex justify-center lg:justify-start mb-5">
-              <WhatsAppButton size="lg" className="w-full sm:w-auto">
-                احصل على استشارة مجانية الآن
+              <WhatsAppButton size="lg" className="w-full sm:w-auto" message="consultation">
+                احصل على تقييم مجاني الآن
               </WhatsAppButton>
             </div>
 
