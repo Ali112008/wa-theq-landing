@@ -1,5 +1,6 @@
 "use client";
 
+import { useState, useEffect, useCallback } from "react";
 import Image from "next/image";
 import { WhatsAppButton } from "./whatsapp-button";
 
@@ -14,9 +15,37 @@ const images = [
   { src: "/images/before-after-12.webp", alt: "نتيجة زراعة الشعر - حالة 8" },
 ];
 
+// عدد الصور اللي بتبان في كل شريحة
+const IMAGES_PER_SLIDE = 4;
+
 export function BeforeAfterGallery() {
-  // ضاعف الصور عشان البنر يفضل يتحرك بدون فراغ
-  const allImages = [...images, ...images];
+  const [currentSlide, setCurrentSlide] = useState(0);
+  const [isPaused, setIsPaused] = useState(false);
+
+  // حساب عدد الشرائح
+  const totalSlides = Math.ceil(images.length / IMAGES_PER_SLIDE);
+
+  const nextSlide = useCallback(() => {
+    setCurrentSlide((prev) => (prev + 1) % totalSlides);
+  }, [totalSlides]);
+
+  const prevSlide = useCallback(() => {
+    setCurrentSlide((prev) => (prev - 1 + totalSlides) % totalSlides);
+  }, [totalSlides]);
+
+  // Autoplay كل 3 ثواني
+  useEffect(() => {
+    if (isPaused) return;
+    const timer = setInterval(nextSlide, 3000);
+    return () => clearInterval(timer);
+  }, [nextSlide, isPaused]);
+
+  // الصور اللي بتبان في الشريحة الحالية
+  const startIdx = currentSlide * IMAGES_PER_SLIDE;
+  const visibleImages = [];
+  for (let i = 0; i < IMAGES_PER_SLIDE; i++) {
+    visibleImages.push(images[(startIdx + i) % images.length]);
+  }
 
   return (
     <section
@@ -31,45 +60,110 @@ export function BeforeAfterGallery() {
         </h2>
       </div>
 
-      {/* بنر متحرك بـ CSS animation */}
-      <div className="relative overflow-hidden py-2">
-        {/* تدرج على الجوانب */}
-        <div
-          className="absolute left-0 top-0 bottom-0 w-16 z-10 pointer-events-none"
-          style={{ background: "linear-gradient(to right, #151515, transparent)" }}
-        />
-        <div
-          className="absolute right-0 top-0 bottom-0 w-16 z-10 pointer-events-none"
-          style={{ background: "linear-gradient(to left, #151515, transparent)" }}
-        />
-        <div className="flex gap-3 sm:gap-4 animate-scroll-banner w-max">
-          {allImages.map((img, i) => (
-            <div
+      {/* Slider container */}
+      <div
+        className="relative max-w-5xl mx-auto px-4"
+        onMouseEnter={() => setIsPaused(true)}
+        onMouseLeave={() => setIsPaused(false)}
+      >
+        {/* Slides */}
+        <div className="relative overflow-hidden rounded-2xl">
+          <div
+            className="flex transition-transform duration-500 ease-out"
+            style={{ transform: `translateX(${currentSlide * 100}%)` }}
+          >
+            {/* كل شريحة فيها 4 صور */}
+            {Array.from({ length: totalSlides }).map((_, slideIdx) => {
+              const slideStart = slideIdx * IMAGES_PER_SLIDE;
+              const slideImages = [];
+              for (let i = 0; i < IMAGES_PER_SLIDE; i++) {
+                slideImages.push(images[(slideStart + i) % images.length]);
+              }
+              return (
+                <div
+                  key={slideIdx}
+                  className="flex-shrink-0 w-full grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4"
+                >
+                  {slideImages.map((img, i) => (
+                    <div
+                      key={`${slideIdx}-${i}`}
+                      className="relative aspect-square rounded-2xl overflow-hidden"
+                      style={{
+                        backgroundColor: "#2c2c2c",
+                        boxShadow: "0 0 0 1px rgba(212, 175, 55, 0.2)",
+                      }}
+                    >
+                      <Image
+                        src={img.src}
+                        alt={img.alt}
+                        width={220}
+                        height={220}
+                        className="w-full h-full object-cover"
+                        sizes="(max-width: 768px) 45vw, 200px"
+                      />
+                      <div className="absolute top-2 left-2 bg-black/80 text-white px-2 py-0.5 rounded text-[10px] font-bold">
+                        قبل
+                      </div>
+                      <div
+                        className="absolute top-2 right-2 px-2 py-0.5 rounded text-[10px] font-bold"
+                        style={{ backgroundColor: "#D4AF37", color: "#000000" }}
+                      >
+                        بعد
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              );
+            })}
+          </div>
+        </div>
+
+        {/* سهم يمين */}
+        <button
+          onClick={nextSlide}
+          className="absolute top-1/2 -translate-y-1/2 right-2 sm:right-0 sm:translate-x-1/2 z-20 w-10 h-10 sm:w-12 sm:h-12 rounded-full flex items-center justify-center transition-all hover:scale-110"
+          style={{
+            backgroundColor: "#D4AF37",
+            color: "#000000",
+            boxShadow: "0 4px 15px rgba(0, 0, 0, 0.4)",
+          }}
+          aria-label="التالي"
+        >
+          <svg className="w-5 h-5 sm:w-6 sm:h-6" fill="none" stroke="currentColor" strokeWidth={2.5} viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
+          </svg>
+        </button>
+
+        {/* سهم شمال */}
+        <button
+          onClick={prevSlide}
+          className="absolute top-1/2 -translate-y-1/2 left-2 sm:left-0 sm:-translate-x-1/2 z-20 w-10 h-10 sm:w-12 sm:h-12 rounded-full flex items-center justify-center transition-all hover:scale-110"
+          style={{
+            backgroundColor: "#D4AF37",
+            color: "#000000",
+            boxShadow: "0 4px 15px rgba(0, 0, 0, 0.4)",
+          }}
+          aria-label="السابق"
+        >
+          <svg className="w-5 h-5 sm:w-6 sm:h-6" fill="none" stroke="currentColor" strokeWidth={2.5} viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" />
+          </svg>
+        </button>
+
+        {/* مؤشرات الشرائح (dots) */}
+        <div className="flex justify-center gap-2 mt-4">
+          {Array.from({ length: totalSlides }).map((_, i) => (
+            <button
               key={i}
-              className="flex-shrink-0 w-44 h-44 sm:w-52 sm:h-52 rounded-2xl overflow-hidden relative"
+              onClick={() => setCurrentSlide(i)}
+              className="transition-all rounded-full"
               style={{
-                backgroundColor: "#2c2c2c",
-                boxShadow: "0 0 0 1px rgba(212, 175, 55, 0.2)",
+                width: i === currentSlide ? "24px" : "8px",
+                height: "8px",
+                backgroundColor: i === currentSlide ? "#D4AF37" : "rgba(255, 255, 255, 0.3)",
               }}
-            >
-              <Image
-                src={img.src}
-                alt={img.alt}
-                width={220}
-                height={220}
-                className="w-full h-full object-cover"
-                sizes="(max-width: 768px) 176px, 208px"
-              />
-              <div className="absolute top-2 left-2 bg-black/80 text-white px-2 py-0.5 rounded text-[10px] font-bold">
-                قبل
-              </div>
-              <div
-                className="absolute top-2 right-2 px-2 py-0.5 rounded text-[10px] font-bold"
-                style={{ backgroundColor: "#D4AF37", color: "#000000" }}
-              >
-                بعد
-              </div>
-            </div>
+              aria-label={`الشريحة ${i + 1}`}
+            />
           ))}
         </div>
       </div>
