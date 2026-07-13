@@ -20,7 +20,7 @@ import { FloatingWhatsApp } from "@/components/landing/floating-whatsapp";
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-black overflow-x-hidden">
+    <main className="min-h-screen overflow-x-hidden" style={{ backgroundColor: "#1a1a1a" }}>
       {/* 1. الهيرو - صورة قبل/بعد + زر واتساب */}
       <HeroSection />
 

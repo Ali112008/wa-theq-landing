@@ -41,7 +41,7 @@ export function PainPointsSection() {
               <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-[#0a0e1a] mb-3 leading-[1.5]">
                 هل تعاني من
                 <br />
-                <span className="text-amber-500">هذه المشاكل؟</span>
+                <span className="text-gold-dark">هذه المشاكل؟</span>
               </h2>
               <p className="text-gray-600 text-base sm:text-lg">
                 لو واجهت أي من هذه المشاكل، فأنت في المكان الصحيح. الحل بين يديك الآن.
@@ -53,7 +53,7 @@ export function PainPointsSection() {
               {problems.map((problem, i) => (
                 <div
                   key={i}
-                  className="flex items-start gap-3 p-3 rounded-xl bg-gray-50 border border-gray-100 hover:border-amber-300 hover:bg-amber-50/50 transition-colors"
+                  className="flex items-start gap-3 p-3 rounded-xl bg-gray-50 border border-gray-100 hover:border-gold-light hover:bg-gold/5 transition-colors"
                 >
                   <div className="flex-shrink-0 w-10 h-10 bg-red-100 rounded-lg flex items-center justify-center">
                     <ProblemIcon
@@ -78,7 +78,7 @@ export function PainPointsSection() {
               <p className="text-white text-lg sm:text-xl font-bold mb-1">
                 أرسل صور حالتك الآن
               </p>
-              <p className="text-amber-400 text-sm mb-4 font-medium">
+              <p className="text-gold text-sm mb-4 font-medium">
                 سيتم تقييمها مجاناً
               </p>
               <WhatsAppButton size="lg" message="consultation" className="w-full">

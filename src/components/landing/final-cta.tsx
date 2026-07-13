@@ -43,7 +43,7 @@ export function FinalCTA() {
         <h2 className="text-4xl sm:text-5xl md:text-6xl font-black text-white mb-4 leading-tight">
           جاهز تستعيد
           <br />
-          <span className="bg-gradient-to-l from-amber-400 via-amber-300 to-amber-500 bg-clip-text text-transparent">
+          <span className="bg-gradient-to-l from-gold via-gold-light to-gold-dark bg-clip-text text-transparent">
             ثقتك؟
           </span>
         </h2>
@@ -56,7 +56,7 @@ export function FinalCTA() {
         {/* تقييم بالنجوم */}
         <div className="flex items-center justify-center gap-1 mb-2">
           {[1, 2, 3, 4, 5].map((i) => (
-            <StarIcon key={i} className="w-6 h-6 text-amber-400" />
+            <StarIcon key={i} className="w-6 h-6 text-gold" />
           ))}
         </div>
         <p className="text-gray-400 text-sm mb-8">
@@ -118,7 +118,7 @@ export function FinalCTA() {
             </a>
 
             <div className="flex items-center gap-2 text-gray-300">
-              <svg className="w-5 h-5 text-amber-400" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
+              <svg className="w-5 h-5 text-gold" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z" />
                 <circle cx="12" cy="10" r="3" />
               </svg>

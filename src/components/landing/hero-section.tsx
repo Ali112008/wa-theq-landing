@@ -5,7 +5,8 @@ import Image from "next/image";
 export function HeroSection() {
   return (
     <header
-      className="relative min-h-[100svh] flex flex-col overflow-hidden bg-black"
+      className="relative min-h-[100svh] flex flex-col overflow-hidden"
+      style={{ backgroundColor: "#1a1a1a" }}
     >
       {/* خلفية زخرفية ذهبية */}
       <div
@@ -18,7 +19,7 @@ export function HeroSection() {
       />
 
       {/* شريط علوي - اللوجو + زر سناب */}
-      <div className="relative z-20 flex items-center justify-between px-4 py-3 border-b border-amber-500/20">
+      <div className="relative z-20 flex items-center justify-between px-4 py-3 border-b border-gold-dark/20">
         <Image
           src="/images/logo.webp"
           alt="واثق كلينك - Watheq Clinic"
@@ -32,7 +33,7 @@ export function HeroSection() {
           href="https://snapchat.com/t/JIsiC5jo"
           target="_blank"
           rel="noopener noreferrer"
-          className="inline-flex items-center justify-center w-9 h-9 bg-amber-400 hover:bg-amber-300 text-black rounded-full transition-transform hover:scale-110"
+          className="inline-flex items-center justify-center w-9 h-9 bg-gold hover:bg-gold-light text-black rounded-full transition-transform hover:scale-110"
           aria-label="تابعنا على سناب شات"
           title="سناب المالك"
         >
@@ -43,7 +44,7 @@ export function HeroSection() {
       {/* المحتوى الرئيسي */}
       <div className="relative z-10 flex-1 flex flex-col items-center justify-center px-4 py-6 text-center">
         {/* اسم الشركة */}
-        <h2 className="text-amber-400 text-base sm:text-lg font-bold mb-1">
+        <h2 className="text-gold text-base sm:text-lg font-bold mb-1">
           واثق كلينك
         </h2>
         <p className="text-gray-300 text-xs sm:text-sm mb-6">
@@ -52,7 +53,7 @@ export function HeroSection() {
 
         {/* صورة قبل وبعد */}
         <div className="relative w-full max-w-xs sm:max-w-sm mb-6">
-          <div className="relative aspect-square rounded-2xl overflow-hidden shadow-2xl ring-2 ring-amber-500/40">
+          <div className="relative aspect-square rounded-2xl overflow-hidden shadow-2xl ring-2 ring-gold-dark/40">
             <Image
               src="/images/hero-before-after.webp"
               alt="نتائج زراعة الشعر قبل وبعد - واثق كلينك"
@@ -69,7 +70,7 @@ export function HeroSection() {
             <div className="absolute bottom-3 left-3 bg-black/80 text-white px-3 py-1 rounded-md text-xs font-bold">
               قبل
             </div>
-            <div className="absolute bottom-3 right-3 bg-amber-400 text-black px-3 py-1 rounded-md text-xs font-bold">
+            <div className="absolute bottom-3 right-3 bg-gold text-black px-3 py-1 rounded-md text-xs font-bold">
               بعد
             </div>
           </div>

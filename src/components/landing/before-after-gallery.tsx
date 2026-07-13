@@ -20,13 +20,14 @@ export function BeforeAfterGallery() {
 
   return (
     <section
-      className="py-8 sm:py-12 bg-black overflow-hidden"
+      className="py-8 sm:py-12 overflow-hidden"
+      style={{ backgroundColor: "#151515" }}
       aria-label="نتائج زراعة الشعر قبل وبعد"
     >
       <div className="max-w-6xl mx-auto px-4">
         <h2 className="text-2xl sm:text-3xl font-black text-center mb-6">
           <span className="text-white">صور </span>
-          <span className="text-amber-400">قبل وبعد</span>
+          <span className="text-gold">قبل وبعد</span>
         </h2>
       </div>
 
@@ -36,7 +37,7 @@ export function BeforeAfterGallery() {
           {allImages.map((img, i) => (
             <div
               key={i}
-              className="flex-shrink-0 w-40 h-40 sm:w-48 sm:h-48 rounded-2xl overflow-hidden bg-gray-900 ring-1 ring-amber-500/20 relative"
+              className="flex-shrink-0 w-40 h-40 sm:w-48 sm:h-48 rounded-2xl overflow-hidden bg-gray-900 ring-1 ring-gold-dark/20 relative"
             >
               <Image
                 src={img.src}
@@ -49,7 +50,7 @@ export function BeforeAfterGallery() {
               <div className="absolute top-2 left-2 bg-black/80 text-white px-2 py-0.5 rounded text-[10px] font-bold">
                 قبل
               </div>
-              <div className="absolute top-2 right-2 bg-amber-400 text-black px-2 py-0.5 rounded text-[10px] font-bold">
+              <div className="absolute top-2 right-2 bg-gold text-black px-2 py-0.5 rounded text-[10px] font-bold">
                 بعد
               </div>
             </div>

@@ -30,11 +30,11 @@ export function FAQSection() {
       <div className="max-w-3xl mx-auto px-4 sm:px-6">
         {/* العنوان */}
         <div className="text-center mb-10 sm:mb-12">
-          <span className="inline-block bg-amber-100 text-amber-700 px-4 py-1.5 rounded-full text-xs sm:text-sm font-bold mb-3">
+          <span className="inline-block bg-gold/20 text-gold-dark px-4 py-1.5 rounded-full text-xs sm:text-sm font-bold mb-3">
             إجابات لكل أسئلتك
           </span>
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-[#0a0e1a] mb-3">
-            الأسئلة <span className="text-amber-500">الشائعة</span>
+            الأسئلة <span className="text-gold-dark">الشائعة</span>
           </h2>
           <p className="text-gray-600 text-sm sm:text-base">
             كل ما تحتاج معرفته قبل اتخاذ قرار زراعة الشعر
@@ -48,8 +48,8 @@ export function FAQSection() {
               key={i}
               className={`border-2 rounded-2xl overflow-hidden transition-all duration-300 ${
                 openIndex === i
-                  ? "border-amber-300 bg-amber-50/30 shadow-md"
-                  : "border-gray-200 hover:border-amber-200"
+                  ? "border-gold-light bg-gold/10 shadow-md"
+                  : "border-gray-200 hover:border-gold/40"
               }`}
             >
               <button
@@ -63,7 +63,7 @@ export function FAQSection() {
                 <span
                   className={`flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center transition-all duration-300 ${
                     openIndex === i
-                      ? "bg-amber-500 text-white rotate-180"
+                      ? "bg-gold-dark text-white rotate-180"
                       : "bg-gray-100 text-gray-600"
                   }`}
                 >

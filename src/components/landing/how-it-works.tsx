@@ -11,7 +11,7 @@ const steps = [
     icon: "consult",
     title: "تقييم الطبيب",
     desc: "يقدم لك الطبيب تقييماً مجانياً وخطة علاج مناسبة لحالتك",
-    color: "from-amber-400 to-amber-600",
+    color: "from-gold to-gold-dark",
   },
   {
     number: "3",
@@ -42,11 +42,11 @@ export function HowItWorks() {
       <div className="relative max-w-5xl mx-auto px-4 sm:px-6">
         {/* العنوان */}
         <div className="text-center mb-12 sm:mb-16">
-          <span className="inline-block bg-amber-500/10 border border-amber-500/30 text-amber-400 px-4 py-1.5 rounded-full text-xs sm:text-sm font-bold mb-3">
+          <span className="inline-block bg-gold-dark/10 border border-gold-dark/30 text-gold px-4 py-1.5 rounded-full text-xs sm:text-sm font-bold mb-3">
             خطوات بسيطة
           </span>
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-white mb-3">
-            كيف تبدأ <span className="text-amber-400">رحلتك؟</span>
+            كيف تبدأ <span className="text-gold">رحلتك؟</span>
           </h2>
           <p className="text-gray-400 text-sm sm:text-base max-w-xl mx-auto">
             3 خطوات بسيطة تفصلك عن استعادة شعرك وثقتك بنفسك
@@ -56,7 +56,7 @@ export function HowItWorks() {
         {/* الخطوات */}
         <div className="relative">
           {/* خط الربط بين الخطوات */}
-          <div className="hidden md:block absolute top-12 right-[16.66%] left-[16.66%] h-0.5 bg-gradient-to-l from-amber-500/30 via-amber-500/50 to-amber-500/30" />
+          <div className="hidden md:block absolute top-12 right-[16.66%] left-[16.66%] h-0.5 bg-gradient-to-l from-gold-dark/30 via-gold-dark/50 to-gold-dark/30" />
 
           <div className="grid md:grid-cols-3 gap-8 md:gap-6">
             {steps.map((step, i) => (

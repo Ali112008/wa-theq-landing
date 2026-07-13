@@ -51,11 +51,11 @@ export function WhyChooseUs() {
       <div className="relative max-w-6xl mx-auto px-4 sm:px-6">
         {/* العنوان */}
         <div className="text-center mb-10 sm:mb-14">
-          <span className="inline-block bg-amber-100 text-amber-700 px-4 py-1.5 rounded-full text-xs sm:text-sm font-bold mb-3">
+          <span className="inline-block bg-gold/20 text-gold-dark px-4 py-1.5 rounded-full text-xs sm:text-sm font-bold mb-3">
             مزايا واثق كلينك
           </span>
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-[#0a0e1a] mb-3">
-            لماذا تختار <span className="text-amber-500">واثق؟</span>
+            لماذا تختار <span className="text-gold-dark">واثق؟</span>
           </h2>
           <p className="text-gray-600 text-sm sm:text-base max-w-xl mx-auto">
             نقدم لك تجربة متكاملة من الاستشارة حتى النتيجة النهائية، بأعلى
@@ -68,10 +68,10 @@ export function WhyChooseUs() {
           {reasons.map((reason, i) => (
             <div
               key={i}
-              className="group bg-white rounded-2xl p-5 sm:p-6 shadow-sm hover:shadow-xl border border-gray-100 hover:border-amber-300 transition-all duration-300 hover:-translate-y-1"
+              className="group bg-white rounded-2xl p-5 sm:p-6 shadow-sm hover:shadow-xl border border-gray-100 hover:border-gold-light transition-all duration-300 hover:-translate-y-1"
             >
               {/* الأيقونة */}
-              <div className="w-12 h-12 sm:w-14 sm:h-14 bg-gradient-to-br from-amber-400 to-amber-600 rounded-2xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform shadow-md shadow-amber-500/20">
+              <div className="w-12 h-12 sm:w-14 sm:h-14 bg-gradient-to-br from-gold to-gold-dark rounded-2xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform shadow-md shadow-gold-dark/20">
                 <ReasonIcon icon={reason.icon} className="w-6 h-6 sm:w-7 sm:h-7 text-white" />
               </div>
               {/* العنوان */}
