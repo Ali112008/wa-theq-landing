@@ -17,6 +17,10 @@ export const CONTACT = {
   phoneDisplay: "+966 53 242 4669",
 };
 
+// الـ gradient الذهبي الرسمي
+const GOLD_GRADIENT = "linear-gradient(to left, #B8941F, #D4AF37)";
+const GOLD_GRADIENT_HOVER = "linear-gradient(to left, #D4AF37, #E7C46D)";
+
 interface WhatsAppButtonProps {
   variant?: "gold" | "whatsapp" | "outline";
   size?: "sm" | "md" | "lg";
@@ -39,10 +43,22 @@ export function WhatsAppButton({
       ? CONTACT.whatsappConsultLink
       : CONTACT.whatsappLink;
 
-  const variants = {
-    gold: "bg-gradient-to-l from-gold-dark to-gold text-black hover:from-gold hover:to-gold-light shadow-lg shadow-gold-dark/30",
-    whatsapp: "bg-[#25D366] text-white hover:bg-[#1ebe5d] shadow-lg shadow-[#25D366]/30",
-    outline: "bg-transparent border-2 border-gold text-gold hover:bg-gold hover:text-black",
+  const variants: Record<string, React.CSSProperties> = {
+    gold: {
+      background: GOLD_GRADIENT,
+      color: "#000000",
+      boxShadow: "0 10px 25px rgba(212, 175, 55, 0.3)",
+    },
+    whatsapp: {
+      backgroundColor: "#25D366",
+      color: "#FFFFFF",
+      boxShadow: "0 10px 25px rgba(37, 211, 102, 0.3)",
+    },
+    outline: {
+      backgroundColor: "transparent",
+      color: "#D4AF37",
+      border: "2px solid #D4AF37",
+    },
   };
 
   const sizes = {
@@ -59,10 +75,20 @@ export function WhatsAppButton({
       aria-label="تواصل معنا عبر واتساب"
       className={cn(
         "inline-flex items-center justify-center rounded-full font-bold transition-all duration-300 hover:scale-105 active:scale-95",
-        variants[variant],
         sizes[size],
         className
       )}
+      style={variants[variant]}
+      onMouseEnter={(e) => {
+        if (variant === "gold") {
+          e.currentTarget.style.background = GOLD_GRADIENT_HOVER;
+        }
+      }}
+      onMouseLeave={(e) => {
+        if (variant === "gold") {
+          e.currentTarget.style.background = GOLD_GRADIENT;
+        }
+      }}
     >
       {showIcon && <WhatsAppIcon className="w-5 h-5 sm:w-6 sm:h-6" />}
       <span>{children}</span>

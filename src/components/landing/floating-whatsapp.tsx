@@ -21,9 +21,14 @@ export function FloatingWhatsApp() {
       target="_blank"
       rel="noopener noreferrer"
       aria-label="تواصل معنا عبر واتساب"
-      className={`fixed bottom-4 left-4 z-40 flex items-center gap-2 bg-gold hover:bg-gold-light text-black font-bold px-4 py-3 rounded-full shadow-2xl transition-all duration-300 hover:scale-105 ${
+      className={`fixed bottom-4 left-4 z-40 flex items-center gap-2 font-bold px-4 py-3 rounded-full transition-all duration-300 hover:scale-105 ${
         visible ? "translate-y-0 opacity-100" : "translate-y-20 opacity-0 pointer-events-none"
       }`}
+      style={{
+        background: "linear-gradient(to left, #B8941F, #D4AF37)",
+        color: "#000000",
+        boxShadow: "0 10px 25px rgba(212, 175, 55, 0.4)",
+      }}
     >
       <span className="relative flex h-2.5 w-2.5">
         <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-500 opacity-75"></span>
