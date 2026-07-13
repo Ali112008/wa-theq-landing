@@ -29,7 +29,11 @@ export function BeforeAfterGallery() {
     setCurrentSlide((prev) => {
       // لو وصلنا لأول شريحة في النسخة المكررة (8)،
       // م نزيدش - الـ useEffect هيعمل reset
-      if (prev >= TOTAL_ORIGINAL) {
+      if (prev >= TOTAL_ORIGINAL && prev < TOTAL_ORIGINAL * 2 - 1) {
+        return prev;
+      }
+      // لو وصلنا لآخر نسخة مكررة (15)، نعمل reset
+      if (prev >= TOTAL_ORIGINAL * 2 - 1) {
         return prev;
       }
       return prev + 1;
@@ -45,14 +49,21 @@ export function BeforeAfterGallery() {
         setCurrentSlide(0);
       }, 500); // نفس مدة الـ transition
     }
+    // لما currentSlide = 15 (آخر نسخة مكررة من prevSlide)، نعمل reset
+    if (currentSlide >= TOTAL_ORIGINAL * 2 - 1) {
+      timeoutRef.current = setTimeout(() => {
+        setNoTransition(true);
+        setCurrentSlide(TOTAL_ORIGINAL - 1); // نروح لـ 7 (آخر صورة أصلية)
+      }, 500);
+    }
     return () => {
       if (timeoutRef.current) clearTimeout(timeoutRef.current);
     };
   }, [currentSlide]);
 
-  // بعد ما نرجع لـ 0 بدون transition، نشغل الـ transition تاني
+  // بعد ما نعمل silent jump، نشغل الـ transition تاني
   useEffect(() => {
-    if (noTransition && currentSlide === 0) {
+    if (noTransition) {
       // نستنى frame واحد وبعدين نشغل الـ transition
       requestAnimationFrame(() => {
         requestAnimationFrame(() => {
@@ -65,8 +76,10 @@ export function BeforeAfterGallery() {
   const prevSlide = useCallback(() => {
     setCurrentSlide((prev) => {
       if (prev === 0) {
-        // لو في البداية، نروح لآخر صورة في النسخة التانية
-        return TOTAL_ORIGINAL * 2 - 1;
+        // لو في البداية، نروح لآخر صورة في النسخة المكررة (index 15)
+        // بدون transition (silent jump)
+        setNoTransition(true);
+        return TOTAL_ORIGINAL * 2 - 1; // index 15 = آخر نسخة مكررة (نفس صورة 7)
       }
       return prev - 1;
     });
