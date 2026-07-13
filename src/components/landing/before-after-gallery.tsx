@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect, useCallback } from "react";
+import { useState, useEffect, useCallback, useRef } from "react";
 import Image from "next/image";
 import { WhatsAppButton } from "./whatsapp-button";
 
@@ -15,27 +15,77 @@ const images = [
   { src: "/images/before-after-12.webp", alt: "نتيجة زراعة الشعر - حالة 8" },
 ];
 
+// عدد الصور الأصلية
+const TOTAL_ORIGINAL = images.length;
+
 export function BeforeAfterGallery() {
+  // currentSlide بيمشي على الصور المضاعفة (16 صورة) عشان اللف سلس
   const [currentSlide, setCurrentSlide] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
-
-  // 8 حالات = 8 شرائح (كل شريحة فيها صورة واحدة كبيرة)
-  const totalSlides = images.length;
+  const [noTransition, setNoTransition] = useState(false);
+  const timeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   const nextSlide = useCallback(() => {
-    setCurrentSlide((prev) => (prev + 1) % totalSlides);
-  }, [totalSlides]);
+    setCurrentSlide((prev) => {
+      const next = prev + 1;
+      // لو وصلنا لآخر نسخة (مثلاً 16 صورة = index 15)
+      // بعد ما نعرض الصورة 8 (index 7 في النسخة التانية = index 15)
+      // نرجع للبداية بدون transition
+      if (next >= TOTAL_ORIGINAL * 2) {
+        // نعرض الصورة التانية (index 8 = أول صورة في النسخة التانية)
+        // وبعدين نرجع لـ 0 بدون transition
+        return next; // نخليه يكمل للـ 16
+      }
+      return next;
+    });
+  }, []);
+
+  // لما currentSlide يوصل لـ TOTAL_ORIGINAL * 2 (16)
+  // نرجع لـ 0 بدون transition
+  useEffect(() => {
+    if (currentSlide >= TOTAL_ORIGINAL * 2) {
+      // نستنى الـ transition يخلص وبعدين نرجع بدون transition
+      timeoutRef.current = setTimeout(() => {
+        setNoTransition(true);
+        setCurrentSlide(0);
+      }, 500); // نفس مدة الـ transition
+    }
+  }, [currentSlide]);
+
+  // بعد ما نرجع لـ 0 بدون transition، نشغل الـ transition تاني
+  useEffect(() => {
+    if (noTransition && currentSlide === 0) {
+      // نستنى frame واحد وبعدين نشغل الـ transition
+      requestAnimationFrame(() => {
+        requestAnimationFrame(() => {
+          setNoTransition(false);
+        });
+      });
+    }
+  }, [noTransition, currentSlide]);
 
   const prevSlide = useCallback(() => {
-    setCurrentSlide((prev) => (prev - 1 + totalSlides) % totalSlides);
-  }, [totalSlides]);
+    setCurrentSlide((prev) => {
+      if (prev === 0) {
+        // لو في البداية، نروح لآخر صورة في النسخة التانية
+        return TOTAL_ORIGINAL * 2 - 1;
+      }
+      return prev - 1;
+    });
+  }, []);
 
-  // Autoplay كل 3 ثواني
+  // Autoplay كل 4 ثواني
   useEffect(() => {
     if (isPaused) return;
-    const timer = setInterval(nextSlide, 3000);
+    const timer = setInterval(nextSlide, 4000);
     return () => clearInterval(timer);
   }, [nextSlide, isPaused]);
+
+  // الصور المضاعفة (8 + 8 = 16)
+  const allImages = [...images, ...images];
+
+  // الشريحة الحالية (0-7) للعرض
+  const displaySlide = currentSlide % TOTAL_ORIGINAL;
 
   return (
     <section
@@ -49,20 +99,23 @@ export function BeforeAfterGallery() {
           <span className="text-gold">قبل وبعد</span>
         </h2>
 
-        {/* Slider - الصورة بتبدأ من أول الـ container لآخره */}
+        {/* Slider */}
         <div
           className="relative"
           dir="ltr"
           onMouseEnter={() => setIsPaused(true)}
           onMouseLeave={() => setIsPaused(false)}
         >
-          {/* Slides - بدون padding */}
+          {/* Slides */}
           <div className="relative overflow-hidden rounded-2xl">
             <div
-              className="flex transition-transform duration-500 ease-out"
-              style={{ transform: `translateX(-${currentSlide * 100}%)` }}
+              className="flex"
+              style={{
+                transform: `translateX(-${currentSlide * 100}%)`,
+                transition: noTransition ? "none" : "transform 500ms ease-out",
+              }}
             >
-              {images.map((img, i) => (
+              {allImages.map((img, i) => (
                 <div
                   key={i}
                   className="flex-shrink-0 w-full flex justify-center"
@@ -99,7 +152,7 @@ export function BeforeAfterGallery() {
             </div>
           </div>
 
-          {/* سهم يمين - داخل الصورة */}
+          {/* سهم يمين */}
           <button
             onClick={nextSlide}
             className="absolute top-1/2 -translate-y-1/2 right-2 z-20 w-10 h-10 sm:w-12 sm:h-12 rounded-full flex items-center justify-center transition-transform hover:scale-110"
@@ -115,7 +168,7 @@ export function BeforeAfterGallery() {
             </svg>
           </button>
 
-          {/* سهم شمال - داخل الصورة */}
+          {/* سهم شمال */}
           <button
             onClick={prevSlide}
             className="absolute top-1/2 -translate-y-1/2 left-2 z-20 w-10 h-10 sm:w-12 sm:h-12 rounded-full flex items-center justify-center transition-transform hover:scale-110"
@@ -131,7 +184,7 @@ export function BeforeAfterGallery() {
             </svg>
           </button>
 
-          {/* مؤشرات الشرائح (dots) */}
+          {/* مؤشرات الشرائح (dots) - 8 نقاط بس */}
           <div className="flex justify-center gap-1.5 mt-4 flex-wrap max-w-md mx-auto">
             {images.map((_, i) => (
               <button
@@ -139,19 +192,19 @@ export function BeforeAfterGallery() {
                 onClick={() => setCurrentSlide(i)}
                 className="transition-all rounded-full"
                 style={{
-                  width: i === currentSlide ? "24px" : "8px",
+                  width: i === displaySlide ? "24px" : "8px",
                   height: "8px",
-                  backgroundColor: i === currentSlide ? "#D4AF37" : "rgba(255, 255, 255, 0.3)",
+                  backgroundColor: i === displaySlide ? "#D4AF37" : "rgba(255, 255, 255, 0.3)",
                 }}
                 aria-label={`الشريحة ${i + 1}`}
               />
             ))}
           </div>
 
-          {/* عداد الشرائح */}
+          {/* عداد الشرائح - 1/8 لـ 8/8 */}
           <div className="text-center mt-3">
             <span className="text-white/60 text-sm">
-              {currentSlide + 1} / {totalSlides}
+              {displaySlide + 1} / {TOTAL_ORIGINAL}
             </span>
           </div>
         </div>
