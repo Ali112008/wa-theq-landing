@@ -222,18 +222,19 @@ img {
   scrollbar-width: none;
 }
 
-/* Moving banner animation */
+/* Moving banner animation - RTL aware */
 @keyframes scroll-banner {
   0% {
     transform: translateX(0);
   }
   100% {
-    transform: translateX(-50%);
+    transform: translateX(50%);
   }
 }
 
 .animate-scroll-banner {
-  animation: scroll-banner 40s linear infinite;
+  animation: scroll-banner 25s linear infinite;
+  will-change: transform;
 }
 
 .animate-scroll-banner:hover {

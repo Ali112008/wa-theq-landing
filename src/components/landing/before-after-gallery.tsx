@@ -32,25 +32,41 @@ export function BeforeAfterGallery() {
       </div>
 
       {/* بنر متحرك بـ CSS animation */}
-      <div className="relative">
+      <div className="relative overflow-hidden py-2">
+        {/* تدرج على الجوانب */}
+        <div
+          className="absolute left-0 top-0 bottom-0 w-16 z-10 pointer-events-none"
+          style={{ background: "linear-gradient(to right, #151515, transparent)" }}
+        />
+        <div
+          className="absolute right-0 top-0 bottom-0 w-16 z-10 pointer-events-none"
+          style={{ background: "linear-gradient(to left, #151515, transparent)" }}
+        />
         <div className="flex gap-3 sm:gap-4 animate-scroll-banner w-max">
           {allImages.map((img, i) => (
             <div
               key={i}
-              className="flex-shrink-0 w-40 h-40 sm:w-48 sm:h-48 rounded-2xl overflow-hidden bg-gray-900 ring-1 ring-gold-dark/20 relative"
+              className="flex-shrink-0 w-44 h-44 sm:w-52 sm:h-52 rounded-2xl overflow-hidden relative"
+              style={{
+                backgroundColor: "#2c2c2c",
+                boxShadow: "0 0 0 1px rgba(212, 175, 55, 0.2)",
+              }}
             >
               <Image
                 src={img.src}
                 alt={img.alt}
-                width={200}
-                height={200}
+                width={220}
+                height={220}
                 className="w-full h-full object-cover"
-                sizes="(max-width: 768px) 160px, 200px"
+                sizes="(max-width: 768px) 176px, 208px"
               />
               <div className="absolute top-2 left-2 bg-black/80 text-white px-2 py-0.5 rounded text-[10px] font-bold">
                 قبل
               </div>
-              <div className="absolute top-2 right-2 bg-gold text-black px-2 py-0.5 rounded text-[10px] font-bold">
+              <div
+                className="absolute top-2 right-2 px-2 py-0.5 rounded text-[10px] font-bold"
+                style={{ backgroundColor: "#D4AF37", color: "#000000" }}
+              >
                 بعد
               </div>
             </div>
