@@ -25,7 +25,7 @@ export const metadata: Metadata = {
     "زراعة الشعر السعود",
     "استشارة زراعة شعر مجانية",
   ],
-  authors: [{ name: "واثق كلينك" }],
+  authors: [{ name: "واثق كلينك", url: "https://alimahmoud-dev.vercel.app" }],
   creator: "واثق كلينك",
   publisher: "واثق كلينك",
   robots: {

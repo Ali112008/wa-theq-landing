@@ -135,6 +135,42 @@ export function FinalCTA() {
             © {new Date().getFullYear()} واثق كلينك - الشركة السعودية الأولى
             للسياحة العلاجية في تركيا
           </p>
+
+          {/* تطوير وتصميم - باك لينك ذكي */}
+          <div className="mt-4 pt-4 border-t border-white/5 flex flex-col items-center gap-2">
+            <p className="text-gray-600 text-[10px]">تطوير وتصميم</p>
+            <div className="flex items-center gap-3 text-gray-500">
+              <a
+                href="https://alimahmoud-dev.vercel.app"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-[10px] hover:text-amber-400 transition-colors"
+                title="Portfolio"
+              >
+                Portfolio
+              </a>
+              <span className="text-gray-700">·</span>
+              <a
+                href="https://www.linkedin.com/in/ali-mahmoud-34923b3a6/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-[10px] hover:text-amber-400 transition-colors"
+                title="LinkedIn"
+              >
+                LinkedIn
+              </a>
+              <span className="text-gray-700">·</span>
+              <a
+                href="https://khamsat.com/user/ali_mahmmoud"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-[10px] hover:text-amber-400 transition-colors"
+                title="Khamsat"
+              >
+                Khamsat
+              </a>
+            </div>
+          </div>
         </div>
       </div>
     </section>
