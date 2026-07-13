@@ -18,7 +18,7 @@ export const CONTACT = {
 };
 
 interface WhatsAppButtonProps {
-  variant?: "green" | "gold" | "outline";
+  variant?: "gold" | "whatsapp" | "outline";
   size?: "sm" | "md" | "lg";
   className?: string;
   children: React.ReactNode;
@@ -27,7 +27,7 @@ interface WhatsAppButtonProps {
 }
 
 export function WhatsAppButton({
-  variant = "green",
+  variant = "gold",
   size = "lg",
   className,
   children,
@@ -40,17 +40,15 @@ export function WhatsAppButton({
       : CONTACT.whatsappLink;
 
   const variants = {
-    green:
-      "bg-[#25D366] text-white hover:bg-[#1ebe5d] shadow-lg shadow-[#25D366]/30",
-    gold: "bg-gradient-to-l from-amber-500 to-amber-400 text-[#0a0e1a] hover:from-amber-400 hover:to-amber-300 shadow-lg shadow-amber-500/30",
-    outline:
-      "bg-transparent border-2 border-[#25D366] text-[#25D366] hover:bg-[#25D366] hover:text-white",
+    gold: "bg-gradient-to-l from-amber-500 to-amber-400 text-black hover:from-amber-400 hover:to-amber-300 shadow-lg shadow-amber-500/30",
+    whatsapp: "bg-[#25D366] text-white hover:bg-[#1ebe5d] shadow-lg shadow-[#25D366]/30",
+    outline: "bg-transparent border-2 border-amber-400 text-amber-400 hover:bg-amber-400 hover:text-black",
   };
 
   const sizes = {
     sm: "px-4 py-2 text-sm gap-1.5",
     md: "px-6 py-3 text-base gap-2",
-    lg: "px-8 py-4 text-lg gap-2.5 sm:text-xl",
+    lg: "px-6 py-4 text-base sm:text-lg gap-2.5",
   };
 
   return (

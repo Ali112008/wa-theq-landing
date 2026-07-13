@@ -153,6 +153,15 @@ img {
   max-width: 100%;
 }
 
+/* Hide scrollbar for moving banner */
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
 /* Improve contrast for dark sections */
 .bg-\\[\\#060818\\], .bg-\\[\\#0a0e1a\\], .bg-\\[\\#0a0e1f\\] {
   background-color: #060818;
