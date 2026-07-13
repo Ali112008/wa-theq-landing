@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useCallback, useEffect } from "react";
+import Image from "next/image";
 import { WhatsAppButton } from "./whatsapp-button";
 import { StarIcon } from "./icons";
 
@@ -77,13 +78,14 @@ export function BeforeAfterGallery() {
               className="group relative aspect-square rounded-2xl overflow-hidden bg-gray-100 shadow-md hover:shadow-xl transition-all duration-300 hover:scale-[1.02]"
               aria-label={`عرض الصورة ${i + 1} بحجم أكبر`}
             >
-              <img
+              <Image
                 src={img.src}
                 alt={img.alt}
                 width={400}
                 height={400}
                 loading={i < 4 ? "eager" : "lazy"}
                 className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                sizes="(max-width: 768px) 50vw, 25vw"
               />
               {/* تسميات قبل وبعد - قبل على اليسار، بعد على اليمين */}
               <div className="absolute top-2 left-2 bg-red-500/90 text-white px-2 py-0.5 rounded-full text-[10px] font-bold backdrop-blur-sm">
