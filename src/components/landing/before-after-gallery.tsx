@@ -65,24 +65,23 @@ export function BeforeAfterGallery() {
               {images.map((img, i) => (
                 <div
                   key={i}
-                  className="flex-shrink-0 w-full"
+                  className="flex-shrink-0 w-full flex justify-center"
                 >
                   <div
-                    className="relative w-full rounded-2xl overflow-hidden"
+                    className="relative rounded-2xl overflow-hidden"
                     style={{
                       backgroundColor: "#2c2c2c",
                       boxShadow: "0 0 0 1px rgba(212, 175, 55, 0.2)",
+                      width: "min(85vw, 450px)",
                       aspectRatio: "1 / 1",
-                      maxHeight: "70vh",
                     }}
                   >
                     <Image
                       src={img.src}
                       alt={img.alt}
-                      width={600}
-                      height={600}
-                      className="w-full h-full object-cover"
-                      sizes="(max-width: 768px) 100vw, 600px"
+                      fill
+                      className="object-cover"
+                      sizes="(max-width: 768px) 85vw, 450px"
                     />
                     {/* تسميات قبل/بعد */}
                     <div className="absolute top-3 left-3 bg-black/80 text-white px-3 py-1 rounded-md text-xs font-bold">
