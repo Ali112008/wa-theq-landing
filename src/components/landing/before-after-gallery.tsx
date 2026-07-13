@@ -27,14 +27,12 @@ export function BeforeAfterGallery() {
 
   const nextSlide = useCallback(() => {
     setCurrentSlide((prev) => {
-      const next = prev + 1;
-      // لو وصلنا لآخر شريحة في النسخة المكررة (index 15 = آخر صورة)
-      // نعرضها وبعدين هنعمل reset في الـ useEffect
-      if (next >= TOTAL_ORIGINAL * 2) {
-        // نخليه يفضل في مكانه - الـ useEffect هيعمل reset
+      // لو وصلنا لأول شريحة في النسخة المكررة (8)،
+      // م نزيدش - الـ useEffect هيعمل reset
+      if (prev >= TOTAL_ORIGINAL) {
         return prev;
       }
-      return next;
+      return prev + 1;
     });
   }, []);
 
@@ -85,7 +83,8 @@ export function BeforeAfterGallery() {
   const allImages = [...images, ...images];
 
   // الشريحة الحالية (0-7) للعرض
-  const displaySlide = currentSlide % TOTAL_ORIGINAL;
+  // لو currentSlide = 8 (النسخة المكررة)، نعرض 7 (آخر صورة أصلية)
+  const displaySlide = currentSlide >= TOTAL_ORIGINAL ? TOTAL_ORIGINAL - 1 : currentSlide;
 
   return (
     <section
