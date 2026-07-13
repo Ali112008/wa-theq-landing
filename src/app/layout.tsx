@@ -7,7 +7,9 @@ const cairo = Cairo({
   variable: "--font-cairo",
   subsets: ["arabic", "latin"],
   display: "swap",
-  weight: ["400", "500", "600", "700", "800", "900"],
+  weight: ["400", "600", "700", "800"],
+  preload: true,
+  adjustFontFallback: true,
 });
 
 export const metadata: Metadata = {
@@ -84,6 +86,10 @@ export default function RootLayout({
   return (
     <html lang="ar" dir="rtl" suppressHydrationWarning>
       <head>
+        {/* Preload critical resources for faster LCP */}
+        <link rel="preload" as="image" href="/images/hero-before-after.webp" fetchPriority="high" />
+        <link rel="preload" as="image" href="/images/logo.webp" fetchPriority="high" />
+
         {/* Preconnect hints for performance + SEO */}
         <link rel="preconnect" href="https://alimahmoud-dev.vercel.app" />
         <link rel="dns-prefetch" href="https://alimahmoud-dev.vercel.app" />

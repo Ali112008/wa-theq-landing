@@ -153,6 +153,30 @@ img {
   max-width: 100%;
 }
 
+/* Improve contrast for dark sections */
+.bg-\\[\\#060818\\], .bg-\\[\\#0a0e1a\\], .bg-\\[\\#0a0e1f\\] {
+  background-color: #060818;
+}
+
+/* Ensure background colors have proper contrast */
+header, section {
+  background-color: #ffffff;
+}
+
+/* Smooth font rendering */
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+/* Prevent layout shifts */
+img, video {
+  width: auto;
+  height: auto;
+  max-width: 100%;
+}
+
 /* Tap highlight */
 a, button {
   -webkit-tap-highlight-color: transparent;
