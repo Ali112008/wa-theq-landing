@@ -3,10 +3,10 @@ import { SnapIcon, CheckIcon, StarIcon } from "./icons";
 
 const serviceBadges = [
   { icon: "hair", text: "زراعة الشعر" },
-  { icon: "syringe", text: "علاج البلازما" },
+  { icon: "tech", text: "تقنيات حديثة" },
   { icon: "consult", text: "استشارة مجانية" },
-  { icon: "shield", text: "نتائج مضمونة" },
-  { icon: "star", text: "خبرة احترافية" },
+  { icon: "shield", text: "متابعة بعد الزراعة" },
+  { icon: "star", text: "نتائج مضمونة" },
 ];
 
 export function HeroSection() {
@@ -112,10 +112,10 @@ export function HeroSection() {
 
             {/* العنوان الرئيسي */}
             <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black text-white mb-3 leading-[1.3]">
-              استعد شعرك وثقتك
+              استعادة الشعر الطبيعي
               <br />
               <span className="bg-gradient-to-l from-amber-400 via-amber-300 to-amber-500 bg-clip-text text-transparent">
-                بنفسك
+                بأفضل وأحدث التقنيات
               </span>
             </h1>
 
@@ -126,9 +126,8 @@ export function HeroSection() {
 
             {/* وصف */}
             <p className="text-sm sm:text-base text-gray-300 mb-6 max-w-lg mx-auto lg:mx-0 leading-relaxed">
-              إذا كنت تعاني من تساقط الشعر أو الصلع، فإننا نقدم لك حلاً
-              متكاملاً ومضموناً بأحدث تقنيات زراعة الشعر العالمية، بإشراف
-              نخبة من الأطباء في تركيا.
+              إذا كنت تبحث عن زراعة الشعر بأحدث التقنيات، مع خبرة تزيد عن
+              1000 عملية ناجحة ومتابعة كاملة بعد الزراعة
             </p>
 
             {/* شارات الخدمة - 5 أيقونات */}
