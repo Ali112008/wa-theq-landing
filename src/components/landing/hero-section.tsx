@@ -1,5 +1,6 @@
 import { WhatsAppButton, WhatsAppIcon } from "./whatsapp-button";
 import { SnapIcon, CheckIcon, StarIcon } from "./icons";
+import Image from "next/image";
 
 const serviceBadges = [
   { icon: "shield", text: "نتائج مضمونة" },
@@ -192,14 +193,15 @@ export function HeroSection() {
             <div className="relative w-full max-w-md lg:max-w-lg">
               {/* إطار الصورة */}
               <div className="relative aspect-square rounded-2xl overflow-hidden shadow-2xl ring-1 ring-amber-500/30">
-                <img
+                <Image
                   src="/images/hero-before-after.webp"
                   alt="نتائج زراعة الشعر قبل وبعد - واثق كلينك"
-                  width={1000}
-                  height={1000}
+                  width={500}
+                  height={500}
                   className="w-full h-full object-cover"
-                  loading="eager"
+                  priority
                   fetchPriority="high"
+                  sizes="(max-width: 768px) 100vw, 50vw"
                 />
                 {/* خط فاصل عمودي - يدل على الانقسام قبل/بعد */}
                 <div className="absolute inset-y-0 left-1/2 -translate-x-1/2 w-0.5 bg-white/40" />
