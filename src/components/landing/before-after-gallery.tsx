@@ -28,28 +28,28 @@ export function BeforeAfterGallery() {
   const nextSlide = useCallback(() => {
     setCurrentSlide((prev) => {
       const next = prev + 1;
-      // لو وصلنا لآخر نسخة (مثلاً 16 صورة = index 15)
-      // بعد ما نعرض الصورة 8 (index 7 في النسخة التانية = index 15)
-      // نرجع للبداية بدون transition
+      // لو وصلنا لآخر شريحة في النسخة المكررة (index 15 = آخر صورة)
+      // نعرضها وبعدين هنعمل reset في الـ useEffect
       if (next >= TOTAL_ORIGINAL * 2) {
-        // نعرض الصورة التانية (index 8 = أول صورة في النسخة التانية)
-        // وبعدين نرجع لـ 0 بدون transition
-        return next; // نخليه يكمل للـ 16
+        // نخليه يفضل في مكانه - الـ useEffect هيعمل reset
+        return prev;
       }
       return next;
     });
   }, []);
 
-  // لما currentSlide يوصل لـ TOTAL_ORIGINAL * 2 (16)
-  // نرجع لـ 0 بدون transition
+  // لما currentSlide يوصل لـ TOTAL_ORIGINAL (8) - أول شريحة في النسخة المكررة
+  // نستنى شوية وبعدين نرجع لـ 0 بدون transition
   useEffect(() => {
-    if (currentSlide >= TOTAL_ORIGINAL * 2) {
-      // نستنى الـ transition يخلص وبعدين نرجع بدون transition
+    if (currentSlide >= TOTAL_ORIGINAL) {
       timeoutRef.current = setTimeout(() => {
         setNoTransition(true);
         setCurrentSlide(0);
       }, 500); // نفس مدة الـ transition
     }
+    return () => {
+      if (timeoutRef.current) clearTimeout(timeoutRef.current);
+    };
   }, [currentSlide]);
 
   // بعد ما نرجع لـ 0 بدون transition، نشغل الـ transition تاني
