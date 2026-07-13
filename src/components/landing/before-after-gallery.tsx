@@ -42,29 +42,38 @@ export function BeforeAfterGallery() {
 
   // لما currentSlide يوصل لـ TOTAL_ORIGINAL (8) - أول شريحة في النسخة المكررة
   // نستنى شوية وبعدين نرجع لـ 0 بدون transition
+  // بس لو noTransition = true، م نعملش حاجة (ده من prevSlide)
   useEffect(() => {
+    if (noTransition) return; // متدخلش لو noTransition شغال
     if (currentSlide >= TOTAL_ORIGINAL) {
       timeoutRef.current = setTimeout(() => {
         setNoTransition(true);
         setCurrentSlide(0);
       }, 500); // نفس مدة الـ transition
     }
-    // لما currentSlide = 15 (آخر نسخة مكررة من prevSlide)، نعمل reset
-    if (currentSlide >= TOTAL_ORIGINAL * 2 - 1) {
-      timeoutRef.current = setTimeout(() => {
-        setNoTransition(true);
-        setCurrentSlide(TOTAL_ORIGINAL - 1); // نروح لـ 7 (آخر صورة أصلية)
-      }, 500);
-    }
     return () => {
       if (timeoutRef.current) clearTimeout(timeoutRef.current);
     };
-  }, [currentSlide]);
+  }, [currentSlide, noTransition]);
 
-  // بعد ما نعمل silent jump، نشغل الـ transition تاني
+  // بعد ما نعمل silent jump لشريحة 8 (من prevSlide)،
+  // نشغل الـ transition ونعمل smooth transition لشريحة 7
   useEffect(() => {
-    if (noTransition) {
-      // نستنى frame واحد وبعدين نشغل الـ transition
+    if (noTransition && currentSlide === TOTAL_ORIGINAL) {
+      // نستنى frame واحد عشان الـ silent jump يخلص
+      requestAnimationFrame(() => {
+        requestAnimationFrame(() => {
+          setNoTransition(false);
+          // smooth transition لشريحة 7 (صورة 8)
+          setCurrentSlide(TOTAL_ORIGINAL - 1);
+        });
+      });
+    }
+  }, [noTransition, currentSlide]);
+
+  // بعد ما نعمل silent jump من الـ reset العادي، نشغل الـ transition تاني
+  useEffect(() => {
+    if (noTransition && currentSlide === 0) {
       requestAnimationFrame(() => {
         requestAnimationFrame(() => {
           setNoTransition(false);
@@ -76,10 +85,12 @@ export function BeforeAfterGallery() {
   const prevSlide = useCallback(() => {
     setCurrentSlide((prev) => {
       if (prev === 0) {
-        // لو في البداية، نروح لآخر صورة في النسخة المكررة (index 15)
-        // بدون transition (silent jump)
+        // لو في البداية (شريحة 1)، نعمل الآتي:
+        // 1. silent jump لشريحة 8 (النسخة المكررة من شريحة 0 - نفس الصورة)
+        // 2. بعدين smooth transition لشريحة 7 (صورة 8)
+        // ده هيخلي المستخدم يشوف حركة سلسة من صورة 1 لصورة 8
         setNoTransition(true);
-        return TOTAL_ORIGINAL * 2 - 1; // index 15 = آخر نسخة مكررة (نفس صورة 7)
+        return TOTAL_ORIGINAL; // شريحة 8 = نسخة مكررة من شريحة 0 (نفس الصورة)
       }
       return prev - 1;
     });
