@@ -17,38 +17,38 @@ const images = [
 
 export function BeforeAfterGallery() {
   const scrollRef = useRef<HTMLDivElement>(null);
-  const [scrollDir, setScrollDir] = useState<"left" | "right">("left");
 
   useEffect(() => {
     const container = scrollRef.current;
     if (!container) return;
 
     let animationId: number;
-    let direction = 1; // 1 = right to left, -1 = left to right
+    let direction = 1;
+    let paused = false;
 
     const animate = () => {
-      if (!container) return;
-      
+      if (!container || paused) {
+        animationId = requestAnimationFrame(animate);
+        return;
+      }
+
       const maxScroll = container.scrollWidth - container.clientWidth;
-      
-      // Change direction at edges
+
       if (container.scrollLeft >= maxScroll - 1) {
         direction = -1;
       } else if (container.scrollLeft <= 1) {
         direction = 1;
       }
-      
-      container.scrollLeft += direction * 0.5; // slow speed
+
+      container.scrollLeft += direction * 0.8;
       animationId = requestAnimationFrame(animate);
     };
 
-    // Start animation
     animationId = requestAnimationFrame(animate);
 
-    // Pause on hover/touch
-    const pause = () => cancelAnimationFrame(animationId);
-    const resume = () => { animationId = requestAnimationFrame(animate); };
-    
+    const pause = () => { paused = true; };
+    const resume = () => { paused = false; };
+
     container.addEventListener("mouseenter", pause);
     container.addEventListener("mouseleave", resume);
     container.addEventListener("touchstart", pause);
