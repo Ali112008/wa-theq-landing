@@ -52,6 +52,7 @@ export function BeforeAfterGallery() {
         {/* Slider - الصورة بتبدأ من أول الـ container لآخره */}
         <div
           className="relative"
+          dir="ltr"
           onMouseEnter={() => setIsPaused(true)}
           onMouseLeave={() => setIsPaused(false)}
         >
@@ -59,7 +60,7 @@ export function BeforeAfterGallery() {
           <div className="relative overflow-hidden rounded-2xl">
             <div
               className="flex transition-transform duration-500 ease-out"
-              style={{ transform: `translateX(${currentSlide * 100}%)` }}
+              style={{ transform: `translateX(-${currentSlide * 100}%)` }}
             >
               {images.map((img, i) => (
                 <div
