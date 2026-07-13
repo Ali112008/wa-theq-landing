@@ -22,15 +22,11 @@ export function BeforeAfterGallery() {
     const container = scrollRef.current;
     if (!container) return;
 
-    let animationId: number;
     let direction = 1;
     let paused = false;
 
-    const animate = () => {
-      if (!container || paused) {
-        animationId = requestAnimationFrame(animate);
-        return;
-      }
+    const interval = setInterval(() => {
+      if (paused || !container) return;
 
       const maxScroll = container.scrollWidth - container.clientWidth;
 
@@ -40,11 +36,8 @@ export function BeforeAfterGallery() {
         direction = 1;
       }
 
-      container.scrollLeft += direction * 0.8;
-      animationId = requestAnimationFrame(animate);
-    };
-
-    animationId = requestAnimationFrame(animate);
+      container.scrollLeft += direction * 1;
+    }, 30); // every 30ms
 
     const pause = () => { paused = true; };
     const resume = () => { paused = false; };
@@ -55,7 +48,7 @@ export function BeforeAfterGallery() {
     container.addEventListener("touchend", resume);
 
     return () => {
-      cancelAnimationFrame(animationId);
+      clearInterval(interval);
       container.removeEventListener("mouseenter", pause);
       container.removeEventListener("mouseleave", resume);
       container.removeEventListener("touchstart", pause);
