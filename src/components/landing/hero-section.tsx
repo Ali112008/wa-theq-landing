@@ -111,11 +111,11 @@ export function HeroSection() {
             </div>
 
             {/* العنوان الرئيسي */}
-            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black text-white mb-3 leading-tight">
-              استعادة الشعر بأسلوب
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black text-white mb-3 leading-[1.3]">
+              استعد شعرك وثقتك
               <br />
               <span className="bg-gradient-to-l from-amber-400 via-amber-300 to-amber-500 bg-clip-text text-transparent">
-                واثق
+                بنفسك
               </span>
             </h1>
 
@@ -126,8 +126,9 @@ export function HeroSection() {
 
             {/* وصف */}
             <p className="text-sm sm:text-base text-gray-300 mb-6 max-w-lg mx-auto lg:mx-0 leading-relaxed">
-              إذا كنت تعاني من تساقط الشعر، فإننا نقدم لك حلولاً متكاملة
-              ومضمونة، مع ضمان النتائج بأحدث التقنيات العالمية.
+              إذا كنت تعاني من تساقط الشعر أو الصلع، فإننا نقدم لك حلاً
+              متكاملاً ومضموناً بأحدث تقنيات زراعة الشعر العالمية، بإشراف
+              نخبة من الأطباء في تركيا.
             </p>
 
             {/* شارات الخدمة - 5 أيقونات */}
