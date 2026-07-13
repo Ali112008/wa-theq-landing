@@ -49,13 +49,13 @@ export function BeforeAfterGallery() {
           <span className="text-gold">قبل وبعد</span>
         </h2>
 
-        {/* Slider container - صورة كبيرة واحدة في كل شريحة */}
+        {/* Slider - الصورة بتبدأ من أول الـ container لآخره */}
         <div
           className="relative"
           onMouseEnter={() => setIsPaused(true)}
           onMouseLeave={() => setIsPaused(false)}
         >
-          {/* Slides */}
+          {/* Slides - بدون padding */}
           <div className="relative overflow-hidden rounded-2xl">
             <div
               className="flex transition-transform duration-500 ease-out"
@@ -64,7 +64,7 @@ export function BeforeAfterGallery() {
               {images.map((img, i) => (
                 <div
                   key={i}
-                  className="flex-shrink-0 w-full px-2"
+                  className="flex-shrink-0 w-full"
                 >
                   <div
                     className="relative w-full rounded-2xl overflow-hidden"
@@ -99,12 +99,12 @@ export function BeforeAfterGallery() {
             </div>
           </div>
 
-          {/* سهم يمين */}
+          {/* سهم يمين - داخل الصورة */}
           <button
             onClick={nextSlide}
-            className="absolute top-1/2 -translate-y-1/2 right-0 sm:right-2 z-20 w-10 h-10 sm:w-12 sm:h-12 rounded-full flex items-center justify-center transition-transform hover:scale-110"
+            className="absolute top-1/2 -translate-y-1/2 right-2 z-20 w-10 h-10 sm:w-12 sm:h-12 rounded-full flex items-center justify-center transition-transform hover:scale-110"
             style={{
-              backgroundColor: "#D4AF37",
+              backgroundColor: "rgba(212, 175, 55, 0.9)",
               color: "#000000",
               boxShadow: "0 4px 15px rgba(0, 0, 0, 0.4)",
             }}
@@ -115,12 +115,12 @@ export function BeforeAfterGallery() {
             </svg>
           </button>
 
-          {/* سهم شمال */}
+          {/* سهم شمال - داخل الصورة */}
           <button
             onClick={prevSlide}
-            className="absolute top-1/2 -translate-y-1/2 left-0 sm:left-2 z-20 w-10 h-10 sm:w-12 sm:h-12 rounded-full flex items-center justify-center transition-transform hover:scale-110"
+            className="absolute top-1/2 -translate-y-1/2 left-2 z-20 w-10 h-10 sm:w-12 sm:h-12 rounded-full flex items-center justify-center transition-transform hover:scale-110"
             style={{
-              backgroundColor: "#D4AF37",
+              backgroundColor: "rgba(212, 175, 55, 0.9)",
               color: "#000000",
               boxShadow: "0 4px 15px rgba(0, 0, 0, 0.4)",
             }}
