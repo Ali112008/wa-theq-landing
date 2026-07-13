@@ -1,4 +1,7 @@
+"use client";
+
 import { cn } from "@/lib/utils";
+import { useState } from "react";
 
 export const CONTACT = {
   whatsapp: "966532424669",
@@ -17,7 +20,6 @@ export const CONTACT = {
   phoneDisplay: "+966 53 242 4669",
 };
 
-// الـ gradient الذهبي الرسمي
 const GOLD_GRADIENT = "linear-gradient(to left, #B8941F, #D4AF37)";
 const GOLD_GRADIENT_HOVER = "linear-gradient(to left, #D4AF37, #E7C46D)";
 
@@ -38,28 +40,31 @@ export function WhatsAppButton({
   message = "default",
   showIcon = true,
 }: WhatsAppButtonProps) {
+  const [hovered, setHovered] = useState(false);
+
   const href =
     message === "consultation"
       ? CONTACT.whatsappConsultLink
       : CONTACT.whatsappLink;
 
-  const variants: Record<string, React.CSSProperties> = {
-    gold: {
-      background: GOLD_GRADIENT,
-      color: "#000000",
-      boxShadow: "0 10px 25px rgba(212, 175, 55, 0.3)",
-    },
-    whatsapp: {
-      backgroundColor: "#25D366",
-      color: "#FFFFFF",
-      boxShadow: "0 10px 25px rgba(37, 211, 102, 0.3)",
-    },
-    outline: {
-      backgroundColor: "transparent",
-      color: "#D4AF37",
-      border: "2px solid #D4AF37",
-    },
-  };
+  const baseStyle: React.CSSProperties =
+    variant === "gold"
+      ? {
+          background: hovered ? GOLD_GRADIENT_HOVER : GOLD_GRADIENT,
+          color: "#000000",
+          boxShadow: "0 10px 25px rgba(212, 175, 55, 0.3)",
+        }
+      : variant === "whatsapp"
+      ? {
+          backgroundColor: "#25D366",
+          color: "#FFFFFF",
+          boxShadow: "0 10px 25px rgba(37, 211, 102, 0.3)",
+        }
+      : {
+          backgroundColor: "transparent",
+          color: "#D4AF37",
+          border: "2px solid #D4AF37",
+        };
 
   const sizes = {
     sm: "px-4 py-2 text-sm gap-1.5",
@@ -78,17 +83,9 @@ export function WhatsAppButton({
         sizes[size],
         className
       )}
-      style={variants[variant]}
-      onMouseEnter={(e) => {
-        if (variant === "gold") {
-          e.currentTarget.style.background = GOLD_GRADIENT_HOVER;
-        }
-      }}
-      onMouseLeave={(e) => {
-        if (variant === "gold") {
-          e.currentTarget.style.background = GOLD_GRADIENT;
-        }
-      }}
+      style={baseStyle}
+      onMouseEnter={() => setHovered(true)}
+      onMouseLeave={() => setHovered(false)}
     >
       {showIcon && <WhatsAppIcon className="w-5 h-5 sm:w-6 sm:h-6" />}
       <span>{children}</span>
