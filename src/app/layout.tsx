@@ -25,7 +25,7 @@ export const metadata: Metadata = {
     "زراعة الشعر السعود",
     "استشارة زراعة شعر مجانية",
   ],
-  authors: [{ name: "واثق كلينك", url: "https://alimahmoud-dev.vercel.app" }],
+  authors: [{ name: "واثق كلينك" }],
   creator: "واثق كلينك",
   publisher: "واثق كلينك",
   robots: {
@@ -84,6 +84,14 @@ export default function RootLayout({
   return (
     <html lang="ar" dir="rtl" suppressHydrationWarning>
       <head>
+        {/* Preconnect hints for performance + SEO */}
+        <link rel="preconnect" href="https://alimahmoud-dev.vercel.app" />
+        <link rel="dns-prefetch" href="https://alimahmoud-dev.vercel.app" />
+        <link rel="preconnect" href="https://www.linkedin.com" />
+        <link rel="dns-prefetch" href="https://www.linkedin.com" />
+        <link rel="preconnect" href="https://khamsat.com" />
+        <link rel="dns-prefetch" href="https://khamsat.com" />
+
         {/* Structured Data for SEO */}
         <script
           type="application/ld+json"
@@ -116,7 +124,12 @@ export default function RootLayout({
                 availability: "https://schema.org/LimitedAvailability",
                 validThrough: new Date(Date.now() + 7 * 24 * 60 * 60 * 1000).toISOString(),
               },
-              sameAs: ["https://snapchat.com/t/JIsiC5jo"],
+              sameAs: [
+                "https://snapchat.com/t/JIsiC5jo",
+                "https://alimahmoud-dev.vercel.app",
+                "https://www.linkedin.com/in/ali-mahmoud-34923b3a6/",
+                "https://khamsat.com/user/ali_mahmmoud",
+              ],
             }),
           }}
         />
