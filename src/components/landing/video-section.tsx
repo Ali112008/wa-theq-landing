@@ -103,8 +103,15 @@ export function VideoSection() {
             </p>
 
             <div className="flex items-center gap-3 mb-2">
-              <div className="w-12 h-12 rounded-full bg-gradient-to-br from-amber-400 to-amber-600 flex items-center justify-center text-black font-black">
-                أ
+              <div className="w-14 h-14 rounded-full overflow-hidden border-2 border-amber-500/30 flex-shrink-0">
+                <img
+                  src="/images/ahmed-testimonial.webp"
+                  alt="أحمد - عميل واثق كلينك"
+                  width={56}
+                  height={56}
+                  className="w-full h-full object-cover"
+                  loading="lazy"
+                />
               </div>
               <div>
                 <p className="text-amber-400 font-bold">{AUTHOR}</p>
