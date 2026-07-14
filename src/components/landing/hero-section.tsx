@@ -3,8 +3,8 @@ import Image from "next/image";
 export function HeroSection() {
   return (
     <header
-      className="relative flex flex-col items-center justify-center overflow-hidden px-4 py-8"
-      style={{ backgroundColor: "#050505", minHeight: "100svh" }}
+      className="relative flex flex-col items-center justify-center overflow-hidden px-4 pt-8 pb-4"
+      style={{ backgroundColor: "#050505" }}
     >
       {/* Soft Radial Gradient Glow */}
       <div
