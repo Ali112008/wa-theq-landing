@@ -20,7 +20,18 @@ export function BeforeAfterGallery() {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
   const [noTransition, setNoTransition] = useState(false);
+  const [cardsPerView, setCardsPerView] = useState(1);
   const timeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+
+  // Detect screen size
+  useEffect(() => {
+    const updateCards = () => {
+      setCardsPerView(window.innerWidth >= 768 ? 3 : 1);
+    };
+    updateCards();
+    window.addEventListener("resize", updateCards);
+    return () => window.removeEventListener("resize", updateCards);
+  }, []);
 
   const nextSlide = useCallback(() => {
     setCurrentSlide((prev) => {
@@ -41,7 +52,8 @@ export function BeforeAfterGallery() {
 
   useEffect(() => {
     if (noTransition) return;
-    if (currentSlide >= TOTAL) {
+    const maxSlide = TOTAL + (cardsPerView > 1 ? cardsPerView - 1 : 0);
+    if (currentSlide >= maxSlide) {
       timeoutRef.current = setTimeout(() => {
         setNoTransition(true);
         setCurrentSlide(0);
@@ -50,10 +62,11 @@ export function BeforeAfterGallery() {
     return () => {
       if (timeoutRef.current) clearTimeout(timeoutRef.current);
     };
-  }, [currentSlide, noTransition]);
+  }, [currentSlide, noTransition, cardsPerView]);
 
   useEffect(() => {
-    if (noTransition && currentSlide === TOTAL) {
+    const maxSlide = TOTAL + (cardsPerView > 1 ? cardsPerView - 1 : 0);
+    if (noTransition && currentSlide === maxSlide) {
       requestAnimationFrame(() => {
         requestAnimationFrame(() => {
           setNoTransition(false);
@@ -68,7 +81,7 @@ export function BeforeAfterGallery() {
         });
       });
     }
-  }, [noTransition, currentSlide]);
+  }, [noTransition, currentSlide, cardsPerView]);
 
   useEffect(() => {
     if (isPaused || noTransition) return;
@@ -98,17 +111,17 @@ export function BeforeAfterGallery() {
 
       {/* Slider */}
       <div
-        className="relative max-w-5xl mx-auto px-12 sm:px-16"
+        className="relative max-w-5xl mx-auto px-10 sm:px-16"
         dir="ltr"
         onMouseEnter={() => setIsPaused(true)}
         onMouseLeave={() => setIsPaused(false)}
       >
-        {/* Slides container - 3 cards visible */}
+        {/* Slides container - 1 card on mobile, 3 on desktop */}
         <div className="relative overflow-hidden">
           <div
             className="flex"
             style={{
-              transform: `translateX(-${currentSlide * (100 / 3)}%)`,
+              transform: `translateX(-${currentSlide * (100 / cardsPerView)}%)`,
               transition: noTransition ? "none" : "transform 500ms ease-out",
             }}
           >
@@ -116,7 +129,7 @@ export function BeforeAfterGallery() {
               <div
                 key={i}
                 className="flex-shrink-0 px-2"
-                style={{ width: "33.333%" }}
+                style={{ width: `${100 / cardsPerView}%` }}
               >
                 {/* Single card with ONE before/after image */}
                 <div
