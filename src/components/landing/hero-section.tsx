@@ -3,7 +3,7 @@ import Image from "next/image";
 export function HeroSection() {
   return (
     <header
-      className="relative min-h-[100svh] flex flex-col items-center justify-center overflow-hidden px-4 py-10"
+      className="relative min-h-[100svh] flex flex-col items-center justify-center overflow-hidden px-4"
       style={{ backgroundColor: "#050505" }}
     >
       {/* Soft Radial Gradient Glow */}
@@ -15,8 +15,8 @@ export function HeroSection() {
         aria-hidden="true"
       />
 
-      {/* Logo - Small, centered, top */}
-      <div className="relative z-10 mb-10">
+      {/* Logo - Top center */}
+      <div className="relative z-10 mb-5">
         <Image
           src="/images/logo.webp"
           alt="واثق كلينك - Watheq Clinic"
@@ -28,9 +28,9 @@ export function HeroSection() {
         />
       </div>
 
-      {/* Huge Headline - LARGEST element, 3x subtitle */}
+      {/* Huge Headline - LARGEST element */}
       <h1
-        className="relative z-10 text-5xl sm:text-6xl font-black text-center mb-4 leading-tight"
+        className="relative z-10 text-5xl sm:text-6xl font-black text-center mb-2 leading-tight"
         style={{
           background: "linear-gradient(180deg, #F1D49B 0%, #D8B676 50%, #C99A58 100%)",
           WebkitBackgroundClip: "text",
@@ -41,38 +41,37 @@ export function HeroSection() {
         واثق كلينك
       </h1>
 
-      {/* Subtitle - Small white, 3x smaller than headline, with flags AFTER text */}
-      <p className="relative z-10 text-base sm:text-lg text-white/80 mb-8 text-center max-w-xs leading-relaxed">
+      {/* Subtitle - Small white, with flags AFTER text */}
+      <p className="relative z-10 text-sm sm:text-base text-white/80 mb-5 text-center max-w-xs leading-relaxed">
         الشركة السعودية الأولى للسياحة العلاجية بتركيا 🇸🇦 🇹🇷
       </p>
 
       {/* Trust Badge - Black pill with gold border + icon + gold text */}
       <div
-        className="relative z-10 flex items-center gap-2 px-5 py-2.5 rounded-full mb-10"
+        className="relative z-10 flex items-center gap-2 px-5 py-2 rounded-full mb-5"
         style={{
           border: "1px solid rgba(216, 182, 118, 0.4)",
           backgroundColor: "#0a0a0a",
         }}
       >
-        {/* User icon */}
-        <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} style={{ color: "#D8B676" }}>
+        <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} style={{ color: "#D8B676" }}>
           <path strokeLinecap="round" strokeLinejoin="round" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
         </svg>
-        <span className="text-sm sm:text-base font-bold" style={{ color: "#D8B676" }}>
+        <span className="text-xs sm:text-sm font-bold" style={{ color: "#D8B676" }}>
           خدمنا أكثر من 10 آلاف عميل
         </span>
       </div>
 
-      {/* Main CTA Button - Large gold, spans most of width */}
+      {/* Main CTA Button - Large gold */}
       <a
         href="https://wa.me/966532424669?text=السلام%20عليكم،%20أريد%20تقييم%20حالتي%20مجاناً"
         target="_blank"
         rel="noopener noreferrer"
-        className="relative z-10 flex items-center justify-center gap-3 w-full max-w-sm px-8 py-4 rounded-2xl font-bold text-lg transition-transform hover:scale-[1.03] text-black"
+        className="relative z-10 flex items-center justify-center gap-3 w-full max-w-sm px-8 py-3.5 rounded-2xl font-bold text-base sm:text-lg transition-transform hover:scale-[1.03] text-black"
         style={{
           background: "linear-gradient(to left, #C99A58, #D8B676)",
           boxShadow: "0 4px 20px rgba(216, 182, 118, 0.3)",
-          minHeight: "65px",
+          minHeight: "60px",
         }}
         aria-label="تواصل معنا عبر واتساب"
       >
