@@ -24,7 +24,6 @@ export function BeforeAfterGallery() {
   const [cardsPerView, setCardsPerView] = useState(1);
   const timeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
-  // Detect screen size
   useEffect(() => {
     const updateCards = () => {
       setCardsPerView(window.innerWidth >= 768 ? 3 : 1);
@@ -36,7 +35,6 @@ export function BeforeAfterGallery() {
 
   const nextSlide = useCallback(() => {
     setCurrentSlide((prev) => {
-      // لو وصلنا لآخر نسخة مكررة، م نزيدش
       if (prev >= TOTAL) return prev;
       return prev + 1;
     });
@@ -45,7 +43,6 @@ export function BeforeAfterGallery() {
   const prevSlide = useCallback(() => {
     setCurrentSlide((prev) => {
       if (prev === 0) {
-        // silent jump لآخر نسخة مكررة (نفس صورة 8)
         setNoTransition(true);
         return TOTAL;
       }
@@ -53,7 +50,6 @@ export function BeforeAfterGallery() {
     });
   }, []);
 
-  // لما currentSlide = TOTAL (أول نسخة مكررة)، اعمل reset لـ 0
   useEffect(() => {
     if (noTransition) return;
     if (currentSlide >= TOTAL) {
@@ -67,10 +63,8 @@ export function BeforeAfterGallery() {
     };
   }, [currentSlide, noTransition]);
 
-  // بعد silent jump، شغل الـ transition تاني
   useEffect(() => {
     if (noTransition && currentSlide === TOTAL) {
-      // silent jump لـ TOTAL، نعمل smooth slide لـ TOTAL-1
       requestAnimationFrame(() => {
         requestAnimationFrame(() => {
           setNoTransition(false);
@@ -79,7 +73,6 @@ export function BeforeAfterGallery() {
       });
     }
     if (noTransition && currentSlide === 0) {
-      // reset عادي، شغل transition تاني
       requestAnimationFrame(() => {
         requestAnimationFrame(() => {
           setNoTransition(false);
@@ -88,7 +81,6 @@ export function BeforeAfterGallery() {
     }
   }, [noTransition, currentSlide]);
 
-  // Autoplay
   useEffect(() => {
     if (isPaused || noTransition) return;
     const timer = setInterval(nextSlide, 4000);
@@ -100,13 +92,13 @@ export function BeforeAfterGallery() {
 
   return (
     <section
-      className="py-8 sm:py-10 overflow-hidden"
+      className="py-10 sm:py-12 overflow-hidden"
       style={{ backgroundColor: "#050505" }}
       aria-label="نتائج زراعة الشعر قبل وبعد"
     >
       <div className="max-w-5xl mx-auto px-4">
         {/* Title with decorative lines */}
-        <div className="flex items-center justify-center gap-4 mb-6">
+        <div className="flex items-center justify-center gap-4 mb-8">
           <span className="h-px w-12 sm:w-20" style={{ backgroundColor: "#D8B676" }} />
           <h2 className="text-2xl sm:text-3xl font-black" style={{ color: "#D8B676" }}>
             نتائج عملائنا
@@ -117,7 +109,7 @@ export function BeforeAfterGallery() {
 
       {/* Slider */}
       <div
-        className="relative max-w-5xl mx-auto px-10 sm:px-16"
+        className="relative max-w-5xl mx-auto px-12 sm:px-16"
         dir="ltr"
         onMouseEnter={() => setIsPaused(true)}
         onMouseLeave={() => setIsPaused(false)}
@@ -134,14 +126,16 @@ export function BeforeAfterGallery() {
             {allImages.map((img, i) => (
               <div
                 key={i}
-                className="flex-shrink-0 px-2"
+                className="flex-shrink-0 px-1.5"
                 style={{ width: `${100 / cardsPerView}%` }}
               >
+                {/* Portrait card - taller than wide */}
                 <div
-                  className="relative rounded-xl overflow-hidden aspect-square"
+                  className="relative rounded-xl overflow-hidden"
                   style={{
                     border: "1px solid rgba(216, 182, 118, 0.3)",
                     backgroundColor: "#0a0a0a",
+                    aspectRatio: "3 / 4",
                   }}
                 >
                   <Image
@@ -151,6 +145,7 @@ export function BeforeAfterGallery() {
                     className="object-cover"
                     sizes="250px"
                   />
+                  {/* Labels */}
                   <div className="absolute bottom-2 left-2 bg-black/80 text-white px-3 py-0.5 rounded text-xs font-bold">
                     قبل
                   </div>
@@ -166,7 +161,7 @@ export function BeforeAfterGallery() {
           </div>
         </div>
 
-        {/* Left arrow */}
+        {/* Left arrow - outside container */}
         <button
           onClick={prevSlide}
           className="absolute top-1/2 -translate-y-1/2 -left-1 sm:-left-2 z-20 w-10 h-10 sm:w-12 sm:h-12 rounded-full flex items-center justify-center transition-transform hover:scale-110"
@@ -182,7 +177,7 @@ export function BeforeAfterGallery() {
           </svg>
         </button>
 
-        {/* Right arrow */}
+        {/* Right arrow - outside container */}
         <button
           onClick={nextSlide}
           className="absolute top-1/2 -translate-y-1/2 -right-1 sm:-right-2 z-20 w-10 h-10 sm:w-12 sm:h-12 rounded-full flex items-center justify-center transition-transform hover:scale-110"
