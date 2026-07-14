@@ -3,14 +3,18 @@
 import { useState, useEffect, useCallback, useRef } from "react";
 import Image from "next/image";
 
-const cases = [
-  { before: "/images/before-after-11.webp", after: "/images/before-after-2.webp" },
-  { before: "/images/before-after-3.webp", after: "/images/before-after-6.webp" },
-  { before: "/images/before-after-7.webp", after: "/images/before-after-8.webp" },
-  { before: "/images/before-after-12.webp", after: "/images/before-after-1.webp" },
+const images = [
+  { src: "/images/before-after-11.webp", alt: "نتيجة زراعة الشعر - حالة 1" },
+  { src: "/images/before-after-2.webp", alt: "نتيجة زراعة الشعر - حالة 2" },
+  { src: "/images/before-after-3.webp", alt: "نتيجة زراعة الشعر - حالة 3" },
+  { src: "/images/before-after-6.webp", alt: "نتيجة زراعة الشعر - حالة 4" },
+  { src: "/images/before-after-7.webp", alt: "نتيجة زراعة الشعر - حالة 5" },
+  { src: "/images/before-after-8.webp", alt: "نتيجة زراعة الشعر - حالة 6" },
+  { src: "/images/before-after-12.webp", alt: "نتيجة زراعة الشعر - حالة 7" },
+  { src: "/images/before-after-1.webp", alt: "نتيجة زراعة الشعر - حالة 8" },
 ];
 
-const TOTAL = cases.length;
+const TOTAL = images.length;
 
 export function BeforeAfterGallery() {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -73,7 +77,7 @@ export function BeforeAfterGallery() {
   }, [nextSlide, isPaused, noTransition]);
 
   const displaySlide = currentSlide >= TOTAL ? TOTAL - 1 : currentSlide;
-  const allCases = [...cases, ...cases];
+  const allImages = [...images, ...images];
 
   return (
     <section
@@ -99,7 +103,7 @@ export function BeforeAfterGallery() {
         onMouseEnter={() => setIsPaused(true)}
         onMouseLeave={() => setIsPaused(false)}
       >
-        {/* Slides container */}
+        {/* Slides container - 3 cards visible */}
         <div className="relative overflow-hidden">
           <div
             className="flex"
@@ -108,48 +112,36 @@ export function BeforeAfterGallery() {
               transition: noTransition ? "none" : "transform 500ms ease-out",
             }}
           >
-            {allCases.map((caseItem, i) => (
+            {allImages.map((img, i) => (
               <div
                 key={i}
                 className="flex-shrink-0 px-2"
                 style={{ width: "33.333%" }}
               >
+                {/* Single card with ONE before/after image */}
                 <div
-                  className="relative rounded-xl overflow-hidden"
+                  className="relative rounded-xl overflow-hidden aspect-square"
                   style={{
                     border: "1px solid rgba(216, 182, 118, 0.3)",
                     backgroundColor: "#0a0a0a",
                   }}
                 >
-                  {/* Two images side by side */}
-                  <div className="flex">
-                    <div className="relative w-1/2 aspect-square">
-                      <Image
-                        src={caseItem.before}
-                        alt="قبل"
-                        fill
-                        className="object-cover"
-                        sizes="200px"
-                      />
-                      <div className="absolute bottom-2 left-1/2 -translate-x-1/2 bg-black/80 text-white px-3 py-0.5 rounded text-xs font-bold">
-                        قبل
-                      </div>
-                    </div>
-                    <div className="relative w-1/2 aspect-square">
-                      <Image
-                        src={caseItem.after}
-                        alt="بعد"
-                        fill
-                        className="object-cover"
-                        sizes="200px"
-                      />
-                      <div
-                        className="absolute bottom-2 left-1/2 -translate-x-1/2 px-3 py-0.5 rounded text-xs font-bold"
-                        style={{ backgroundColor: "#D8B676", color: "#000" }}
-                      >
-                        بعد
-                      </div>
-                    </div>
+                  <Image
+                    src={img.src}
+                    alt={img.alt}
+                    fill
+                    className="object-cover"
+                    sizes="250px"
+                  />
+                  {/* Labels - قبل on left, بعد on right */}
+                  <div className="absolute bottom-2 left-2 bg-black/80 text-white px-3 py-0.5 rounded text-xs font-bold">
+                    قبل
+                  </div>
+                  <div
+                    className="absolute bottom-2 right-2 px-3 py-0.5 rounded text-xs font-bold"
+                    style={{ backgroundColor: "#D8B676", color: "#000" }}
+                  >
+                    بعد
                   </div>
                 </div>
               </div>
@@ -157,7 +149,7 @@ export function BeforeAfterGallery() {
           </div>
         </div>
 
-        {/* Left arrow - outside container */}
+        {/* Left arrow */}
         <button
           onClick={prevSlide}
           className="absolute top-1/2 -translate-y-1/2 -left-1 sm:-left-2 z-20 w-10 h-10 sm:w-12 sm:h-12 rounded-full flex items-center justify-center transition-transform hover:scale-110"
@@ -173,7 +165,7 @@ export function BeforeAfterGallery() {
           </svg>
         </button>
 
-        {/* Right arrow - outside container */}
+        {/* Right arrow */}
         <button
           onClick={nextSlide}
           className="absolute top-1/2 -translate-y-1/2 -right-1 sm:-right-2 z-20 w-10 h-10 sm:w-12 sm:h-12 rounded-full flex items-center justify-center transition-transform hover:scale-110"
@@ -189,9 +181,9 @@ export function BeforeAfterGallery() {
           </svg>
         </button>
 
-        {/* Dots pagination */}
-        <div className="flex justify-center gap-2 mt-6">
-          {cases.map((_, i) => (
+        {/* Dots pagination - 8 dots */}
+        <div className="flex justify-center gap-1.5 mt-6 flex-wrap max-w-sm mx-auto">
+          {images.map((_, i) => (
             <button
               key={i}
               onClick={() => setCurrentSlide(i)}
