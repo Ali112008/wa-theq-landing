@@ -4,14 +4,15 @@ import { useState, useEffect, useCallback, useRef } from "react";
 import Image from "next/image";
 
 const images = [
-  { src: "/images/before-after-11.webp", alt: "نتيجة زراعة الشعر - حالة 1" },
-  { src: "/images/before-after-2.webp", alt: "نتيجة زراعة الشعر - حالة 2" },
-  { src: "/images/before-after-3.webp", alt: "نتيجة زراعة الشعر - حالة 3" },
-  { src: "/images/before-after-6.webp", alt: "نتيجة زراعة الشعر - حالة 4" },
-  { src: "/images/before-after-7.webp", alt: "نتيجة زراعة الشعر - حالة 5" },
-  { src: "/images/before-after-8.webp", alt: "نتيجة زراعة الشعر - حالة 6" },
-  { src: "/images/before-after-12.webp", alt: "نتيجة زراعة الشعر - حالة 7" },
-  { src: "/images/before-after-1.webp", alt: "نتيجة زراعة الشعر - حالة 8" },
+  { src: "/images/gallery/case-1.webp", alt: "نتيجة زراعة الشعر - حالة 1" },
+  { src: "/images/gallery/case-2.webp", alt: "نتيجة زراعة الشعر - حالة 2" },
+  { src: "/images/gallery/case-3.webp", alt: "نتيجة زراعة الشعر - حالة 3" },
+  { src: "/images/gallery/case-4.webp", alt: "نتيجة زراعة الشعر - حالة 4" },
+  { src: "/images/gallery/case-5.webp", alt: "نتيجة زراعة الشعر - حالة 5" },
+  { src: "/images/gallery/case-6.webp", alt: "نتيجة زراعة الشعر - حالة 6" },
+  { src: "/images/gallery/case-7.webp", alt: "نتيجة زراعة الشعر - حالة 7" },
+  { src: "/images/gallery/case-8.webp", alt: "نتيجة زراعة الشعر - حالة 8" },
+  { src: "/images/gallery/case-9.webp", alt: "نتيجة زراعة الشعر - حالة 9" },
 ];
 
 const TOTAL = images.length;
