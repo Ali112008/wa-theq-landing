@@ -153,64 +153,64 @@ img {
   max-width: 100%;
 }
 
-/* Gold text color - official Wa-theq gold #BF9B30 */
+/* Gold text color - official Wa-theq gold #C9B7AE */
 .text-gold {
-  color: #BF9B30 !important;
+  color: #C9B7AE !important;
 }
 .text-gold-light {
-  color: #D4AF37 !important;
+  color: #D5C1B8 !important;
 }
 .text-gold-dark {
-  color: #A6841C !important;
+  color: #B09B90 !important;
 }
 
 /* Gold background */
 .bg-gold {
-  background-color: #BF9B30 !important;
+  background-color: #C9B7AE !important;
 }
 .bg-gold-light {
-  background-color: #D4AF37 !important;
+  background-color: #D5C1B8 !important;
 }
 .bg-gold-dark {
-  background-color: #A6841C !important;
+  background-color: #B09B90 !important;
 }
 
 /* Gold border */
 .border-gold {
-  border-color: #BF9B30 !important;
+  border-color: #C9B7AE !important;
 }
 .border-gold-light {
-  border-color: #D4AF37 !important;
+  border-color: #D5C1B8 !important;
 }
 .border-gold-dark {
-  border-color: #A6841C !important;
+  border-color: #B09B90 !important;
 }
 
 /* Gold gradient backgrounds */
 .from-gold {
-  --tw-gradient-from: #BF9B30 !important;
+  --tw-gradient-from: #C9B7AE !important;
 }
 .to-gold {
-  --tw-gradient-to: #BF9B30 !important;
+  --tw-gradient-to: #C9B7AE !important;
 }
 .from-gold-dark {
-  --tw-gradient-from: #A6841C !important;
+  --tw-gradient-from: #B09B90 !important;
 }
 .to-gold-light {
-  --tw-gradient-to: #D4AF37 !important;
+  --tw-gradient-to: #D5C1B8 !important;
 }
 
 /* Gold ring */
 .ring-gold {
-  --tw-ring-color: #BF9B30 !important;
+  --tw-ring-color: #C9B7AE !important;
 }
 
 /* Gold shadow */
 .shadow-gold {
-  --tw-shadow-color: #BF9B30 !important;
+  --tw-shadow-color: #C9B7AE !important;
 }
 .shadow-gold-dark {
-  --tw-shadow-color: #A6841C !important;
+  --tw-shadow-color: #B09B90 !important;
 }
 
 /* Hide scrollbar for moving banner */

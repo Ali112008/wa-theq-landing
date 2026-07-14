@@ -17,7 +17,7 @@ export function VideoSection() {
       <div className="max-w-3xl mx-auto px-4">
         <h2 className="text-xl sm:text-2xl font-black text-center mb-6">
           <span className="text-white">شاهد </span>
-          <span style={{ color: "#BF9B30" }}>تجربة العميل</span>
+          <span style={{ color: "#C9B7AE" }}>تجربة العميل</span>
         </h2>
 
         <div
@@ -40,7 +40,7 @@ export function VideoSection() {
               >
                 <span
                   className="rounded-full p-4 shadow-2xl transition-transform group-hover:scale-110"
-                  style={{ backgroundColor: "#BF9B30" }}
+                  style={{ backgroundColor: "#C9B7AE" }}
                 >
                   <svg className="w-7 h-7 text-black mr-[-2px]" viewBox="0 0 24 24" fill="currentColor">
                     <path d="M8 5v14l11-7z" />

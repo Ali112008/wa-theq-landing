@@ -20,8 +20,8 @@ export const CONTACT = {
   phoneDisplay: "+966 53 242 4669",
 };
 
-const GOLD_GRADIENT = "linear-gradient(to left, #A6841C, #BF9B30)";
-const GOLD_GRADIENT_HOVER = "linear-gradient(to left, #BF9B30, #D4AF37)";
+const GOLD_GRADIENT = "linear-gradient(to left, #B09B90, #C9B7AE)";
+const GOLD_GRADIENT_HOVER = "linear-gradient(to left, #C9B7AE, #D5C1B8)";
 
 interface WhatsAppButtonProps {
   variant?: "gold" | "whatsapp" | "outline";
@@ -62,8 +62,8 @@ export function WhatsAppButton({
         }
       : {
           backgroundColor: "transparent",
-          color: "#BF9B30",
-          border: "2px solid #BF9B30",
+          color: "#C9B7AE",
+          border: "2px solid #C9B7AE",
         };
 
   const sizes = {
