@@ -26,9 +26,7 @@ export function BeforeAfterGallery() {
 
   useEffect(() => {
     const updateCards = () => {
-      // Mobile: show 1.2 cards (1 full + peek of next)
-      // Desktop: 3 cards
-      setCardsPerView(window.innerWidth >= 768 ? 3 : 1.2);
+      setCardsPerView(window.innerWidth >= 768 ? 3 : 1);
     };
     updateCards();
     window.addEventListener("resize", updateCards);
