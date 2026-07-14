@@ -26,7 +26,9 @@ export function BeforeAfterGallery() {
 
   useEffect(() => {
     const updateCards = () => {
-      setCardsPerView(window.innerWidth >= 768 ? 3 : 1);
+      // Mobile: show 1.2 cards (1 full + peek of next)
+      // Desktop: 3 cards
+      setCardsPerView(window.innerWidth >= 768 ? 3 : 1.2);
     };
     updateCards();
     window.addEventListener("resize", updateCards);
@@ -135,7 +137,7 @@ export function BeforeAfterGallery() {
                   style={{
                     border: "1px solid rgba(216, 182, 118, 0.3)",
                     backgroundColor: "#0a0a0a",
-                    aspectRatio: "3 / 4",
+                    aspectRatio: "4 / 5",
                   }}
                 >
                   <Image
