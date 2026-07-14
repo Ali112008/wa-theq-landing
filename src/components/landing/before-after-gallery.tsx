@@ -36,6 +36,7 @@ export function BeforeAfterGallery() {
 
   const nextSlide = useCallback(() => {
     setCurrentSlide((prev) => {
+      // لو وصلنا لآخر نسخة مكررة، م نزيدش
       if (prev >= TOTAL) return prev;
       return prev + 1;
     });
@@ -44,6 +45,7 @@ export function BeforeAfterGallery() {
   const prevSlide = useCallback(() => {
     setCurrentSlide((prev) => {
       if (prev === 0) {
+        // silent jump لآخر نسخة مكررة (نفس صورة 8)
         setNoTransition(true);
         return TOTAL;
       }
@@ -51,10 +53,10 @@ export function BeforeAfterGallery() {
     });
   }, []);
 
+  // لما currentSlide = TOTAL (أول نسخة مكررة)، اعمل reset لـ 0
   useEffect(() => {
     if (noTransition) return;
-    const maxSlide = TOTAL + (cardsPerView > 1 ? cardsPerView - 1 : 0);
-    if (currentSlide >= maxSlide) {
+    if (currentSlide >= TOTAL) {
       timeoutRef.current = setTimeout(() => {
         setNoTransition(true);
         setCurrentSlide(0);
@@ -63,11 +65,12 @@ export function BeforeAfterGallery() {
     return () => {
       if (timeoutRef.current) clearTimeout(timeoutRef.current);
     };
-  }, [currentSlide, noTransition, cardsPerView]);
+  }, [currentSlide, noTransition]);
 
+  // بعد silent jump، شغل الـ transition تاني
   useEffect(() => {
-    const maxSlide = TOTAL + (cardsPerView > 1 ? cardsPerView - 1 : 0);
-    if (noTransition && currentSlide === maxSlide) {
+    if (noTransition && currentSlide === TOTAL) {
+      // silent jump لـ TOTAL، نعمل smooth slide لـ TOTAL-1
       requestAnimationFrame(() => {
         requestAnimationFrame(() => {
           setNoTransition(false);
@@ -76,14 +79,16 @@ export function BeforeAfterGallery() {
       });
     }
     if (noTransition && currentSlide === 0) {
+      // reset عادي، شغل transition تاني
       requestAnimationFrame(() => {
         requestAnimationFrame(() => {
           setNoTransition(false);
         });
       });
     }
-  }, [noTransition, currentSlide, cardsPerView]);
+  }, [noTransition, currentSlide]);
 
+  // Autoplay
   useEffect(() => {
     if (isPaused || noTransition) return;
     const timer = setInterval(nextSlide, 4000);
@@ -117,7 +122,7 @@ export function BeforeAfterGallery() {
         onMouseEnter={() => setIsPaused(true)}
         onMouseLeave={() => setIsPaused(false)}
       >
-        {/* Slides container - 1 card on mobile, 3 on desktop */}
+        {/* Slides container */}
         <div className="relative overflow-hidden">
           <div
             className="flex"
@@ -132,7 +137,6 @@ export function BeforeAfterGallery() {
                 className="flex-shrink-0 px-2"
                 style={{ width: `${100 / cardsPerView}%` }}
               >
-                {/* Single card with ONE before/after image */}
                 <div
                   className="relative rounded-xl overflow-hidden aspect-square"
                   style={{
@@ -147,7 +151,6 @@ export function BeforeAfterGallery() {
                     className="object-cover"
                     sizes="250px"
                   />
-                  {/* Labels - قبل on left, بعد on right */}
                   <div className="absolute bottom-2 left-2 bg-black/80 text-white px-3 py-0.5 rounded text-xs font-bold">
                     قبل
                   </div>
@@ -195,7 +198,7 @@ export function BeforeAfterGallery() {
           </svg>
         </button>
 
-        {/* Dots pagination - 8 dots */}
+        {/* Dots pagination */}
         <div className="flex justify-center gap-1.5 mt-6 flex-wrap max-w-sm mx-auto">
           {images.map((_, i) => (
             <button
