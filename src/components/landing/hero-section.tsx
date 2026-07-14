@@ -33,7 +33,7 @@ export function HeroSection() {
       {/* المحتوى الرئيسي */}
       <div className="relative z-10 flex-1 flex flex-col items-center justify-center px-4 text-center">
         {/* اسم الشركة */}
-        <h1 className="text-2xl sm:text-3xl font-black mb-1" style={{ color: "#C9B7AE" }}>
+        <h1 className="text-2xl sm:text-3xl font-black mb-1" style={{ color: "#D8B676" }}>
           واثق كلينك
         </h1>
         <p className="text-white/70 text-sm sm:text-base mb-6">
@@ -62,7 +62,7 @@ export function HeroSection() {
             </div>
             <div
               className="absolute bottom-3 right-3 px-3 py-1 rounded-md text-xs font-bold"
-              style={{ backgroundColor: "#C9B7AE", color: "#000000" }}
+              style={{ backgroundColor: "#D8B676", color: "#000000" }}
             >
               بعد
             </div>

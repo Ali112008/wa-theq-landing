@@ -23,14 +23,14 @@ export function SnapchatFollow() {
           {/* أيقونة سناب */}
           <div
             className="flex-shrink-0 w-14 h-14 rounded-full flex items-center justify-center"
-            style={{ backgroundColor: "#C9B7AE" }}
+            style={{ backgroundColor: "#D8B676" }}
           >
             <SnapIcon className="w-8 h-8 text-black" />
           </div>
 
           {/* النص */}
           <div className="flex-1 text-right">
-            <p className="font-bold text-sm sm:text-base" style={{ color: "#C9B7AE" }}>
+            <p className="font-bold text-sm sm:text-base" style={{ color: "#D8B676" }}>
               تابعنا على سناب شات
             </p>
             <p className="text-white/60 text-xs sm:text-sm">
@@ -45,7 +45,7 @@ export function SnapchatFollow() {
             stroke="currentColor"
             strokeWidth={2.5}
             viewBox="0 0 24 24"
-            style={{ color: "#C9B7AE" }}
+            style={{ color: "#D8B676" }}
           >
             <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" />
           </svg>

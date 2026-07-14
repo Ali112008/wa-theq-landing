@@ -20,7 +20,7 @@ export function OfferSection() {
         <div className="text-center mb-4">
           <span
             className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-sm font-bold animate-pulse"
-            style={{ backgroundColor: "#C9B7AE", color: "#000000" }}
+            style={{ backgroundColor: "#D8B676", color: "#000000" }}
           >
             ⏰ عرض لفترة محدودة
           </span>
@@ -30,7 +30,7 @@ export function OfferSection() {
         <h2 className="text-lg sm:text-xl font-black text-center text-white mb-4 leading-relaxed">
           الزراعة شامل الطيران والفندق
           <br />
-          <span style={{ color: "#C9B7AE" }} className="text-3xl sm:text-4xl">بـ 5,980 ريال</span>
+          <span style={{ color: "#D8B676" }} className="text-3xl sm:text-4xl">بـ 5,980 ريال</span>
         </h2>
 
         {/* صندوق العرض */}
@@ -41,7 +41,7 @@ export function OfferSection() {
             boxShadow: "0 0 0 2px rgba(212, 175, 55, 0.3)",
           }}
         >
-          <h3 className="font-bold mb-3 text-center" style={{ color: "#C9B7AE" }}>
+          <h3 className="font-bold mb-3 text-center" style={{ color: "#D8B676" }}>
             العرض يشمل:
           </h3>
 
@@ -52,7 +52,7 @@ export function OfferSection() {
                   className="flex-shrink-0 w-5 h-5 rounded-full flex items-center justify-center"
                   style={{ backgroundColor: "rgba(212, 175, 55, 0.2)" }}
                 >
-                  <CheckIcon className="w-3 h-3" style={{ color: "#C9B7AE" }} />
+                  <CheckIcon className="w-3 h-3" style={{ color: "#D8B676" }} />
                 </span>
                 <span>{item}</span>
               </li>
@@ -67,7 +67,7 @@ export function OfferSection() {
               border: "1px solid rgba(212, 175, 55, 0.3)",
             }}
           >
-            <p className="font-bold text-sm sm:text-base" style={{ color: "#C9B7AE" }}>
+            <p className="font-bold text-sm sm:text-base" style={{ color: "#D8B676" }}>
               الزراعة بتقنية DHI
             </p>
           </div>
