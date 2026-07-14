@@ -18,7 +18,7 @@ export function HeroSection() {
       />
 
       {/* اللوجو - فوق باليسار */}
-      <div className="relative z-20 p-4">
+      <div className="relative z-20 p-4" dir="ltr" style={{ textAlign: "left" }}>
         <Image
           src="/images/logo.webp"
           alt="واثق كلينك - Watheq Clinic"
