@@ -3,7 +3,7 @@ import Image from "next/image";
 export function HeroSection() {
   return (
     <header
-      className="relative flex flex-col items-center justify-center overflow-hidden px-4 py-16"
+      className="relative flex flex-col items-center justify-center overflow-hidden px-4 py-10"
       style={{ backgroundColor: "#050505", minHeight: "100svh" }}
     >
       {/* Soft Radial Gradient Glow */}
@@ -16,7 +16,7 @@ export function HeroSection() {
       />
 
       {/* Logo - ~60px height */}
-      <div className="relative z-10 mb-8">
+      <div className="relative z-10 mb-4">
         <Image
           src="/images/logo.webp"
           alt="واثق كلينك - Watheq Clinic"
@@ -30,7 +30,7 @@ export function HeroSection() {
 
       {/* Huge Headline - ~48px font, LARGEST element */}
       <h1
-        className="relative z-10 text-5xl font-black text-center mb-6 leading-tight"
+        className="relative z-10 text-5xl font-black text-center mb-4 leading-tight"
         style={{
           background: "linear-gradient(180deg, #F1D49B 0%, #D8B676 50%, #C99A58 100%)",
           WebkitBackgroundClip: "text",
@@ -42,13 +42,13 @@ export function HeroSection() {
       </h1>
 
       {/* Subtitle - ~18px, with flags AFTER text */}
-      <p className="relative z-10 text-lg text-white/80 mb-6 text-center max-w-xs leading-relaxed">
+      <p className="relative z-10 text-lg text-white/80 mb-4 text-center max-w-xs leading-relaxed">
         الشركة السعودية الأولى للسياحة العلاجية بتركيا 🇸🇦 🇹🇷
       </p>
 
       {/* Trust Badge - Black pill with gold border + icon + gold text */}
       <div
-        className="relative z-10 flex items-center gap-2 px-5 py-2 rounded-full mb-6"
+        className="relative z-10 flex items-center gap-2 px-5 py-2 rounded-full mb-4"
         style={{
           border: "1px solid rgba(216, 182, 118, 0.4)",
           backgroundColor: "#0a0a0a",
