@@ -1,57 +1,208 @@
+"use client";
+
+import { useState, useEffect, useCallback, useRef } from "react";
 import Image from "next/image";
 
-const images = [
-  { src: "/images/before-after-11.webp", alt: "نتيجة زراعة الشعر - حالة 1" },
-  { src: "/images/before-after-2.webp", alt: "نتيجة زراعة الشعر - حالة 2" },
-  { src: "/images/before-after-3.webp", alt: "نتيجة زراعة الشعر - حالة 3" },
-  { src: "/images/before-after-6.webp", alt: "نتيجة زراعة الشعر - حالة 4" },
-  { src: "/images/before-after-7.webp", alt: "نتيجة زراعة الشعر - حالة 5" },
-  { src: "/images/before-after-8.webp", alt: "نتيجة زراعة الشعر - حالة 6" },
-  { src: "/images/before-after-12.webp", alt: "نتيجة زراعة الشعر - حالة 7" },
-  { src: "/images/before-after-1.webp", alt: "نتيجة زراعة الشعر - حالة 8" },
+const cases = [
+  { before: "/images/before-after-11.webp", after: "/images/before-after-2.webp" },
+  { before: "/images/before-after-3.webp", after: "/images/before-after-6.webp" },
+  { before: "/images/before-after-7.webp", after: "/images/before-after-8.webp" },
+  { before: "/images/before-after-12.webp", after: "/images/before-after-1.webp" },
 ];
 
+const TOTAL = cases.length;
+
 export function BeforeAfterGallery() {
+  const [currentSlide, setCurrentSlide] = useState(0);
+  const [isPaused, setIsPaused] = useState(false);
+  const [noTransition, setNoTransition] = useState(false);
+  const timeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+
+  const nextSlide = useCallback(() => {
+    setCurrentSlide((prev) => {
+      if (prev >= TOTAL) return prev;
+      return prev + 1;
+    });
+  }, []);
+
+  const prevSlide = useCallback(() => {
+    setCurrentSlide((prev) => {
+      if (prev === 0) {
+        setNoTransition(true);
+        return TOTAL;
+      }
+      return prev - 1;
+    });
+  }, []);
+
+  useEffect(() => {
+    if (noTransition) return;
+    if (currentSlide >= TOTAL) {
+      timeoutRef.current = setTimeout(() => {
+        setNoTransition(true);
+        setCurrentSlide(0);
+      }, 500);
+    }
+    return () => {
+      if (timeoutRef.current) clearTimeout(timeoutRef.current);
+    };
+  }, [currentSlide, noTransition]);
+
+  useEffect(() => {
+    if (noTransition && currentSlide === TOTAL) {
+      requestAnimationFrame(() => {
+        requestAnimationFrame(() => {
+          setNoTransition(false);
+          setCurrentSlide(TOTAL - 1);
+        });
+      });
+    }
+    if (noTransition && currentSlide === 0) {
+      requestAnimationFrame(() => {
+        requestAnimationFrame(() => {
+          setNoTransition(false);
+        });
+      });
+    }
+  }, [noTransition, currentSlide]);
+
+  useEffect(() => {
+    if (isPaused || noTransition) return;
+    const timer = setInterval(nextSlide, 4000);
+    return () => clearInterval(timer);
+  }, [nextSlide, isPaused, noTransition]);
+
+  const displaySlide = currentSlide >= TOTAL ? TOTAL - 1 : currentSlide;
+  const allCases = [...cases, ...cases];
+
   return (
     <section
-      className="py-16 sm:py-20"
+      className="py-16 sm:py-20 overflow-hidden"
       style={{ backgroundColor: "#050505" }}
       aria-label="نتائج زراعة الشعر قبل وبعد"
     >
       <div className="max-w-5xl mx-auto px-4">
-        {/* Title */}
-        <h2 className="text-3xl sm:text-4xl font-black text-center mb-10" style={{ color: "#D8B676" }}>
-          نتائج عملائنا
-        </h2>
+        {/* Title with decorative lines */}
+        <div className="flex items-center justify-center gap-4 mb-10">
+          <span className="h-px w-12 sm:w-20" style={{ backgroundColor: "#D8B676" }} />
+          <h2 className="text-2xl sm:text-3xl font-black" style={{ color: "#D8B676" }}>
+            نتائج عملائنا
+          </h2>
+          <span className="h-px w-12 sm:w-20" style={{ backgroundColor: "#D8B676" }} />
+        </div>
+      </div>
 
-        {/* Grid - 2 columns on mobile, 4 on desktop */}
-        <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 sm:gap-6">
-          {images.map((img, i) => (
-            <div
-              key={i}
-              className="relative rounded-xl overflow-hidden aspect-square"
-              style={{
-                border: "1px solid rgba(216, 182, 118, 0.3)",
-                backgroundColor: "#0a0a0a",
-              }}
-            >
-              <Image
-                src={img.src}
-                alt={img.alt}
-                fill
-                className="object-cover"
-                sizes="(max-width: 768px) 45vw, 200px"
-              />
-              <div className="absolute bottom-2 left-2 bg-black/80 text-white px-2 py-0.5 rounded text-[10px] font-bold">
-                قبل
-              </div>
+      {/* Slider */}
+      <div
+        className="relative max-w-5xl mx-auto px-12 sm:px-16"
+        dir="ltr"
+        onMouseEnter={() => setIsPaused(true)}
+        onMouseLeave={() => setIsPaused(false)}
+      >
+        {/* Slides container */}
+        <div className="relative overflow-hidden">
+          <div
+            className="flex"
+            style={{
+              transform: `translateX(-${currentSlide * (100 / 3)}%)`,
+              transition: noTransition ? "none" : "transform 500ms ease-out",
+            }}
+          >
+            {allCases.map((caseItem, i) => (
               <div
-                className="absolute bottom-2 right-2 px-2 py-0.5 rounded text-[10px] font-bold"
-                style={{ backgroundColor: "#D8B676", color: "#000" }}
+                key={i}
+                className="flex-shrink-0 px-2"
+                style={{ width: "33.333%" }}
               >
-                بعد
+                <div
+                  className="relative rounded-xl overflow-hidden"
+                  style={{
+                    border: "1px solid rgba(216, 182, 118, 0.3)",
+                    backgroundColor: "#0a0a0a",
+                  }}
+                >
+                  {/* Two images side by side */}
+                  <div className="flex">
+                    <div className="relative w-1/2 aspect-square">
+                      <Image
+                        src={caseItem.before}
+                        alt="قبل"
+                        fill
+                        className="object-cover"
+                        sizes="200px"
+                      />
+                      <div className="absolute bottom-2 left-1/2 -translate-x-1/2 bg-black/80 text-white px-3 py-0.5 rounded text-xs font-bold">
+                        قبل
+                      </div>
+                    </div>
+                    <div className="relative w-1/2 aspect-square">
+                      <Image
+                        src={caseItem.after}
+                        alt="بعد"
+                        fill
+                        className="object-cover"
+                        sizes="200px"
+                      />
+                      <div
+                        className="absolute bottom-2 left-1/2 -translate-x-1/2 px-3 py-0.5 rounded text-xs font-bold"
+                        style={{ backgroundColor: "#D8B676", color: "#000" }}
+                      >
+                        بعد
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </div>
-            </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Left arrow - outside container */}
+        <button
+          onClick={prevSlide}
+          className="absolute top-1/2 -translate-y-1/2 -left-1 sm:-left-2 z-20 w-10 h-10 sm:w-12 sm:h-12 rounded-full flex items-center justify-center transition-transform hover:scale-110"
+          style={{
+            backgroundColor: "#D8B676",
+            color: "#000",
+            boxShadow: "0 4px 15px rgba(0, 0, 0, 0.4)",
+          }}
+          aria-label="السابق"
+        >
+          <svg className="w-5 h-5 sm:w-6 sm:h-6" fill="none" stroke="currentColor" strokeWidth={2.5} viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" />
+          </svg>
+        </button>
+
+        {/* Right arrow - outside container */}
+        <button
+          onClick={nextSlide}
+          className="absolute top-1/2 -translate-y-1/2 -right-1 sm:-right-2 z-20 w-10 h-10 sm:w-12 sm:h-12 rounded-full flex items-center justify-center transition-transform hover:scale-110"
+          style={{
+            backgroundColor: "#D8B676",
+            color: "#000",
+            boxShadow: "0 4px 15px rgba(0, 0, 0, 0.4)",
+          }}
+          aria-label="التالي"
+        >
+          <svg className="w-5 h-5 sm:w-6 sm:h-6" fill="none" stroke="currentColor" strokeWidth={2.5} viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
+          </svg>
+        </button>
+
+        {/* Dots pagination */}
+        <div className="flex justify-center gap-2 mt-6">
+          {cases.map((_, i) => (
+            <button
+              key={i}
+              onClick={() => setCurrentSlide(i)}
+              className="transition-all rounded-full"
+              style={{
+                width: i === displaySlide ? "24px" : "8px",
+                height: "8px",
+                backgroundColor: i === displaySlide ? "#D8B676" : "rgba(255, 255, 255, 0.3)",
+              }}
+              aria-label={`الشريحة ${i + 1}`}
+            />
           ))}
         </div>
       </div>
