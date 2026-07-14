@@ -3,6 +3,7 @@ import { BeforeAfterGallery } from "@/components/landing/before-after-gallery";
 import { VideoSection } from "@/components/landing/video-section";
 import { OfferSection } from "@/components/landing/offer-section";
 import { SnapchatFollow } from "@/components/landing/snapchat-follow";
+import { FloatingWhatsApp } from "@/components/landing/floating-whatsapp";
 
 export default function Home() {
   return (
@@ -21,6 +22,9 @@ export default function Home() {
 
       {/* 5. Snapchat CTA */}
       <SnapchatFollow />
+
+      {/* Floating WhatsApp Button */}
+      <FloatingWhatsApp />
     </main>
   );
 }
