@@ -10,19 +10,23 @@ export function VideoSection() {
 
   return (
     <section
-      className="py-8 sm:py-12 border-t"
-      style={{ backgroundColor: "#000000", borderColor: "rgba(212, 175, 55, 0.1)" }}
+      className="py-16 sm:py-20"
+      style={{ backgroundColor: "#050505" }}
       aria-label="فيديو تجربة عميل"
     >
       <div className="max-w-3xl mx-auto px-4">
-        <h2 className="text-xl sm:text-2xl font-black text-center mb-6">
-          <span className="text-white">شاهد </span>
-          <span style={{ color: "#D8B676" }}>تجربة العميل</span>
+        {/* Title */}
+        <h2 className="text-2xl sm:text-3xl font-black text-center mb-8" style={{ color: "#D8B676" }}>
+          شاهد تجربة العميل
         </h2>
 
+        {/* Video Container */}
         <div
-          className="relative aspect-video rounded-2xl overflow-hidden shadow-2xl"
-          style={{ boxShadow: "0 0 0 1px rgba(212, 175, 55, 0.2)" }}
+          className="relative aspect-video rounded-2xl overflow-hidden"
+          style={{
+            border: "1px solid rgba(216, 182, 118, 0.3)",
+            backgroundColor: "#0a0a0a",
+          }}
         >
           {!playing ? (
             <>
@@ -39,7 +43,7 @@ export function VideoSection() {
                 aria-label="تشغيل الفيديو"
               >
                 <span
-                  className="rounded-full p-4 shadow-2xl transition-transform group-hover:scale-110"
+                  className="rounded-full p-4 transition-transform group-hover:scale-110"
                   style={{ backgroundColor: "#D8B676" }}
                 >
                   <svg className="w-7 h-7 text-black mr-[-2px]" viewBox="0 0 24 24" fill="currentColor">
