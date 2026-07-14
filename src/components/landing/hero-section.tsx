@@ -41,9 +41,9 @@ export function HeroSection() {
         واثق كلينك
       </h1>
 
-      {/* Subtitle - Small white, 3x smaller than headline, with flags */}
+      {/* Subtitle - Small white, 3x smaller than headline, with flags AFTER text */}
       <p className="relative z-10 text-base sm:text-lg text-white/80 mb-8 text-center max-w-xs leading-relaxed">
-        🇸🇦 🇹🇷 الشركة السعودية الأولى للسياحة العلاجية بتركيا
+        الشركة السعودية الأولى للسياحة العلاجية بتركيا 🇸🇦 🇹🇷
       </p>
 
       {/* Trust Badge - Black pill with gold border + icon + gold text */}
