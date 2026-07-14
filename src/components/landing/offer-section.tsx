@@ -10,15 +10,15 @@ const offerIncludes = [
 export function OfferSection() {
   return (
     <section
-      className="py-12 sm:py-16"
+      className="py-6 sm:py-8"
       style={{ backgroundColor: "#050505" }}
       aria-label="عرض زراعة الشعر"
     >
       <div className="max-w-md mx-auto px-4">
         {/* Offer Badge */}
-        <div className="text-center mb-3">
+        <div className="text-center mb-2">
           <span
-            className="inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full text-xs font-bold"
+            className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold"
             style={{
               border: "1px solid #D8B676",
               backgroundColor: "#0a0a0a",
@@ -30,12 +30,12 @@ export function OfferSection() {
         </div>
 
         {/* Main Heading */}
-        <h2 className="text-sm text-white text-center mb-2 font-medium leading-relaxed">
+        <h2 className="text-sm text-white text-center mb-1 font-medium leading-relaxed">
           الزراعة شامل الطيران والفندق
         </h2>
 
         {/* Price */}
-        <div className="flex items-baseline justify-center gap-1.5 mb-4">
+        <div className="flex items-baseline justify-center gap-1.5 mb-3">
           <span className="text-4xl font-black" style={{ color: "#D8B676" }}>
             5,980
           </span>
@@ -45,7 +45,7 @@ export function OfferSection() {
         </div>
 
         {/* Divider with text */}
-        <div className="flex items-center justify-center gap-3 mb-4">
+        <div className="flex items-center justify-center gap-3 mb-3">
           <span className="h-px w-10" style={{ backgroundColor: "#D8B676" }} />
           <span className="text-sm font-bold" style={{ color: "#D8B676" }}>
             العرض يشمل
@@ -54,18 +54,18 @@ export function OfferSection() {
         </div>
 
         {/* Grid - 2 columns, 3 rows = 6 cards */}
-        <div className="grid grid-cols-2 gap-2.5 mb-5">
+        <div className="grid grid-cols-2 gap-2 mb-4">
           {offerIncludes.map((item, i) => (
             <div
               key={i}
-              className="rounded-lg p-3 flex flex-col items-center text-center"
+              className="rounded-lg p-2.5 flex flex-col items-center text-center"
               style={{
                 border: "1px solid rgba(216, 182, 118, 0.3)",
                 backgroundColor: "#0a0a0a",
               }}
             >
-              <div className="mb-1.5" style={{ color: "#D8B676" }}>
-                <OfferIcon icon={item.icon} className="w-6 h-6" />
+              <div className="mb-1" style={{ color: "#D8B676" }}>
+                <OfferIcon icon={item.icon} className="w-5 h-5" />
               </div>
               <p className="text-white text-xs font-medium leading-snug whitespace-pre-line">
                 {item.text}

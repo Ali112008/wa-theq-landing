@@ -3,7 +3,7 @@ import { SnapIcon } from "./icons";
 export function SnapchatFollow() {
   return (
     <section
-      className="py-16 sm:py-20"
+      className="py-6 sm:py-8"
       style={{ backgroundColor: "#050505" }}
       aria-label="متابعة مالك الشركة على سناب شات"
     >
@@ -52,7 +52,7 @@ export function SnapchatFollow() {
         </a>
 
         {/* Copyright */}
-        <p className="text-white/30 text-xs mt-8 text-center">
+        <p className="text-white/30 text-xs mt-4 text-center">
           © {new Date().getFullYear()} واثق كلينك
         </p>
       </div>

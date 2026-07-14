@@ -100,13 +100,13 @@ export function BeforeAfterGallery() {
 
   return (
     <section
-      className="py-16 sm:py-20 overflow-hidden"
+      className="py-8 sm:py-10 overflow-hidden"
       style={{ backgroundColor: "#050505" }}
       aria-label="نتائج زراعة الشعر قبل وبعد"
     >
       <div className="max-w-5xl mx-auto px-4">
         {/* Title with decorative lines */}
-        <div className="flex items-center justify-center gap-4 mb-10">
+        <div className="flex items-center justify-center gap-4 mb-6">
           <span className="h-px w-12 sm:w-20" style={{ backgroundColor: "#D8B676" }} />
           <h2 className="text-2xl sm:text-3xl font-black" style={{ color: "#D8B676" }}>
             نتائج عملائنا
