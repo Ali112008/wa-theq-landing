@@ -26,9 +26,9 @@ export function BeforeAfterGallery() {
       {/* عنوان القسم */}
       <div className="text-center mb-6 px-4">
         <h2 className="text-xl sm:text-2xl font-black inline-flex items-center gap-3">
-          <span className="h-px w-8 sm:w-12" style={{ backgroundColor: "#D4AF37" }} />
-          <span style={{ color: "#D4AF37" }}>نتائج عملائنا</span>
-          <span className="h-px w-8 sm:w-12" style={{ backgroundColor: "#D4AF37" }} />
+          <span className="h-px w-8 sm:w-12" style={{ backgroundColor: "#BF9B30" }} />
+          <span style={{ color: "#BF9B30" }}>نتائج عملائنا</span>
+          <span className="h-px w-8 sm:w-12" style={{ backgroundColor: "#BF9B30" }} />
         </h2>
       </div>
 
@@ -66,7 +66,7 @@ export function BeforeAfterGallery() {
               </div>
               <div
                 className="absolute top-1.5 right-1.5 px-2 py-0.5 rounded text-[9px] font-bold"
-                style={{ backgroundColor: "#D4AF37", color: "#000000" }}
+                style={{ backgroundColor: "#BF9B30", color: "#000000" }}
               >
                 بعد
               </div>
