@@ -10,13 +10,13 @@ const offerIncludes = [
 export function OfferSection() {
   return (
     <section
-      className="py-6"
+      className="py-4 sm:py-5"
       style={{ backgroundColor: "#050505" }}
       aria-label="عرض زراعة الشعر"
     >
       <div className="max-w-md mx-auto px-4">
         {/* Offer Badge */}
-        <div className="text-center mb-4">
+        <div className="text-center mb-3">
           <span
             className="inline-flex items-center gap-1.5 px-5 py-2 rounded-full text-sm font-bold"
             style={{
@@ -30,12 +30,12 @@ export function OfferSection() {
         </div>
 
         {/* Main Heading */}
-        <h2 className="text-base text-white text-center mb-3 font-semibold leading-relaxed">
+        <h2 className="text-base text-white text-center mb-2 font-semibold leading-relaxed">
           الزراعة شامل الطيران والفندق
         </h2>
 
         {/* Price */}
-        <div className="flex items-baseline justify-center gap-2 mb-4">
+        <div className="flex items-baseline justify-center gap-2 mb-3">
           <span className="text-5xl font-black" style={{ color: "#D8B676" }}>
             5,980
           </span>
@@ -45,7 +45,7 @@ export function OfferSection() {
         </div>
 
         {/* Divider with text */}
-        <div className="flex items-center justify-center gap-3 mb-5">
+        <div className="flex items-center justify-center gap-3 mb-4">
           <span className="h-px w-12" style={{ backgroundColor: "#D8B676" }} />
           <span className="text-sm font-bold" style={{ color: "#D8B676" }}>
             العرض يشمل
@@ -54,7 +54,7 @@ export function OfferSection() {
         </div>
 
         {/* Grid - 2 columns, 3 rows = 6 cards */}
-        <div className="grid grid-cols-2 gap-3 mb-5">
+        <div className="grid grid-cols-2 gap-3 mb-4">
           {offerIncludes.map((item, i) => (
             <div
               key={i}
