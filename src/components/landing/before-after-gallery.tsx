@@ -1,5 +1,3 @@
-"use client";
-
 import Image from "next/image";
 
 const images = [
@@ -13,60 +11,43 @@ const images = [
   { src: "/images/before-after-1.webp", alt: "نتيجة زراعة الشعر - حالة 8" },
 ];
 
-// ضاعف الصور عشان البنر يفضل يتحرك بدون فراغ
-const allImages = [...images, ...images];
-
 export function BeforeAfterGallery() {
   return (
     <section
-      className="py-8 sm:py-12 overflow-hidden"
-      style={{ backgroundColor: "#000000" }}
+      className="py-16 sm:py-20"
+      style={{ backgroundColor: "#050505" }}
       aria-label="نتائج زراعة الشعر قبل وبعد"
     >
-      {/* عنوان القسم */}
-      <div className="text-center mb-6 px-4">
-        <h2 className="text-xl sm:text-2xl font-black inline-flex items-center gap-3">
-          <span className="h-px w-8 sm:w-12" style={{ backgroundColor: "#D8B676" }} />
-          <span style={{ color: "#D8B676" }}>نتائج عملائنا</span>
-          <span className="h-px w-8 sm:w-12" style={{ backgroundColor: "#D8B676" }} />
+      <div className="max-w-5xl mx-auto px-4">
+        {/* Title */}
+        <h2 className="text-3xl sm:text-4xl font-black text-center mb-10" style={{ color: "#D8B676" }}>
+          نتائج عملائنا
         </h2>
-      </div>
 
-      {/* بنر متحرك - marquee يتحرك يمين وشمال */}
-      <div className="relative overflow-hidden py-2">
-        {/* تدرج على الجوانب */}
-        <div
-          className="absolute left-0 top-0 bottom-0 w-12 z-10 pointer-events-none"
-          style={{ background: "linear-gradient(to right, #000000, transparent)" }}
-        />
-        <div
-          className="absolute right-0 top-0 bottom-0 w-12 z-10 pointer-events-none"
-          style={{ background: "linear-gradient(to left, #000000, transparent)" }}
-        />
-        <div className="flex gap-3 sm:gap-4 animate-scroll-banner w-max">
-          {allImages.map((img, i) => (
+        {/* Grid - 2 columns on mobile, 4 on desktop */}
+        <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 sm:gap-6">
+          {images.map((img, i) => (
             <div
               key={i}
-              className="flex-shrink-0 w-36 h-36 sm:w-44 sm:h-44 rounded-2xl overflow-hidden relative"
+              className="relative rounded-xl overflow-hidden aspect-square"
               style={{
-                backgroundColor: "#1a1a1a",
-                boxShadow: "0 0 0 1px rgba(212, 175, 55, 0.2)",
+                border: "1px solid rgba(216, 182, 118, 0.3)",
+                backgroundColor: "#0a0a0a",
               }}
             >
               <Image
                 src={img.src}
                 alt={img.alt}
-                width={180}
-                height={180}
-                className="w-full h-full object-cover"
-                sizes="(max-width: 768px) 144px, 176px"
+                fill
+                className="object-cover"
+                sizes="(max-width: 768px) 45vw, 200px"
               />
-              <div className="absolute top-1.5 left-1.5 bg-black/80 text-white px-2 py-0.5 rounded text-[9px] font-bold">
+              <div className="absolute bottom-2 left-2 bg-black/80 text-white px-2 py-0.5 rounded text-[10px] font-bold">
                 قبل
               </div>
               <div
-                className="absolute top-1.5 right-1.5 px-2 py-0.5 rounded text-[9px] font-bold"
-                style={{ backgroundColor: "#D8B676", color: "#000000" }}
+                className="absolute bottom-2 right-2 px-2 py-0.5 rounded text-[10px] font-bold"
+                style={{ backgroundColor: "#D8B676", color: "#000" }}
               >
                 بعد
               </div>

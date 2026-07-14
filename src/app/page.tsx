@@ -1,41 +1,22 @@
-/**
- * واثق كلينك - صفحة هبوط زراعة الشعر في تركيا
- *
- * مختصرة جداً - 5 أقسام:
- * 1. Hero - اللوجو يسار + صورة قبل/بعد + زر واتساب أخضر
- * 2. بنر متحرك للنتائج (marquee يمين وشمال)
- * 3. فيديو
- * 4. عرض لفترة محدودة (5980 ريال) + زر واتساب أخضر
- * 5. بنر سناب شات مباشر
- */
-
 import { HeroSection } from "@/components/landing/hero-section";
 import { BeforeAfterGallery } from "@/components/landing/before-after-gallery";
-import { VideoSection } from "@/components/landing/video-section";
 import { OfferSection } from "@/components/landing/offer-section";
 import { SnapchatFollow } from "@/components/landing/snapchat-follow";
-import { FloatingWhatsApp } from "@/components/landing/floating-whatsapp";
 
 export default function Home() {
   return (
-    <main className="min-h-screen overflow-x-hidden" style={{ backgroundColor: "#000000" }}>
-      {/* 1. الهيرو - اللوجو يسار + صورة قبل/بعد + زر واتساب أخضر */}
+    <main className="min-h-screen overflow-x-hidden" style={{ backgroundColor: "#050505" }}>
+      {/* 1. Hero - Logo + Headline + Trust Badge + CTA */}
       <HeroSection />
 
-      {/* 2. بنر متحرك للنتائج (marquee يمين وشمال) */}
+      {/* 2. Before/After Results - 8 images grid */}
       <BeforeAfterGallery />
 
-      {/* 3. فيديو */}
-      <VideoSection />
-
-      {/* 4. عرض لفترة محدودة - 5980 ريال + زر واتساب أخضر */}
+      {/* 3. Offer + Includes + CTA */}
       <OfferSection />
 
-      {/* 5. بنر سناب شات مباشر */}
+      {/* 4. Snapchat CTA */}
       <SnapchatFollow />
-
-      {/* بنر واتساب عائم على اليسار - أخضر */}
-      <FloatingWhatsApp />
     </main>
   );
 }
