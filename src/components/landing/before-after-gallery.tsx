@@ -12,7 +12,6 @@ const images = [
   { src: "/images/gallery/case-6.webp", alt: "نتيجة زراعة الشعر - حالة 6" },
   { src: "/images/gallery/case-7.webp", alt: "نتيجة زراعة الشعر - حالة 7" },
   { src: "/images/gallery/case-8.webp", alt: "نتيجة زراعة الشعر - حالة 8" },
-  { src: "/images/gallery/case-9.webp", alt: "نتيجة زراعة الشعر - حالة 9" },
 ];
 
 const TOTAL = images.length;
