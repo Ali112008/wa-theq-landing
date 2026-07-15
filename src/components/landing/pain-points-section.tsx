@@ -121,7 +121,7 @@ function PhoneMockup() {
           <div className="bg-[#075e54] text-white px-3 py-2 flex items-center gap-2">
             <div className="w-9 h-9 rounded-full overflow-hidden bg-white flex items-center justify-center flex-shrink-0">
               <img
-                src="/images/wa-profile-logo.webp"
+                src="/landing-page/images/wa-profile-logo.webp"
                 alt="واثق كلينك"
                 width={36}
                 height={36}
@@ -180,7 +180,7 @@ function PhoneMockup() {
               <div className="bg-[#dcf8c6] rounded-lg rounded-tr-none p-1 max-w-[180px] shadow-sm">
                 <div className="bg-white rounded overflow-hidden">
                   <img
-                    src="/images/hair-loss-example.webp"
+                    src="/landing-page/images/hair-loss-example.webp"
                     alt="صورة حالة تساقط الشعر"
                     width={180}
                     height={180}
