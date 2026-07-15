@@ -108,7 +108,7 @@ export function BeforeAfterGallery() {
 
       {/* Slider */}
       <div
-        className="relative max-w-5xl mx-auto px-12 sm:px-16"
+        className="relative max-w-5xl mx-auto px-2 sm:px-16"
         dir="ltr"
         onMouseEnter={() => setIsPaused(true)}
         onMouseLeave={() => setIsPaused(false)}
