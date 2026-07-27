@@ -54,7 +54,7 @@ export const metadata: Metadata = {
     type: "website",
     images: [
       {
-        url: "/landing-page/images/hero-before-after.webp",
+        url: "/images/hero-before-after.webp",
         width: 1000,
         height: 1000,
         alt: "نتائج زراعة الشعر قبل وبعد - واثق كلينك",
@@ -65,12 +65,12 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "واثق كلينك | زراعة الشعر في تركيا",
     description: "زراعة الشعر بتقنية DHI شامل الطيران والفندق بـ 5980 ريال",
-    images: ["/landing-page/images/hero-before-after.webp"],
+    images: ["/images/hero-before-after.webp"],
   },
   icons: {
-    icon: "/landing-page/images/logo.png",
-    shortcut: "/landing-page/images/logo.png",
-    apple: "/landing-page/images/logo.png",
+    icon: "/images/logo.png",
+    shortcut: "/images/logo.png",
+    apple: "/images/logo.png",
   },
   other: {
     "theme-color": "#0a0e1a",
@@ -104,8 +104,8 @@ snaptr('track', 'PAGE_VIEW');
         {/* End Snap Pixel Code */}
 
         {/* Preload critical resources for faster LCP */}
-        <link rel="preload" as="image" href="/landing-page/images/hero-before-after.webp" fetchPriority="high" />
-        <link rel="preload" as="image" href="/landing-page/images/logo.webp" fetchPriority="high" />
+        <link rel="preload" as="image" href="/images/hero-before-after.webp" fetchPriority="high" />
+        <link rel="preload" as="image" href="/images/logo.webp" fetchPriority="high" />
 
         {/* Preconnect hints for performance + SEO */}
         <link rel="preconnect" href="https://alimahmoud-dev.vercel.app" />
