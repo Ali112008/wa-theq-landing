@@ -4,4 +4,4 @@
 :HL["/landing-page/_next/static/media/d41831e24743a3c1-s.p.ae65d18e.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
 :HL["/landing-page/images/hero-before-after.webp","image",{"fetchPriority":"high"}]
 :HL["/landing-page/images/logo.webp","image",{"fetchPriority":"high"}]
-0:{"buildId":"GNJF7OHEWaGSSP3Y2eI4-","tree":{"name":"","paramType":null,"paramKey":"","hasRuntimePrefetch":false,"slots":{"children":{"name":"__PAGE__","paramType":null,"paramKey":"__PAGE__","hasRuntimePrefetch":false,"slots":null,"isRootLayout":false}},"isRootLayout":true},"staleTime":300}
+0:{"buildId":"5zOQ2sUnVL6F5XGhZahr-","tree":{"name":"","paramType":null,"paramKey":"","hasRuntimePrefetch":false,"slots":{"children":{"name":"__PAGE__","paramType":null,"paramKey":"__PAGE__","hasRuntimePrefetch":false,"slots":null,"isRootLayout":false}},"isRootLayout":true},"staleTime":300}

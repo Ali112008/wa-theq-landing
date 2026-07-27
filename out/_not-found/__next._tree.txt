@@ -2,4 +2,4 @@
 :HL["/landing-page/_next/static/chunks/bc1bbf3e4d12d222.css","style"]
 :HL["/landing-page/images/hero-before-after.webp","image",{"fetchPriority":"high"}]
 :HL["/landing-page/images/logo.webp","image",{"fetchPriority":"high"}]
-0:{"buildId":"GNJF7OHEWaGSSP3Y2eI4-","tree":{"name":"","paramType":null,"paramKey":"","hasRuntimePrefetch":false,"slots":{"children":{"name":"/_not-found","paramType":null,"paramKey":"/_not-found","hasRuntimePrefetch":false,"slots":{"children":{"name":"__PAGE__","paramType":null,"paramKey":"__PAGE__","hasRuntimePrefetch":false,"slots":null,"isRootLayout":false}},"isRootLayout":false}},"isRootLayout":true},"staleTime":300}
+0:{"buildId":"5zOQ2sUnVL6F5XGhZahr-","tree":{"name":"","paramType":null,"paramKey":"","hasRuntimePrefetch":false,"slots":{"children":{"name":"/_not-found","paramType":null,"paramKey":"/_not-found","hasRuntimePrefetch":false,"slots":{"children":{"name":"__PAGE__","paramType":null,"paramKey":"__PAGE__","hasRuntimePrefetch":false,"slots":null,"isRootLayout":false}},"isRootLayout":false}},"isRootLayout":true},"staleTime":300}

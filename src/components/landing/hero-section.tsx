@@ -1,5 +1,3 @@
-import Image from "next/image";
-
 export function HeroSection() {
   return (
     <header
@@ -17,14 +15,10 @@ export function HeroSection() {
 
       {/* Logo - ~60px height */}
       <div className="relative z-10 mb-3">
-        <Image
+        <img
           src="/landing-page/images/logo.webp"
           alt="واثق كلينك - Watheq Clinic"
-          width={160}
-          height={57}
           style={{ height: "48px", width: "auto" }}
-          priority
-          fetchPriority="high"
         />
       </div>
 
