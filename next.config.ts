@@ -5,6 +5,9 @@ const nextConfig: NextConfig = {
     ignoreBuildErrors: true,
   },
   reactStrictMode: false,
+  output: "export",
+  basePath: "/landing-page",
+  images: {
+    unoptimized: true,
+  },
 };
-
-export default nextConfig;
