@@ -136,14 +136,14 @@ export function BeforeAfterGallery() {
                   style={{
                     border: "1px solid rgba(216, 182, 118, 0.3)",
                     backgroundColor: "#0a0a0a",
-                    aspectRatio: "1 / 1",
+                    
                   }}
                 >
                   <Image
                     src={img.src}
                     alt={img.alt}
                     fill
-                    className="object-cover"
+                    className="object-contain"
                     sizes="250px"
                   />
                   {/* Labels */}
