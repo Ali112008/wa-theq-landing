@@ -130,20 +130,20 @@ export function BeforeAfterGallery() {
                 className="flex-shrink-0 px-1.5"
                 style={{ width: `${100 / cardsPerView}%` }}
               >
-                {/* Card - square to match images */}
+                {/* Card */}
                 <div
                   className="relative rounded-xl overflow-hidden"
                   style={{
                     border: "1px solid rgba(216, 182, 118, 0.3)",
                     backgroundColor: "#0a0a0a",
-                    
+                    aspectRatio: "4 / 5",
                   }}
                 >
                   <Image
                     src={img.src}
                     alt={img.alt}
                     fill
-                    className="object-contain"
+                    className="object-cover"
                     sizes="250px"
                   />
                   {/* Labels */}
