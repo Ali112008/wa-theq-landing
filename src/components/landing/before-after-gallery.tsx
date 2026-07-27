@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect, useCallback, useRef } from "react";
-import Image from "next/image";
+// Using regular img tag for static export compatibility
 
 const images = [
   { src: "/landing-page/images/gallery/case-1.webp", alt: "نتيجة زراعة الشعر - حالة 1" },
@@ -139,12 +139,11 @@ export function BeforeAfterGallery() {
                     aspectRatio: "4 / 5",
                   }}
                 >
-                  <Image
+                  <img
                     src={img.src}
                     alt={img.alt}
-                    fill
-                    className="object-cover"
-                    sizes="250px"
+                    className="w-full h-full object-cover"
+                    loading="lazy"
                   />
                 </div>
               </div>
