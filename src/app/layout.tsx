@@ -86,6 +86,23 @@ export default function RootLayout({
   return (
     <html lang="ar" dir="rtl" suppressHydrationWarning>
       <head>
+        {/* Snap Pixel Code - Snapchat Tracking */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+(function(e,t,n){if(e.snaptr)return;var a=e.snaptr=function()
+{a.handleRequest?a.handleRequest.apply(a,arguments):a.queue.push(arguments)};
+a.queue=[];var s='script';r=t.createElement(s);r.async=!0;
+r.src=n;var u=t.getElementsByTagName(s)[0];
+u.parentNode.insertBefore(r,u);})(window,document,
+'https://sc-static.net/sceevent.min.js');
+snaptr('init', 'cc37a417-5323-4860-bdeb-24a547c30289', {});
+snaptr('track', 'PAGE_VIEW');
+            `,
+          }}
+        />
+        {/* End Snap Pixel Code */}
+
         {/* Preload critical resources for faster LCP */}
         <link rel="preload" as="image" href="/landing-page/images/hero-before-after.webp" fetchPriority="high" />
         <link rel="preload" as="image" href="/landing-page/images/logo.webp" fetchPriority="high" />
