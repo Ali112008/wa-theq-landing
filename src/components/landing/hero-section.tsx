@@ -16,7 +16,7 @@ export function HeroSection() {
       {/* Logo - ~60px height */}
       <div className="relative z-10 mb-3">
         <img
-          src="/landing-page/images/logo.webp"
+          src="/images/logo.webp"
           alt="واثق كلينك - Watheq Clinic"
           style={{ height: "48px", width: "auto" }}
         />

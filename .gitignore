@@ -1,4 +1,52 @@
-skills/
+# Dependencies
 node_modules/
+
+# Build outputs
+out/
+.next/
+build/
+dist/
+
+# Vercel
 .vercel
+
+# Environment
 .env*
+.env.local
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+*.swp
+
+# Logs
+*.log
+dev.log
+server.log
+
+# Upload folder (client images - not for repo)
+upload/
+
+# Extracted assets
+extracted_assets/
+landing-assets/
+
+# Project internal
+.zscripts/
+.claude
+.z-ai-config
+test
+prompt
+
+# Prisma
+/prisma/migrations/dev.db
+
+# Misc
+*.tsbuildinfo
+.cache/
+.turbo
+local-*

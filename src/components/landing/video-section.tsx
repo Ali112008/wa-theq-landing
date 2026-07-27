@@ -31,7 +31,7 @@ export function VideoSection() {
           {!playing ? (
             <>
               <img
-                src="/landing-page/images/testimonial-poster.webp"
+                src="/images/testimonial-poster.webp"
                 alt="فيديو تجربة عميل"
                 className="w-full h-full object-cover"
                 loading="lazy"
