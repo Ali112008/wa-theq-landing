@@ -1,5 +1,6 @@
 # Dependencies
 node_modules/
+bun.lock
 
 # Build outputs
 out/
@@ -11,8 +12,9 @@ dist/
 .vercel
 
 # Environment
-.env*
+.env
 .env.local
+.env*.local
 
 # OS files
 .DS_Store
@@ -25,25 +27,6 @@ Thumbs.db
 
 # Logs
 *.log
-dev.log
-server.log
-
-# Upload folder (client images - not for repo)
-upload/
-
-# Extracted assets
-extracted_assets/
-landing-assets/
-
-# Project internal
-.zscripts/
-.claude
-.z-ai-config
-test
-prompt
-
-# Prisma
-/prisma/migrations/dev.db
 
 # Misc
 *.tsbuildinfo
