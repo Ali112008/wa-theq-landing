@@ -4,8 +4,8 @@ import { useState, useEffect, useCallback, useRef } from "react";
 // Using regular img tag for static export compatibility
 
 const images = [
-  { src: "/images/gallery/case-1.webp", alt: "نتيجة زراعة الشعر - حالة 1" },
   { src: "/images/gallery/case-2.webp", alt: "نتيجة زراعة الشعر - حالة 2" },
+  { src: "/images/gallery/case-1.webp", alt: "نتيجة زراعة الشعر - حالة 1" },
   { src: "/images/gallery/case-3.webp", alt: "نتيجة زراعة الشعر - حالة 3" },
   { src: "/images/gallery/case-4.webp", alt: "نتيجة زراعة الشعر - حالة 4" },
   { src: "/images/gallery/case-5.webp", alt: "نتيجة زراعة الشعر - حالة 5" },
