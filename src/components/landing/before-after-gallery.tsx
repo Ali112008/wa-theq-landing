@@ -146,16 +146,6 @@ export function BeforeAfterGallery() {
                     className="object-cover"
                     sizes="250px"
                   />
-                  {/* Labels */}
-                  <div className="absolute bottom-2 left-2 bg-black/80 text-white px-3 py-0.5 rounded text-xs font-bold">
-                    قبل
-                  </div>
-                  <div
-                    className="absolute bottom-2 right-2 px-3 py-0.5 rounded text-xs font-bold"
-                    style={{ backgroundColor: "#D8B676", color: "#000" }}
-                  >
-                    بعد
-                  </div>
                 </div>
               </div>
             ))}
