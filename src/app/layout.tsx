@@ -103,7 +103,8 @@ const schemaOrg = {
 const snapPixelScript = `(function(e,t,n){if(e.snaptr)return;var a=e.snaptr=function(){a.handleRequest?a.handleRequest.apply(a,arguments):a.queue.push(arguments)};a.queue=[];var s='script';r=t.createElement(s);r.async=!0;r.src=n;var u=t.getElementsByTagName(s)[0];u.parentNode.insertBefore(r,u);})(window,document,'https://sc-static.net/scevent.min.js');snaptr('init','${SNAP_PIXEL_ID}',{});snaptr('track','PAGE_VIEW');`;
 
 // WhatsApp click tracking - fires PURCHASE event when WhatsApp links are clicked
-const whatsappTrackingScript = `(function(){function fireWAPurchase(){try{if(typeof snaptr==='function'){snaptr('track','PURCHASE',{'price':1,'currency':'SAR'});}}catch(e){}}function bind(){var links=document.querySelectorAll('a[href*="wa.me"], a[href*="whatsapp"], a[href*="api.whatsapp"]');for(var i=0;i<links.length;i++){if(links[i].getAttribute('data-snap-wa-bound'))continue;links[i].setAttribute('data-snap-wa-bound','1');links[i].addEventListener('click',fireWAPurchase);}}if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded',bind);}else{bind();}setTimeout(bind,1500);setTimeout(bind,4000);})();`;
+// Uses document.links + href check to avoid querySelectorAll attribute selector issues in SSR
+const whatsappTrackingScript = `(function(){function fireWAPurchase(){try{if(typeof snaptr==='function'){snaptr('track','PURCHASE',{'price':1,'currency':'SAR'});}}catch(e){}}function isWaLink(href){return href&&(href.indexOf('wa.me')>-1||href.indexOf('whatsapp')>-1||href.indexOf('api.whatsapp')>-1);}function bind(){var links=document.links;for(var i=0;i<links.length;i++){var h=links[i].getAttribute('href')||'';if(!isWaLink(h))continue;if(links[i].getAttribute('data-snap-wa-bound'))continue;links[i].setAttribute('data-snap-wa-bound','1');links[i].addEventListener('click',fireWAPurchase);}}if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded',bind);}else{bind();}setTimeout(bind,1500);setTimeout(bind,4000);})();`;
 
 export default function RootLayout({
   children,
@@ -128,6 +129,10 @@ export default function RootLayout({
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaOrg) }}
         />
+        {/* Theme color for mobile browsers */}
+        <meta name="theme-color" content="#0a0e1a" />
+        {/* Format detection - prevent auto-linking of phone numbers */}
+        <meta name="format-detection" content="telephone=no" />
       </head>
       <body className={`${cairo.variable} font-cairo antialiased`}>
         {children}
