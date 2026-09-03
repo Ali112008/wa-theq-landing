@@ -76,7 +76,7 @@ export function OfferSection() {
 
         {/* CTA Button */}
         <a
-          href="https://wa.me/966532424669?text=السلام%20عليكم،%20أريد%20تقييم%20حالتي%20مجاناً"
+          href="https://wa.me/966504358697?text=السلام%20عليكم،%20أريد%20تقييم%20حالتي%20مجاناً"
           target="_blank"
           rel="noopener noreferrer"
           className="flex items-center justify-center gap-2.5 w-full px-6 py-4 rounded-2xl font-bold text-base transition-transform hover:scale-[1.03] text-black"

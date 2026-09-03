@@ -58,7 +58,7 @@ export function HeroSection() {
 
       {/* Main CTA Button - ~60px height, large */}
       <a
-        href="https://wa.me/966532424669?text=السلام%20عليكم،%20أريد%20تقييم%20حالتي%20مجاناً"
+        href="https://wa.me/966504358697?text=السلام%20عليكم،%20أريد%20تقييم%20حالتي%20مجاناً"
         target="_blank"
         rel="noopener noreferrer"
         className="relative z-10 flex items-center justify-center gap-3 w-full max-w-sm px-8 py-4 rounded-2xl font-bold text-lg transition-transform hover:scale-[1.03] text-black"

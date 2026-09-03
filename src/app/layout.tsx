@@ -129,7 +129,7 @@ snaptr('track', 'PAGE_VIEW');
               url: "https://wa-theq.com",
               logo: "https://wa-theq.com/wp-content/uploads/2025/05/Untitled-1.png",
               image: "https://wa-theq.com/wp-content/uploads/2025/05/male-adulte-faisant-une-extraction-d-unite-folliculaire-68236705365ab.webp",
-              telephone: "+966532424669",
+              telephone: "+966504358697",
               priceRange: "5980 SAR",
               address: {
                 "@type": "PostalAddress",

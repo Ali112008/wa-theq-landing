@@ -87,7 +87,7 @@ export function HowItWorks() {
         {/* CTA في النهاية */}
         <div className="text-center mt-12 sm:mt-16">
           <a
-            href="https://wa.me/966532424669?text=السلام%20عليكم،%20أريد%20بدء%20رحلتي%20معكم%20وأرسل%20صور%20حالتي%20للتقييم%20المجاني"
+            href="https://wa.me/966504358697?text=السلام%20عليكم،%20أريد%20بدء%20رحلتي%20معكم%20وأرسل%20صور%20حالتي%20للتقييم%20المجاني"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center justify-center gap-2.5 bg-[#25D366] hover:bg-[#1ebe5d] text-white font-bold px-8 py-4 rounded-full text-base sm:text-lg transition-all duration-300 hover:scale-105 shadow-xl shadow-[#25D366]/30"

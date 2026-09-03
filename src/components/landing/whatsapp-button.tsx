@@ -4,19 +4,19 @@ import { cn } from "@/lib/utils";
 import { useState } from "react";
 
 export const CONTACT = {
-  whatsapp: "966532424669",
+  whatsapp: "966504358697",
   whatsappLink:
-    "https://wa.me/966532424669?text=" +
+    "https://wa.me/966504358697?text=" +
     encodeURIComponent(
       "السلام عليكم، حابب أستفسر عن عرض زراعة الشعر في تركيا شامل الطيران والفندق بـ 5980 ريال"
     ),
   whatsappConsultLink:
-    "https://wa.me/966532424669?text=" +
+    "https://wa.me/966504358697?text=" +
     encodeURIComponent(
       "السلام عليكم، أريد تقييم حالتي مجاناً لزراعة الشعر بتقنية DHI"
     ),
   snapchat: "https://snapchat.com/t/JIsiC5jo",
-  phone: "+966532424669",
+  phone: "+966504358697",
   phoneDisplay: "+966 53 242 4669",
 };
 

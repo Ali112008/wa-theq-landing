@@ -16,7 +16,7 @@ export function FloatingWhatsApp() {
 
   return (
     <a
-      href="https://wa.me/966532424669?text=السلام%20عليكم،%20حابب%20أستفسر%20عن%20عرض%20زراعة%20الشعر"
+      href="https://wa.me/966504358697?text=السلام%20عليكم،%20حابب%20أستفسر%20عن%20عرض%20زراعة%20الشعر"
       target="_blank"
       rel="noopener noreferrer"
       aria-label="تواصل معنا عبر واتساب"

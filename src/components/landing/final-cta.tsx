@@ -106,7 +106,7 @@ export function FinalCTA() {
         <div className="pt-8 border-t border-white/10">
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-8 text-sm">
             <a
-              href="https://wa.me/966532424669"
+              href="https://wa.me/966504358697"
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center gap-2 text-gray-300 hover:text-[#25D366] transition-colors"
