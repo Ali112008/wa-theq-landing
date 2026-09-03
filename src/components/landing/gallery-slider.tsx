@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect, useCallback } from "react";
+import { withBase } from "./base-path";
 
 interface GallerySliderProps {
   title: string;
@@ -8,7 +9,7 @@ interface GallerySliderProps {
 }
 
 // 10 gallery images - order: new-2, new-1, new-3, user-1 (client upload), then new-5..new-10
-const IMAGES = [
+const IMAGE_PATHS = [
   "/images/gallery/new-2.webp",
   "/images/gallery/new-1.webp",
   "/images/gallery/new-3.webp",
@@ -20,6 +21,9 @@ const IMAGES = [
   "/images/gallery/new-9.webp",
   "/images/gallery/new-10.webp",
 ];
+
+// Apply basePath to all image paths
+const IMAGES = IMAGE_PATHS.map((p) => withBase(p));
 
 // Preload all images on module load so they're cached immediately
 if (typeof window !== "undefined") {
