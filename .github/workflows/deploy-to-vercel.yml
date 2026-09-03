@@ -1,0 +1,61 @@
+name: Deploy to Vercel
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Trigger Vercel Production Deployment
+        env:
+          VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+        run: |
+          RESPONSE=$(curl -s -X POST "https://api.vercel.com/v13/deployments" \
+            -H "Authorization: Bearer $VERCEL_TOKEN" \
+            -H "Content-Type: application/json" \
+            -d '{
+              "name": "wa-theq-landing",
+              "target": "production",
+              "gitSource": {
+                "type": "github",
+                "org": "Ali112008",
+                "repo": "wa-theq-landing",
+                "ref": "main"
+              }
+            }')
+          echo "Response: $RESPONSE"
+          DEPLOY_URL=$(echo "$RESPONSE" | jq -r '.url // empty')
+          if [ -n "$DEPLOY_URL" ]; then
+            echo "✅ Deployment started: https://$DEPLOY_URL"
+            echo "deploy_url=https://$DEPLOY_URL" >> $GITHUB_OUTPUT
+          else
+            echo "❌ Failed to start deployment"
+            exit 1
+          fi
+
+      - name: Wait for deployment to be ready
+        env:
+          VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+        run: |
+          DEPLOY_ID=$(echo "$RESPONSE" | jq -r '.id')
+          echo "Monitoring deployment: $DEPLOY_ID"
+          for i in $(seq 1 30); do
+            STATUS=$(curl -s -H "Authorization: Bearer $VERCEL_TOKEN" \
+              "https://api.vercel.com/v13/deployments/$DEPLOY_ID" | jq -r '.readyState')
+            echo "[$i] State: $STATUS"
+            if [ "$STATUS" = "READY" ]; then
+              echo "✅ Deployment is READY!"
+              exit 0
+            fi
+            if [ "$STATUS" = "ERROR" ] || [ "$STATUS" = "CANCELED" ] || [ "$STATUS" = "FAILED" ]; then
+              echo "❌ Deployment failed: $STATUS"
+              exit 1
+            fi
+            sleep 10
+          done
+          echo "⏰ Timeout waiting for deployment"
+          exit 1
