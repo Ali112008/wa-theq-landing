@@ -1,169 +1,31 @@
 import type { Metadata } from "next";
 import { Cairo } from "next/font/google";
 import "./globals.css";
-import { Toaster } from "@/components/ui/toaster";
 
 const cairo = Cairo({
   variable: "--font-cairo",
   subsets: ["arabic", "latin"],
   display: "swap",
   weight: ["400", "600", "700", "800"],
-  preload: true,
-  adjustFontFallback: true,
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://wa-theq.com"),
   title: "واثق كلينك | زراعة الشعر في تركيا شامل الطيران والفندق بـ 5980 ريال",
-  description:
-    "زراعة الشعر في تركيا بتقنية DHI بدون ألم - شركة سعودية الأولى للسياحة العلاجية. العرض يشمل: الطيران ذهاب وعودة الرياض-إسطنبول + إقامة فندقية ليلتين + بلازما مجاناً + شامبو ورغوة مجاناً. احجز استشارتك المجانية الآن!",
-  keywords: [
-    "زراعة الشعر في تركيا",
-    "زراعة الشعر بتقنية DHI",
-    "السياحة العلاجية في تركيا",
-    "واثق كلينك",
-    "زراعة الشعر بدون ألم",
-    "زراعة الشعر شامل الطيران",
-    "زراعة الشعر السعود",
-    "استشارة زراعة شعر مجانية",
-  ],
-  authors: [{ name: "واثق كلينك" }],
-  creator: "واثق كلينك",
-  publisher: "واثق كلينك",
-  robots: {
-    index: true,
-    follow: true,
-    googleBot: {
-      index: true,
-      follow: true,
-      "max-image-preview": "large",
-      "max-snippet": -1,
-      "max-video-preview": -1,
-    },
-  },
-  alternates: {
-    canonical: "https://wa-theq.com/landing-page",
-  },
-  openGraph: {
-    title: "واثق كلينك | زراعة الشعر في تركيا شامل الطيران والفندق بـ 5980 ريال",
-    description:
-      "زراعة الشعر بتقنية DHI بدون ألم - العرض يشمل الطيران والفندق والبلازما مجاناً. شركة سعودية الأولى للسياحة العلاجية في تركيا.",
-    url: "https://wa-theq.com/landing-page",
-    siteName: "واثق كلينك",
-    locale: "ar_SA",
-    type: "website",
-    images: [
-      {
-        url: "/images/og-image.webp",
-        width: 280,
-        height: 100,
-        alt: "واثق كلينك - الشركة السعودية الأولى للسياحة العلاجية بتركيا",
-      },
-    ],
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "واثق كلينك | زراعة الشعر في تركيا",
-    description: "زراعة الشعر بتقنية DHI شامل الطيران والفندق بـ 5980 ريال",
-    images: ["/images/og-image.webp"],
-  },
-  icons: {
-    icon: "/images/favicon.png",
-    shortcut: "/images/favicon.png",
-    apple: "/images/favicon.png",
-  },
-  other: {
-    "theme-color": "#0a0e1a",
-    "format-detection": "telephone=no",
-  },
+  description: "زراعة الشعر في تركيا بتقنية DHI بدون ألم",
 };
 
-export default function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="ar" dir="rtl" suppressHydrationWarning>
       <head>
-        {/* Snap Pixel Code - Snapchat Tracking */}
         <script
           type="text/javascript"
           dangerouslySetInnerHTML={{
-            __html: `
-(function(e,t,n){if(e.snaptr)return;var a=e.snaptr=function()
-{a.handleRequest?a.handleRequest.apply(a,arguments):a.queue.push(arguments)};
-a.queue=[];var s='script';r=t.createElement(s);r.async=!0;
-r.src=n;var u=t.getElementsByTagName(s)[0];
-u.parentNode.insertBefore(r,u);})(window,document,
-'https://sc-static.net/sceevent.min.js');
-snaptr('init', 'cc37a417-5323-4860-bdeb-24a547c30289');
-snaptr('track', 'PAGE_VIEW');
-            `,
-          }}
-        />
-        {/* End Snap Pixel Code */}
-
-        {/* Preload critical resources for faster LCP */}
-        <link rel="preload" as="image" href="/images/og-image.webp" fetchPriority="high" />
-
-        {/* Preconnect hints for performance + SEO */}
-        <link rel="preconnect" href="https://alimahmoud-dev.vercel.app" />
-        <link rel="dns-prefetch" href="https://alimahmoud-dev.vercel.app" />
-        <link rel="preconnect" href="https://www.linkedin.com" />
-        <link rel="dns-prefetch" href="https://www.linkedin.com" />
-        <link rel="preconnect" href="https://khamsat.com" />
-        <link rel="dns-prefetch" href="https://khamsat.com" />
-
-        {/* Structured Data for SEO */}
-        <script
-          type="application/ld+json"
-          type="text/javascript"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              "@context": "https://schema.org",
-              "@type": "MedicalBusiness",
-              name: "واثق كلينك - Watheq Clinic",
-              description:
-                "الشركة السعودية الأولى للسياحة العلاجية في تركيا، متخصصة في زراعة الشعر بتقنية DHI",
-              url: "https://wa-theq.com",
-              logo: "https://wa-theq.com/wp-content/uploads/2025/05/Untitled-1.png",
-              image: "https://wa-theq.com/wp-content/uploads/2025/05/male-adulte-faisant-une-extraction-d-unite-folliculaire-68236705365ab.webp",
-              telephone: "+966504358697",
-              priceRange: "5980 SAR",
-              address: {
-                "@type": "PostalAddress",
-                addressCountry: "TR",
-                addressLocality: "Istanbul",
-              },
-              areaServed: ["SA", "TR"],
-              medicalSpecialty: "HairTransplant",
-              offer: {
-                "@type": "Offer",
-                name: "زراعة الشعر شامل الطيران والفندق",
-                price: "5980",
-                priceCurrency: "SAR",
-                description:
-                  "زراعة الشعر بتقنية DHI شامل: الطيران ذهاب وعودة، إقامة فندقية ليلتين، بلازما مجاناً، شامبو ورغوة مجاناً، بدون ألم",
-                availability: "https://schema.org/LimitedAvailability",
-                validThrough: new Date(Date.now() + 7 * 24 * 60 * 60 * 1000).toISOString(),
-              },
-              sameAs: [
-                "https://snapchat.com/t/JIsiC5jo",
-                "https://alimahmoud-dev.vercel.app",
-                "https://www.linkedin.com/in/ali-mahmoud-34923b3a6/",
-                "https://khamsat.com/user/ali_mahmmoud",
-              ],
-            }),
+            __html: `(function(e,t,n){if(e.snaptr)return;var a=e.snaptr=function(){a.handleRequest?a.handleRequest.apply(a,arguments):a.queue.push(arguments)};a.queue=[];var s='script';r=t.createElement(s);r.async=!0;r.src=n;var u=t.getElementsByTagName(s)[0];u.parentNode.insertBefore(r,u);})(window,document,'https://sc-static.net/scevent.min.js');snaptr('init','cc37a417-5323-4860-bdeb-24a547c30289');snaptr('track','PAGE_VIEW');`,
           }}
         />
       </head>
-      <body
-        className={`${cairo.variable} font-cairo antialiased bg-background text-foreground`}
-      >
-        {children}
-        <Toaster />
-      </body>
+      <body className={`${cairo.variable} font-cairo antialiased`}>{children}</body>
     </html>
   );
 }
