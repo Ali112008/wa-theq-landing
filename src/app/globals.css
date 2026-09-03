@@ -222,34 +222,8 @@ img {
   scrollbar-width: none;
 }
 
-/* Moving banner animation - RTL aware */
-@keyframes scroll-banner {
-  0% {
-    transform: translateX(0);
-  }
-  100% {
-    transform: translateX(50%);
-  }
-}
-
-.animate-scroll-banner {
-  animation: scroll-banner 25s linear infinite;
-  will-change: transform;
-}
-
-.animate-scroll-banner:hover {
-  animation-play-state: paused;
-}
-
-/* Improve contrast for dark sections */
-.bg-\\[\\#060818\\], .bg-\\[\\#0a0e1a\\], .bg-\\[\\#0a0e1f\\] {
-  background-color: #060818;
-}
-
-/* Ensure background colors have proper contrast */
-header, section {
-  background-color: #ffffff;
-}
+/* Note: section background colors are set via Tailwind classes or inline styles per component.
+   The gallery slider now uses a JS-driven approach (see gallery-slider.tsx) instead of CSS animation. */
 
 /* Smooth font rendering */
 body {

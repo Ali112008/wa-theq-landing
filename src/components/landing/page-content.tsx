@@ -1,4 +1,5 @@
 import { translations } from "./translations";
+import { GallerySlider } from "./gallery-slider";
 
 interface ContentProps {
   lang: "ar" | "en";
@@ -110,66 +111,7 @@ export function HeroSection({ lang }: ContentProps) {
 
 export function BeforeAfterGallery({ lang }: ContentProps) {
   const t = translations[lang];
-  const isRtl = lang === "ar";
-  const images = [
-    { src: "/images/gallery/new-2.webp" },
-    { src: "/images/gallery/new-1.webp" },
-    { src: "/images/gallery/new-3.webp" },
-    { src: "/images/gallery/new-4.webp" },
-    { src: "/images/gallery/new-5.webp" },
-    { src: "/images/gallery/new-6.webp" },
-    { src: "/images/gallery/new-7.webp" },
-    { src: "/images/gallery/new-8.webp" },
-    { src: "/images/gallery/new-9.webp" },
-    { src: "/images/gallery/new-10.webp" },
-  ];
-  const allImages = [...images, ...images];
-
-  return (
-    <section
-      className="py-5 sm:py-6 overflow-hidden"
-      style={{ backgroundColor: "#050505" }}
-      dir="ltr"
-      aria-label={t.galleryTitle}
-    >
-      <div className="max-w-5xl mx-auto px-4">
-        <div className="flex items-center justify-center gap-4 mb-4">
-          <span className="h-px w-12 sm:w-20" style={{ backgroundColor: "#D8B676" }} />
-          <h2 className="text-2xl sm:text-3xl font-black" style={{ color: "#D8B676" }}>
-            {t.galleryTitle}
-          </h2>
-          <span className="h-px w-12 sm:w-20" style={{ backgroundColor: "#D8B676" }} />
-        </div>
-      </div>
-
-      <div className="relative max-w-5xl mx-auto px-12 sm:px-16">
-        <div className="relative overflow-hidden">
-          <div className="flex animate-scroll-banner w-max">
-            {allImages.map((img, i) => (
-              <div key={i} className="flex-shrink-0 px-1.5" style={{ width: "33.333%" }}>
-                <div
-                  className="relative rounded-xl overflow-hidden"
-                  style={{
-                    border: "1px solid rgba(216, 182, 118, 0.3)",
-                    backgroundColor: "#0a0a0a",
-                    aspectRatio: "4 / 5",
-                  }}
-                >
-                  <img
-                    src={img.src}
-                    alt={`${t.galleryTitle} ${i + 1}`}
-                    className="w-full h-full object-cover"
-                    loading="lazy"
-                    decoding="async"
-                  />
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </div>
-    </section>
-  );
+  return <GallerySlider title={t.galleryTitle} lang={lang} />;
 }
 
 export function OfferSection({ lang }: ContentProps) {
