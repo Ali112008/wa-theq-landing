@@ -7,10 +7,10 @@ interface GallerySliderProps {
   lang: "ar" | "en";
 }
 
-// 10 gallery images, ordered new-1 → new-10
+// 10 gallery images - order matches live site (new-2 first, then new-1, then new-3..new-10)
 const IMAGES = [
-  "/images/gallery/new-1.webp",
   "/images/gallery/new-2.webp",
+  "/images/gallery/new-1.webp",
   "/images/gallery/new-3.webp",
   "/images/gallery/new-4.webp",
   "/images/gallery/new-5.webp",
