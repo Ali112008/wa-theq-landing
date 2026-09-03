@@ -21,6 +21,14 @@ const IMAGES = [
   "/images/gallery/new-10.webp",
 ];
 
+// Preload all images on module load so they're cached immediately
+if (typeof window !== "undefined") {
+  IMAGES.forEach((src) => {
+    const img = new Image();
+    img.src = src;
+  });
+}
+
 const TOTAL = IMAGES.length;
 const AUTOPLAY_MS = 3500;
 const TRANSITION_MS = 500;
@@ -172,7 +180,7 @@ export function GallerySlider({ title, lang }: GallerySliderProps) {
                     src={src}
                     alt={`${title} ${(i % TOTAL) + 1}`}
                     className="w-full h-full object-cover"
-                    loading="lazy"
+                    loading="eager"
                     decoding="async"
                   />
                 </div>
