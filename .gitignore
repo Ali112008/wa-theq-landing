@@ -1,0 +1,36 @@
+# Dependencies
+node_modules/
+bun.lock
+
+# Build outputs
+out/
+.next/
+build/
+dist/
+
+# Vercel
+.vercel
+
+# Environment
+.env
+.env.local
+.env*.local
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+*.swp
+
+# Logs
+*.log
+
+# Misc
+*.tsbuildinfo
+.cache/
+.turbo
+local-*
+.env*
