@@ -134,3 +134,34 @@ Artifacts:
 - كود محدث: /home/z/my-project/src/components/landing/gallery-slider.tsx
 - كود محدث: /home/z/my-project/src/components/landing/page-content.tsx
 - CSS cleanup: /home/z/my-project/src/app/globals.css (شيلت الـ animate-scroll-banner المكسور)
+
+---
+Task ID: telegram-permanent-mode
+Agent: Super Z (Main)
+Task: تفعيل وضع المساعد الدائم عبر التيليجرام
+
+Work Log:
+- حفظت الـ Bot Token و Chat ID في scripts/telegram/config.sh
+- أنشأت scripts التيليجرام:
+  * tg_send.sh - إرسال رسائل قصيرة
+  * tg_send_long.sh - إرسال رسايل طويلة (بيقسمها)
+  * tg_photo.sh - إرسال صور
+  * tg_check.sh - فحص الرسايل الجديدة
+  * tg_typing.sh - مؤشر الكتابة
+- بعتت رسالة تأكيد للتيليجرام بنجاح
+
+Stage Summary:
+- ✅ الاتصال بالتيليجرام شغال
+- ✅ Scripts جاهزة للاستخدام
+- ✅ worklog محدث بالبروتوكول
+
+Protocol (للجلسات الجديدة):
+- بعد كل تاسك، ابعت إشعار تيليجرام مختصر
+- ابعت تحديثات حية أثناء الشغل
+- ابعت سكرينشوت/صور فوراً بالـ tg_photo.sh
+- بعد كل إشعار، افحص التيليجرام (tg_check.sh) - لو فيه رسالة جديدة نفذها
+- كل ساعة ابعت نبض "🎧 لسه في وضع الاستماع"
+- لو حصلت مشكلة، ابعت تنبيه فوراً على التيليجرام
+
+Bot Token: 8704910086:AAF2dGl9VY-tB5hOowl6D5zc5FOL3Z9hkbo
+Chat ID: 5803666242
