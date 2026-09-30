@@ -29,20 +29,6 @@ export function HeroSection({ lang }: ContentProps) {
         aria-hidden="true"
       />
 
-      {/* Language Switch */}
-      <a
-        href={lang === "ar" ? withBase("/en") : withBase("/")}
-        className="absolute top-4 right-4 z-50 flex items-center gap-1.5 px-4 py-2 rounded-full text-sm font-bold transition-transform hover:scale-105"
-        style={{
-          border: "1px solid rgba(216, 182, 118, 0.4)",
-          backgroundColor: "#0a0a0a",
-          color: "#D8B676",
-        }}
-      >
-        <span>{t.langFlag}</span>
-        <span>{t.switchLang}</span>
-      </a>
-
       {/* Logo */}
       <div className="relative z-10 mb-3">
         <img
